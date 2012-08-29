@@ -1,0 +1,129 @@
+﻿#outer-container {
+    width: 1000px;
+    margin: 0px auto;
+    -webkit-box-shadow: 3px 1px 5px rgba(50, 50, 50, 0.5);
+    -moz-box-shadow: 3px 1px 5px rgba(50, 50, 50, 0.5);
+    box-shadow: 3px 1px 5px rgba(50, 50, 50, 0.5);
+}
+
+#outer-container > div {
+    padding: 10px;
+}
+
+
+#header {
+    background-color: #fafafa;
+}
+
+#header #logo-home {
+    display: block;
+    width: 250px;
+    height: 100px;
+    margin: 0px 20px 0px 0px;
+    float: left;
+}
+
+#header #main-nav {
+    float: left;
+}
+
+#header #main-nav ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+#header #main-nav ul li {
+    float: left;
+    margin-right: 20px;
+}
+
+#header #main-nav ul li a {
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+}
+
+#container {
+    background-color: #ddd;
+}
+
+#container > h1, #container > h2 {
+    margin: 0px 0px 10px 0px;
+}
+
+#footer {
+    background-color: #B3B3B3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+header, footer, nav, section {
+    display: block;
+}
+
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
