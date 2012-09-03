@@ -1,0 +1,17 @@
+﻿#outer-container {
+    -webkit-box-shadow: 3px 1px 5px rgba(50, 50, 50, 0.5);
+    -moz-box-shadow: 3px 1px 5px rgba(50, 50, 50, 0.5);
+    box-shadow: 3px 1px 5px rgba(50, 50, 50, 0.5);
+}
+
+#header {
+    background-color: #fafafa;
+}
+
+#container {
+    background-color: #ddd;
+}
+
+#footer {
+    background-color: #B3B3B3;
+}

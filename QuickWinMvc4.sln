@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9. UI", "9. UI", "{17C4C156-9C36-463B-B8F4-A5195DB001A3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcApplication", "MvcApplication\MvcApplication.csproj", "{CDC5A7C2-2EA1-4AB3-ACD0-F8B64F197AA0}"
 EndProject
 Global
@@ -18,8 +16,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{CDC5A7C2-2EA1-4AB3-ACD0-F8B64F197AA0} = {17C4C156-9C36-463B-B8F4-A5195DB001A3}
 	EndGlobalSection
 EndGlobal

@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Optimization;
+using MvcApplication.Application.Helpers;
 
 namespace MvcApplication
 {
@@ -23,21 +24,27 @@ namespace MvcApplication
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/content/css").Include("~/content/bootstrap/css/bootstrap.css", "~/content/site.css"));
+            bundles.Add(new StyleBundle("~/content/css").Include("~/content/bootstrap/css/bootstrap.css", "~/content/site.css", GetThemeCssFilepath()));
 
-            bundles.Add(new StyleBundle("~/content/themes/base/css").Include(
-                        "~/content/themes/base/jquery.ui.core.css",
-                        "~/content/themes/base/jquery.ui.resizable.css",
-                        "~/content/themes/base/jquery.ui.selectable.css",
-                        "~/content/themes/base/jquery.ui.accordion.css",
-                        "~/content/themes/base/jquery.ui.autocomplete.css",
-                        "~/content/themes/base/jquery.ui.button.css",
-                        "~/content/themes/base/jquery.ui.dialog.css",
-                        "~/content/themes/base/jquery.ui.slider.css",
-                        "~/content/themes/base/jquery.ui.tabs.css",
-                        "~/content/themes/base/jquery.ui.datepicker.css",
-                        "~/content/themes/base/jquery.ui.progressbar.css",
-                        "~/content/themes/base/jquery.ui.theme.css"));
+            bundles.Add(new StyleBundle("~/content/jquery-themes/base/css").Include(
+                        "~/content/jquery-themes/base/jquery.ui.core.css",
+                        "~/content/jquery-themes/base/jquery.ui.resizable.css",
+                        "~/content/jquery-themes/base/jquery.ui.selectable.css",
+                        "~/content/jquery-themes/base/jquery.ui.accordion.css",
+                        "~/content/jquery-themes/base/jquery.ui.autocomplete.css",
+                        "~/content/jquery-themes/base/jquery.ui.button.css",
+                        "~/content/jquery-themes/base/jquery.ui.dialog.css",
+                        "~/content/jquery-themes/base/jquery.ui.slider.css",
+                        "~/content/jquery-themes/base/jquery.ui.tabs.css",
+                        "~/content/jquery-themes/base/jquery.ui.datepicker.css",
+                        "~/content/jquery-themes/base/jquery.ui.progressbar.css",
+                        "~/content/jquery-themes/base/jquery.ui.theme.css"));
+        }
+
+        private static string GetThemeCssFilepath()
+        {
+            string themeName = new QuickWinThemeHelper().GetConfigTheme();
+            return string.Format("~/content/themes/{0}.css", themeName);
         }
     }
 }
