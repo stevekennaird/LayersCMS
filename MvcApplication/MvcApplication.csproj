@@ -202,6 +202,7 @@
     <Content Include="Content\jquery-themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\jquery-themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\jquery-themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\dark.css" />
     <Content Include="Content\themes\standard.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

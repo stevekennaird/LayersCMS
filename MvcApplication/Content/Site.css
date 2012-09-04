@@ -1,9 +1,6 @@
 ﻿#outer-container {
     width: 1000px;
     margin: 0px auto;
-    -webkit-box-shadow: 3px 1px 5px rgba(50, 50, 50, 0.5);
-    -moz-box-shadow: 3px 1px 5px rgba(50, 50, 50, 0.5);
-    box-shadow: 3px 1px 5px rgba(50, 50, 50, 0.5);
 }
 
 #outer-container > div {
