@@ -1,6 +1,5 @@
-﻿using System.Web.Optimization;
-using QuickWin.MvcApplication.Application.Config;
-using QuickWin.MvcApplication.Application.Helpers;
+﻿using QuickWin.MvcApplication.Application.Config;
+using System.Web.Optimization;
 
 namespace QuickWin.MvcApplication.App_Start
 {
@@ -26,6 +25,10 @@ namespace QuickWin.MvcApplication.App_Start
 
             bundles.Add(new StyleBundle("~/content/css").Include("~/content/bootstrap/css/bootstrap.css", "~/content/site.css", GetThemeCssFilepath()));
 
+            bundles.Add(new StyleBundle("~/plugins/nivogallerycss").Include("~/content/nivo/nivo-gallery.css"));
+            bundles.Add(new ScriptBundle("~/plugins/nivogalleryscripts").Include(
+                        "~/content/nivo/jquery.nivo.gallery.js"));
+
             bundles.Add(new StyleBundle("~/content/jquery-themes/base/css").Include(
                         "~/content/jquery-themes/base/jquery.ui.core.css",
                         "~/content/jquery-themes/base/jquery.ui.resizable.css",
@@ -39,6 +42,9 @@ namespace QuickWin.MvcApplication.App_Start
                         "~/content/jquery-themes/base/jquery.ui.datepicker.css",
                         "~/content/jquery-themes/base/jquery.ui.progressbar.css",
                         "~/content/jquery-themes/base/jquery.ui.theme.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/quickwinjs").Include(
+                        "~/scripts/quickwinscripts.js"));
         }
 
         private static string GetThemeCssFilepath()

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/plugins/nivogallerycss")
 </head>
     <body>
         
@@ -34,6 +34,9 @@
         </div>
 
         @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/plugins/nivogalleryscripts")
+        @Scripts.Render("~/bundles/quickwinjs")
         @RenderSection("scripts", required: false)
     </body>
 </html>

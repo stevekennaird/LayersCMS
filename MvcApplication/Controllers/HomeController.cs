@@ -17,5 +17,11 @@ namespace QuickWin.MvcApplication.Controllers
             return View();
         }
 
+        [GET("gallery")]
+        public ActionResult Gallery()
+        {
+            return View();
+        }
+
     }
 }

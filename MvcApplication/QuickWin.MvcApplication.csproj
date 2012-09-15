@@ -151,6 +151,7 @@
     <Compile Include="Mailers\ContactUsMailer.cs" />
     <Compile Include="Mailers\IContactUsMailer.cs" />
     <Compile Include="Models\ContactUs\ContactUsModel.cs" />
+    <Compile Include="Models\Galleries\GalleryImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -213,12 +214,18 @@
     <Content Include="Content\jquery-themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\jquery-themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\jquery-themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\nivo\images\arrows.png" />
+    <Content Include="Content\nivo\images\fullscreen.png" />
+    <Content Include="Content\nivo\images\loading.gif" />
+    <Content Include="Content\nivo\images\playpause.png" />
+    <Content Include="Content\nivo\jquery.nivo.gallery.js" />
+    <Content Include="Content\nivo\license.txt" />
+    <Content Include="Content\nivo\nivo-gallery.css" />
     <Content Include="Content\themes\dark.css" />
     <Content Include="Content\themes\standard.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
-    <Content Include="InstallationDummyFile.txt" />
     <Content Include="robots.txt" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -234,6 +241,7 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\QuickWinScripts.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -252,6 +260,7 @@
     <Content Include="Views\Shared\MainNav.cshtml" />
     <Content Include="Views\ContactUsMailer\_Layout.cshtml" />
     <Content Include="Views\ContactUsMailer\BasicFormEmail.cshtml" />
+    <Content Include="Views\Home\Gallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
