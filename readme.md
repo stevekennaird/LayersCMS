@@ -12,7 +12,7 @@ There's so much great open source software out there, you'd be a fool to not use
 
 [Twitter Bootstrap](http://twitter.github.com/bootstrap/) is used for some basic styling, mainly for the contact form.
 
-[Attribute Routing](https://github.com/mccalltd/AttributeRouting/wiki) is used to make it easier to define routes within your controller.
+[Attribute Routing](https://github.com/mccalltd/AttributeRouting/wiki) is used to make it easier to define routes within your controller, no need to faff about with the global.asax to define your routes (unless you really want to!).
 
 ## Keeping things simple ##
 We could make use of the Bootstrap grid system for the layout, but that's an extra piece of learning for you to do if you're unfamiliar with it. So the CSS is all hand crafted, no [LESS](http://lesscss.org/) or [SASS](http://sass-lang.com/), just plain ol' CSS - again, less to learn, easier for you to pick up for a "quick win". If you want to take it on and add some form of dynamic CSS, be my guest!
