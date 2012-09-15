@@ -1,4 +1,6 @@
-﻿#outer-container {
+﻿/* Structure */
+
+#outer-container {
     width: 1000px;
     margin: 0px auto;
 }
@@ -52,6 +54,8 @@
 #footer {
     
 }
+
+/* Header Tags */
 
 h1 {
     font-size: 24px;
@@ -118,4 +122,30 @@ div.control-group.hp {
 
 .validation-summary-valid {
     display: none;
+}
+
+/* General */
+
+.half {
+    width: 50%;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
 }

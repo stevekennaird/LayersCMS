@@ -1,8 +1,7 @@
-﻿using System.Web;
-using System.Web.Optimization;
-using MvcApplication.Application.Helpers;
+﻿using System.Web.Optimization;
+using QuickWin.MvcApplication.Application.Helpers;
 
-namespace MvcApplication
+namespace QuickWin.MvcApplication.App_Start
 {
     public class BundleConfig
     {
@@ -43,7 +42,7 @@ namespace MvcApplication
 
         private static string GetThemeCssFilepath()
         {
-            string themeName = new QuickWinThemeHelper().GetConfigTheme();
+            string themeName = new QuickWinConfigHelper().GetTheme();
             return string.Format("~/content/themes/{0}.css", themeName);
         }
     }
