@@ -1,0 +1,26 @@
+
+<p>A general enquiry has been received from your website.</p>
+
+<table cellpadding="2" cellspacing="0">
+    <tr>
+        <th style="font-family:Arial, Helvetica, sans-serif; color:#666666; font-size:11px; text-align: left;">First Name</th>
+        <td style="font-family:Arial, Helvetica, sans-serif; color:#666666; font-size:11px; text-align: left;">@Html.Raw(ViewBag.FirstName)</td>
+    </tr>
+    <tr>
+        <th style="font-family:Arial, Helvetica, sans-serif; color:#666666; font-size:11px; text-align: left;">Last Name</th>
+        <td style="font-family:Arial, Helvetica, sans-serif; color:#666666; font-size:11px; text-align: left;">@Html.Raw(ViewBag.LastName)</td>
+    </tr>
+    <tr>
+        <th style="font-family:Arial, Helvetica, sans-serif; color:#666666; font-size:11px; text-align: left;">Telephone</th>
+        <td style="font-family:Arial, Helvetica, sans-serif; color:#666666; font-size:11px; text-align: left;">@Html.Raw(ViewBag.Telephone)</td>
+    </tr>
+    <tr>
+        <th style="font-family:Arial, Helvetica, sans-serif; color:#666666; font-size:11px; text-align: left;">Email Address</th>
+        <td style="font-family:Arial, Helvetica, sans-serif; color:#666666; font-size:11px; text-align: left;"><a href="@String.Format("mailto:{0}", ViewBag.EmailAddress)">@ViewBag.EmailAddress</a></td>
+    </tr>
+</table>
+
+<p>
+    <strong>Message:</strong><br />
+    @Html.Raw(ViewBag.Message)
+</p>

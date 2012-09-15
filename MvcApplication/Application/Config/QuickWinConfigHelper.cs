@@ -1,7 +1,6 @@
 ﻿using System.Configuration;
-using QuickWin.MvcApplication.Application.Config;
 
-namespace QuickWin.MvcApplication.Application.Helpers
+namespace QuickWin.MvcApplication.Application.Config
 {
     public class QuickWinConfigHelper
     {

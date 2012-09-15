@@ -1,4 +1,5 @@
 ﻿using System.Web.Optimization;
+using QuickWin.MvcApplication.Application.Config;
 using QuickWin.MvcApplication.Application.Helpers;
 
 namespace QuickWin.MvcApplication.App_Start

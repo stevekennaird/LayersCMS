@@ -48,7 +48,13 @@
     <Reference Include="AttributeRouting.Web.Mvc">
       <HintPath>..\packages\AttributeRouting.2.5.3.0\lib\net40\AttributeRouting.Web.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10715.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Mvc.Mailer">
+      <HintPath>..\packages\MvcMailer.1.1\lib\40\Mvc.Mailer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -130,7 +136,7 @@
   <ItemGroup>
     <Compile Include="Application\Config\QuickWinConfigurationSection.cs" />
     <Compile Include="Application\Helpers\HtmlHelperExtensions.cs" />
-    <Compile Include="Application\Helpers\QuickWinConfigHelper.cs" />
+    <Compile Include="Application\Config\QuickWinConfigHelper.cs" />
     <Compile Include="Application\Validation\HoneyPotAttribute.cs" />
     <Compile Include="App_Start\AttributeRouting.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -142,6 +148,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mailers\ContactUsMailer.cs" />
+    <Compile Include="Mailers\IContactUsMailer.cs" />
     <Compile Include="Models\ContactUs\ContactUsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -149,6 +157,8 @@
     <Content Include="Content\bootstrap\css\bootstrap.css" />
     <Content Include="Content\bootstrap\img\glyphicons-halflings-white.png" />
     <Content Include="Content\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="Content\img\icons\general\email.png" />
+    <Content Include="Content\img\icons\general\telephone.png" />
     <Content Include="Content\jquery-themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\jquery-themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\jquery-themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -208,6 +218,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="InstallationDummyFile.txt" />
     <Content Include="robots.txt" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -239,6 +250,8 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\ContactUs\BasicForm.cshtml" />
     <Content Include="Views\Shared\MainNav.cshtml" />
+    <Content Include="Views\ContactUsMailer\_Layout.cshtml" />
+    <Content Include="Views\ContactUsMailer\BasicFormEmail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

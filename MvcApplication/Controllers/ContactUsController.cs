@@ -1,15 +1,25 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using AttributeRouting.Web.Mvc;
+using QuickWin.MvcApplication.Mailers;
 using QuickWin.MvcApplication.Models.ContactUs;
+using Mvc.Mailer;
 
 namespace QuickWin.MvcApplication.Controllers
 {
     public class ContactUsController : Controller
     {
         [GET("contact")]
-        public ActionResult BasicForm()
+        public ActionResult BasicForm(bool sent = false)
         {
-            return View();
+            ViewBag.SendSuccessful = sent;
+
+            var model = new ContactUsModel()
+                {
+                    DateFormLoaded = DateTime.Now
+                };
+
+            return View(model);
         }
 
         [POST("contact")]
@@ -17,9 +27,13 @@ namespace QuickWin.MvcApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+                IContactUsMailer mailer = new ContactUsMailer();
+                mailer.BasicFormEmail(model.FirstName, model.LastName, model.EmailAddress, model.TelephoneNumber, model.Message).Send();
+
+                return RedirectToAction("BasicForm", new {sent = true});
             }
 
+            ViewBag.SendSuccessful = false;
             return View();
         }
 

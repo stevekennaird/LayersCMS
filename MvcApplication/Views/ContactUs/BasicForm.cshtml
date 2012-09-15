@@ -6,6 +6,13 @@
 
 <h1>Contact Us</h1>
 
+@if (ViewBag.SendSuccessful)
+{
+    <div class="alert alert-success">
+        <strong>Thank you!</strong> We have received your enquiry and will get back to you as soon as possible.
+    </div>
+}
+
 @using (Html.BeginForm("BasicForm", "ContactUs", FormMethod.Post, new {@class="form-horizontal"}))
 {
     <fieldset>
@@ -30,7 +37,7 @@
         <div class="control-group hp">
             @Html.LabelFor(x => x.Dob, new {@class="control-label"})
             <div class="controls">
-                @Html.TextBoxFor(x => x.Dob, new {@class="input-xlarge"})
+                @Html.TextBoxFor(x => x.Dob, new {@class="input-xlarge", tabindex="99"})
                 @Html.ValidationMessageFor(x => x.Dob)
             </div>
         </div>

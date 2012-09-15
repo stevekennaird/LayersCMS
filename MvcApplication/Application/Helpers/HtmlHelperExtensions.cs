@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Mvc;
+using QuickWin.MvcApplication.Application.Config;
 
 namespace QuickWin.MvcApplication.Application.Helpers
 {
