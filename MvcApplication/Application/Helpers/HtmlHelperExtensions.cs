@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -50,30 +51,24 @@ namespace QuickWin.MvcApplication.Application.Helpers
 
         public static IHtmlString RenderThemeHeadCustomHtml(this HtmlHelper helper)
         {
-            string themeName = new QuickWinConfigHelper().GetTheme();
-            string viewPath = string.Format(@"ThemePartials\{0}Head", themeName);
-            try
-            {
-                return helper.Partial(viewPath);
-            }
-            catch (Exception)
-            {
-                return null;
-            }
+            return RenderThemeCustomPartial(helper, @"ThemePartials/{0}Head");
         }
 
         public static IHtmlString RenderThemeBodyCloseCustomHtml(this HtmlHelper helper)
         {
+            return RenderThemeCustomPartial(helper, @"ThemePartials/{0}BodyClose");
+        }
+
+        private static IHtmlString RenderThemeCustomPartial(HtmlHelper helper, string viewPathToFormat)
+        {
             string themeName = new QuickWinConfigHelper().GetTheme();
-            string viewPath = string.Format(@"ThemePartials\{0}BodyClose", themeName);
-            try
+            string viewPath = string.Format(viewPathToFormat, themeName);
+            string filePath = HttpContext.Current.Server.MapPath(String.Format("~/views/shared/{0}.cshtml", viewPath));
+            if (File.Exists(filePath))
             {
                 return helper.Partial(viewPath);
             }
-            catch (Exception)
-            {
-                return null;
-            }
+            return null;
         }
 
         #endregion
