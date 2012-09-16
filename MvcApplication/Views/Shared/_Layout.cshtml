@@ -6,6 +6,8 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/plugins/nivogallerycss")
+
+    @Html.RenderThemeHeadCustomHtml()
 </head>
     <body>
         
@@ -38,5 +40,7 @@
         @Scripts.Render("~/plugins/nivogalleryscripts")
         @Scripts.Render("~/bundles/quickwinjs")
         @RenderSection("scripts", required: false)
+        
+        @Html.RenderThemeBodyCloseCustomHtml()
     </body>
 </html>

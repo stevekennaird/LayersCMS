@@ -1,6 +1,8 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Html;
 using QuickWin.MvcApplication.Application.Config;
 using QuickWin.MvcApplication.Models.Galleries;
 
@@ -40,6 +42,38 @@ namespace QuickWin.MvcApplication.Application.Helpers
 
             output.Append("</ul></div>");
             return new MvcHtmlString(output.ToString());
+        }
+
+        #endregion
+
+        #region Theme-specific scripts and stylesheets
+
+        public static IHtmlString RenderThemeHeadCustomHtml(this HtmlHelper helper)
+        {
+            string themeName = new QuickWinConfigHelper().GetTheme();
+            string viewPath = string.Format(@"ThemePartials\{0}Head", themeName);
+            try
+            {
+                return helper.Partial(viewPath);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public static IHtmlString RenderThemeBodyCloseCustomHtml(this HtmlHelper helper)
+        {
+            string themeName = new QuickWinConfigHelper().GetTheme();
+            string viewPath = string.Format(@"ThemePartials\{0}BodyClose", themeName);
+            try
+            {
+                return helper.Partial(viewPath);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         #endregion

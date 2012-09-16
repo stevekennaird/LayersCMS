@@ -221,12 +221,15 @@
     <Content Include="Content\nivo\jquery.nivo.gallery.js" />
     <Content Include="Content\nivo\license.txt" />
     <Content Include="Content\nivo\nivo-gallery.css" />
+    <Content Include="Content\themes\pink.css" />
     <Content Include="Content\themes\dark.css" />
     <Content Include="Content\themes\standard.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="robots.txt" />
+    <Content Include="Scripts\fonts\cufon-yui.js" />
+    <Content Include="Scripts\fonts\English_157_italic_400.font.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -243,7 +246,9 @@
     <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Scripts\QuickWinScripts.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -261,6 +266,8 @@
     <Content Include="Views\ContactUsMailer\_Layout.cshtml" />
     <Content Include="Views\ContactUsMailer\BasicFormEmail.cshtml" />
     <Content Include="Views\Home\Gallery.cshtml" />
+    <Content Include="Views\Shared\ThemePartials\PinkHead.cshtml" />
+    <Content Include="Views\Shared\ThemePartials\PinkBodyClose.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

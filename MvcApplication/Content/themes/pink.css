@@ -1,0 +1,84 @@
+﻿/*  http://www.december.com/html/spec/color0.html */
+
+body {
+    background-color: #FFF3FD;
+}
+
+#outer-container {
+    /*-webkit-box-shadow: 3px 1px 5px rgba(50, 50, 50, 0.5);
+    -moz-box-shadow: 3px 1px 5px rgba(50, 50, 50, 0.5);
+    box-shadow: 3px 1px 5px rgba(50, 50, 50, 0.5);*/
+}
+
+#header {
+    background-color: #F2ADEB;
+    color: #fff;
+}
+
+#header a {
+    color: #ec008c;
+}
+
+#header a.contact-email {
+    color: #fff;
+}
+
+
+#container {
+    margin: 10px 0px;
+    background-color: #FCFCFC;
+    border: solid 1px #F8D0F4;
+
+}
+
+#footer {
+    background-color: #ec008c;
+    color: #fff;
+}
+
+#footer a {
+    color: #F8D0F4;
+}
+
+#header #main-nav ul li a {
+    font-size: 26px;
+    line-height: 30px;
+}
+
+h1, h2, h3, h4, h5, h6, legend {
+    color: #ec008c;
+}
+
+/* Bootstrap overrides */
+
+.btn-inverse {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #ec008c;
+  background-image: -moz-linear-gradient(top, #E56BD9, #B24CA8);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#E56BD9), to(#B24CA8));
+  background-image: -webkit-linear-gradient(top, #E56BD9, #B24CA8);
+  background-image: -o-linear-gradient(top, #E56BD9, #B24CA8);
+  background-image: linear-gradient(to bottom, #E56BD9, #B24CA8);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffE56BD9', endColorstr='#ffB24CA8', GradientType=0);
+  border-color: #B24CA8 #B24CA8 #B24CA8;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #B24CA8;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-inverse:hover,
+.btn-inverse:active,
+.btn-inverse.active,
+.btn-inverse.disabled,
+.btn-inverse[disabled] {
+  color: #ffffff;
+  background-color: #B24CA8;
+  *background-color: #B24CA8;
+}
+.btn-inverse:active,
+.btn-inverse.active {
+  background-color: #ec008c \9;
+}
