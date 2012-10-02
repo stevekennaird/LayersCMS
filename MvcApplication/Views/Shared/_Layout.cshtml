@@ -5,27 +5,42 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/plugins/nivogallerycss")
+
+    @Html.RenderThemeHeadCustomHtml()
 </head>
     <body>
         
         <div id="outer-container">
             <div id="header">
                 <a id="logo-home" href="@Url.Action("Index", "Home")">
-                    <img src="http://placehold.it/250x100" alt="Your Company Name" width="250" height="100"/>
+                    <img src="http://placehold.it/250x100" alt="@Html.QuickWinConfigCompanyName()" width="250" height="100"/>
                 </a>
                 @Html.Partial("MainNav")
-                <div class="clearfix"></div>
+                <div id="contact-details">
+                    <em>Get in touch!</em> <span class="contact-tel">@Html.QuickWinConfigContactPhoneNumber()</span> <a href="@Url.Action("BasicForm", "ContactUs")" class="contact-email">@Html.QuickWinConfigContactEmailAddress()</a>
+                </div>
             </div>
             <div id="container">
                 @RenderBody()        
             </div>
             <div id="footer">
-                
+                <div class="half fl text-left">
+                    &#169; @Html.QuickWinConfigCompanyName() @DateTime.Now.Year
+                </div>
+                <div class="half fr text-right">
+                    website by <a href="http://www.steveonthefly.co.uk/" target="_blank">steve on the fly</a>
+                </div>
+                <div class="clearfix"></div>
             </div>
         </div>
 
         @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/plugins/nivogalleryscripts")
+        @Scripts.Render("~/bundles/quickwinjs")
         @RenderSection("scripts", required: false)
+        
+        @Html.RenderThemeBodyCloseCustomHtml()
     </body>
 </html>

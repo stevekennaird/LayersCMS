@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcApplication", "MvcApplication\MvcApplication.csproj", "{CDC5A7C2-2EA1-4AB3-ACD0-F8B64F197AA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickWin.MvcApplication", "MvcApplication\QuickWin.MvcApplication.csproj", "{CDC5A7C2-2EA1-4AB3-ACD0-F8B64F197AA0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickWin.Cms.Data", "CMS\QuickWin.Cms.Data\QuickWin.Cms.Data.csproj", "{3725E6F4-F386-4DA7-ACEE-B0A26BAE3780}"
 EndProject

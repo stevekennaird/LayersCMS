@@ -1,0 +1,16 @@
+﻿@using QuickWin.MvcApplication.Models.Galleries
+@{
+    ViewBag.Title = "Gallery";
+}
+
+<h1>Gallery</h1>
+
+@Html.NivoGallery(new GalleryImage[]
+{
+    new GalleryImage("http://www.placehold.it/500x300", "Image 1", "This is Image 1"), 
+    new GalleryImage("http://www.placehold.it/500x300/ff0000/000000", "Image 2", "This is Image 2"),
+    new GalleryImage("http://www.placehold.it/500x300/ffffff/000000", "Image 3", "This is Image 3"),
+    new GalleryImage("http://www.placehold.it/500x300/333333/777777", "Image 4", "This is Image 4"),
+    new GalleryImage("http://www.placehold.it/500x300/0000ff/ffffff", "Image 5", "This is Image 5"),
+    new GalleryImage("http://www.placehold.it/500x300/00ff00/000000", "Image 6", "This is Image 6")
+})

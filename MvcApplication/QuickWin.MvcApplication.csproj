@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MvcApplication</RootNamespace>
-    <AssemblyName>MvcApplication</AssemblyName>
+    <RootNamespace>QuickWin.MvcApplication</RootNamespace>
+    <AssemblyName>QuickWin.MvcApplication</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -48,7 +48,13 @@
     <Reference Include="AttributeRouting.Web.Mvc">
       <HintPath>..\packages\AttributeRouting.2.5.3.0\lib\net40\AttributeRouting.Web.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10715.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Mvc.Mailer">
+      <HintPath>..\packages\MvcMailer.1.1\lib\40\Mvc.Mailer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -128,8 +134,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\Config\QuickWinConfigurationSection.cs" />
     <Compile Include="Application\Helpers\HtmlHelperExtensions.cs" />
-    <Compile Include="Application\Helpers\QuickWinThemeHelper.cs" />
+    <Compile Include="Application\Config\QuickWinConfigHelper.cs" />
     <Compile Include="Application\Validation\HoneyPotAttribute.cs" />
     <Compile Include="App_Start\QuickWinRouting.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -143,13 +150,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mailers\ContactUsMailer.cs" />
+    <Compile Include="Mailers\IContactUsMailer.cs" />
     <Compile Include="Models\ContactUs\ContactUsModel.cs" />
+    <Compile Include="Models\Galleries\GalleryImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap\css\bootstrap.css" />
     <Content Include="Content\bootstrap\img\glyphicons-halflings-white.png" />
     <Content Include="Content\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="Content\img\icons\general\email.png" />
+    <Content Include="Content\img\icons\general\telephone.png" />
     <Content Include="Content\jquery-themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\jquery-themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\jquery-themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -204,12 +216,22 @@
     <Content Include="Content\jquery-themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\jquery-themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\jquery-themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\nivo\images\arrows.png" />
+    <Content Include="Content\nivo\images\fullscreen.png" />
+    <Content Include="Content\nivo\images\loading.gif" />
+    <Content Include="Content\nivo\images\playpause.png" />
+    <Content Include="Content\nivo\jquery.nivo.gallery.js" />
+    <Content Include="Content\nivo\license.txt" />
+    <Content Include="Content\nivo\nivo-gallery.css" />
+    <Content Include="Content\themes\pink.css" />
     <Content Include="Content\themes\dark.css" />
     <Content Include="Content\themes\standard.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="robots.txt" />
+    <Content Include="Scripts\fonts\cufon-yui.js" />
+    <Content Include="Scripts\fonts\English_157_italic_400.font.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -224,8 +246,11 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\QuickWinScripts.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -240,6 +265,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\ContactUs\BasicForm.cshtml" />
     <Content Include="Views\Shared\MainNav.cshtml" />
+    <Content Include="Views\ContactUsMailer\_Layout.cshtml" />
+    <Content Include="Views\ContactUsMailer\BasicFormEmail.cshtml" />
+    <Content Include="Views\Home\Gallery.cshtml" />
+    <Content Include="Views\Shared\ThemePartials\PinkHead.cshtml" />
+    <Content Include="Views\Shared\ThemePartials\PinkBodyClose.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

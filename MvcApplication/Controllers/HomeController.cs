@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using AttributeRouting.Web.Mvc;
 
-namespace MvcApplication.Controllers
+namespace QuickWin.MvcApplication.Controllers
 {
     public class HomeController : Controller
     {
@@ -17,6 +13,12 @@ namespace MvcApplication.Controllers
 
         [GET("about")]
         public ActionResult About()
+        {
+            return View();
+        }
+
+        [GET("gallery")]
+        public ActionResult Gallery()
         {
             return View();
         }

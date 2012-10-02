@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <title>@Html.QuickWinConfigCompanyName()</title>
+</head>
+<body marginheight="0" marginwidth="0" bgcolor="#f0f0f0">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="center">
+
+<br />
+<table width="550" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+	@*<tr>
+		<td colspan="3" align="center" style="padding-top: 10px;"><img src="http://media.best-network.co.uk/emails/template/logo/logo.jpg" width="82" height="100" border="0" alt="" /></td>
+	</tr>*@
+	<tr>
+		<td width="25">&nbsp;</td>
+        <td width="500" valign="top" align="left">
+            <br /><br />
+            <span style="font-family:Arial, Helvetica, sans-serif; color:#666666; font-size:11px;">
+                @RenderBody()
+            </span>
+        </td>
+		<td width="25">&nbsp;</td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center" valign="top"><br />
+            <span style="font-family:Arial, Helvetica, sans-serif; color:#5b5b5b; font-size:11px;">
+            @Html.QuickWinConfigCompanyName() | Tel: @Html.QuickWinConfigContactPhoneNumber() | <a href="@String.Format("http://{0}/contact", Request.ServerVariables["HTTP_HOST"])" style="font-weight:normal; text-decoration:underline;">Contact Us</a>
+            <br /><br />
+            </span>
+        </td>
+	</tr>
+</table>
+
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>

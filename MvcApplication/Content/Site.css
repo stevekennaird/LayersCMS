@@ -1,4 +1,6 @@
-﻿#outer-container {
+﻿/* Structure */
+
+#outer-container {
     width: 1000px;
     margin: 0px auto;
 }
@@ -9,19 +11,23 @@
 
 
 #header {
-    
+    position: relative;
+    height: 100px;
 }
 
 #header #logo-home {
     display: block;
     width: 250px;
     height: 100px;
-    margin: 0px 20px 0px 0px;
-    float: left;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 
 #header #main-nav {
-    float: left;
+    position: absolute;
+    bottom: 10px;
+    left: 400px;
 }
 
 #header #main-nav ul {
@@ -32,14 +38,37 @@
 
 #header #main-nav ul li {
     float: left;
-    margin-right: 20px;
+    font-size: 16px;
+    line-height: 16px;
 }
 
 #header #main-nav ul li a {
     text-decoration: none;
     display: block;
-    padding: 5px;
+    padding: 5px 10px 0 10px;
+    margin-right: 20px;
 }
+
+#header #contact-details {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#header #contact-details span.contact-tel {
+    padding-left: 20px;
+    background: transparent url(/content/img/icons/general/telephone.png) no-repeat left center;
+    margin: 0 10px 0 14px;
+}
+
+#header #contact-details a.contact-email {
+    padding-left: 20px;
+    background: transparent url(/content/img/icons/general/email.png) no-repeat left center;
+}
+
+
+
+
 
 #container {
     
@@ -52,6 +81,8 @@
 #footer {
     
 }
+
+/* Header Tags */
 
 h1 {
     font-size: 24px;
@@ -118,4 +149,45 @@ div.control-group.hp {
 
 .validation-summary-valid {
     display: none;
+}
+
+/* General */
+
+.half {
+    width: 50%;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+div.alert {
+    padding: 10px;
+    border: solid 1px #ddd;
+    background-color: #fafafa;
+    margin-bottom: 10px;
+}
+
+div.alert.alert-success {
+    border: solid 1px #58de78;
+    background-color: #e4ffde;
+    color: #3fa738;
+}
+
+div.alert.alert-error {
+    border: solid 1px #fb4646;
+    background-color: #ffcdcd;
+    color: #fb4646;
 }

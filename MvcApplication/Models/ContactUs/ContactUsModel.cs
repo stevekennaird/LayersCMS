@@ -1,26 +1,26 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using MvcApplication.Application.Validation;
+using QuickWin.MvcApplication.Application.Validation;
 
-namespace MvcApplication.Models.ContactUs
+namespace QuickWin.MvcApplication.Models.ContactUs
 {
     public class ContactUsModel
     {
         #region Form Fields
 
-        [Required, MaxLength(50), Display(Name = "First Name")]
+        [Required, StringLength(50), Display(Name = "First Name")]
         public virtual String FirstName { get; set; }
 
-        [Required, MaxLength(50), Display(Name = "Last Name")]
+        [Required, StringLength(50), Display(Name = "Last Name")]
         public virtual String LastName { get; set; }
 
-        [Required, MaxLength(250), EmailAddress, Display(Name = "Email Address")]
+        [Required, StringLength(250), EmailAddress, Display(Name = "Email Address")]
         public virtual String EmailAddress { get; set; }
 
-        [MaxLength(50), Display(Name = "Telephone Number")]
+        [StringLength(50), Display(Name = "Telephone Number")]
         public virtual String TelephoneNumber { get; set; }
 
-        [Required, MaxLength(5000)]
+        [Required, StringLength(5000)]
         public virtual String Message { get; set; }
 
         #endregion

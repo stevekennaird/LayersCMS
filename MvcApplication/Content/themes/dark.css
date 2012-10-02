@@ -12,6 +12,7 @@ body {
 
 #header {
     background-color: #363636;
+    color: #C9C9C9;
 }
 
 #container {
@@ -21,4 +22,11 @@ body {
 
 #footer {
     background-color: #363636;
+    color: #C9C9C9;
+}
+
+
+
+#header a, #footer a {
+    color: #FCFCFC;
 }
