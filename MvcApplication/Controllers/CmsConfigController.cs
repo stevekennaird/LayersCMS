@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using AttributeRouting.Web.Mvc;
 
-namespace MvcApplication.Controllers
+namespace QuickWin.MvcApplication.Controllers
 {
     public class CmsConfigController : Controller
     {
         [GET("cms-config/initial-setup")]
         public ActionResult SetupDatabase()
         {
-            // Include a ReCaptcha on this page to prevent attack attempts
+            // Need to capture all fields required for new DatabaseSchemaSetup(..).Initialise(.., ..)
+
+            // Include a ReCaptcha on this page to prevent attack attempts??
             return View();
         }
 

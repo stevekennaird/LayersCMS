@@ -1,4 +1,5 @@
-﻿using QuickWin.Cms.Data.Domain.Pages;
+﻿using System.Configuration;
+using QuickWin.Cms.Data.Domain.Pages;
 using QuickWin.Cms.Data.Domain.Security;
 using QuickWin.Cms.Util.Security.Interfaces;
 using ServiceStack.OrmLite;
@@ -14,13 +15,11 @@ namespace QuickWin.Cms.Data.Persistence.Setup
     public class DatabaseSchemaSetup
     {
         private readonly IHashHelper _hashHelper;
-        private readonly OrmLiteConnectionFactory _dbFactory;
 
-        public DatabaseSchemaSetup(String connectionString, IHashHelper hashHelper)
+        /// <param name="hashHelper">The hashing helper to hash the user's password</param>
+        public DatabaseSchemaSetup(IHashHelper hashHelper)
         {
             _hashHelper = hashHelper;
-            // Initialise the data connection factory
-            _dbFactory = new OrmLiteConnectionFactory(connectionString, false, SqlServerDialect.Provider);
         }
 
         /// <summary>
@@ -29,7 +28,18 @@ namespace QuickWin.Cms.Data.Persistence.Setup
         /// </summary>
         public void Initialise(DatabaseSetupConfig config)
         {
+            // Get the connection string
+            String connectionString = ConfigurationManager.ConnectionStrings[config.ConnectionStringName].ConnectionString;
+            if (String.IsNullOrWhiteSpace(connectionString))
+                throw new NullReferenceException("No connection string exists by that key.");
+
+            // Initialise the data connection factory
+            var dbFactory = new OrmLiteConnectionFactory(config.ConnectionStringName, false, config.DatabaseDialect);
+
             // Check the config class passed is valid, and we have all we need to complete the setup
+            if (config.DatabaseDialect == null)
+                throw new NullReferenceException("No DatabaseDialect specified. Cannot initialise a database without knowing what type of database to use.");
+
             if (String.IsNullOrWhiteSpace(config.UserEmailAddress))
                 throw new NullReferenceException("No UserEmailAddress specified. Cannot create primary user without an email address.");
 
@@ -38,7 +48,7 @@ namespace QuickWin.Cms.Data.Persistence.Setup
 
             
             // Open a database connection
-            using (IDbConnection dbConn = _dbFactory.OpenDbConnection())
+            using (IDbConnection dbConn = dbFactory.OpenDbConnection())
             {
                 // Create the QuickWinPage table
                 dbConn.DropAndCreateTable<QuickWinPage>();
