@@ -1,0 +1,28 @@
+﻿@model QuickWin.MvcApp.Models.CmsConfig.SetupDatabaseModel
+@{
+    ViewBag.Title = "Setup CMS Database";
+}
+
+<h1>QuickWin CMS</h1>
+
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>
+            Initialise the database    
+        </legend>
+		
+		@Html.ValidationSummary(true)
+		
+        <div class="control-group">
+            @Html.LabelFor(m => m.ConnectionStringName)
+            <div class="controls">
+                @Html.DropDownListFor(m => m.ConnectionStringName, Model.ConnectionStringOptions)
+				@Html.ValidationMessageFor(m => m.ConnectionStringName)
+            </div>
+        </div>
+		
+
+    </fieldset>   
+}

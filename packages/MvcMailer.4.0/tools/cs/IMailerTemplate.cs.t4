@@ -1,0 +1,12 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using Mvc.Mailer;
+
+namespace <#= Model.Namespace #>.Mailers
+{ 
+    public interface I<#= Model.MailerName #>
+    {
+	<# foreach(var mailerMethod in Model.MailerMethods) {#>
+		MvcMailMessage <#= mailerMethod #>();
+	<# } #>}
+}

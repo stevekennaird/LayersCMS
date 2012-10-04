@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickWin.MvcApplication", "MvcApplication\QuickWin.MvcApplication.csproj", "{CDC5A7C2-2EA1-4AB3-ACD0-F8B64F197AA0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickWin.Cms.Data", "CMS\QuickWin.Cms.Data\QuickWin.Cms.Data.csproj", "{3725E6F4-F386-4DA7-ACEE-B0A26BAE3780}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. CMS", "1. CMS", "{AC161342-A923-4F7C-9E03-3816CE4CD7A3}"
@@ -11,16 +9,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Website", "2. Website", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickWin.Cms.Util", "CMS\QuickWin.Cms.Util\QuickWin.Cms.Util.csproj", "{A5CEE352-0640-40AF-A6F5-14456408098A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickWin.MvcApp", "Website\QuickWin.MvcApp\QuickWin.MvcApp.csproj", "{502366A6-88E3-47AD-ABE0-8030B45B882A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CDC5A7C2-2EA1-4AB3-ACD0-F8B64F197AA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CDC5A7C2-2EA1-4AB3-ACD0-F8B64F197AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CDC5A7C2-2EA1-4AB3-ACD0-F8B64F197AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CDC5A7C2-2EA1-4AB3-ACD0-F8B64F197AA0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3725E6F4-F386-4DA7-ACEE-B0A26BAE3780}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3725E6F4-F386-4DA7-ACEE-B0A26BAE3780}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3725E6F4-F386-4DA7-ACEE-B0A26BAE3780}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -29,13 +25,17 @@ Global
 		{A5CEE352-0640-40AF-A6F5-14456408098A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5CEE352-0640-40AF-A6F5-14456408098A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5CEE352-0640-40AF-A6F5-14456408098A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{502366A6-88E3-47AD-ABE0-8030B45B882A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{502366A6-88E3-47AD-ABE0-8030B45B882A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{502366A6-88E3-47AD-ABE0-8030B45B882A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{502366A6-88E3-47AD-ABE0-8030B45B882A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{502366A6-88E3-47AD-ABE0-8030B45B882A} = {99A345E3-C144-4561-96E7-9B495B69A455}
 		{3725E6F4-F386-4DA7-ACEE-B0A26BAE3780} = {AC161342-A923-4F7C-9E03-3816CE4CD7A3}
 		{A5CEE352-0640-40AF-A6F5-14456408098A} = {AC161342-A923-4F7C-9E03-3816CE4CD7A3}
-		{CDC5A7C2-2EA1-4AB3-ACD0-F8B64F197AA0} = {99A345E3-C144-4561-96E7-9B495B69A455}
 	EndGlobalSection
 EndGlobal
