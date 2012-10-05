@@ -3,7 +3,7 @@
     ViewBag.Title = "Setup CMS Database";
 }
 
-<h1>QuickWin CMS</h1>
+<h1>QuickWin CMS - Database Setup</h1>
 
 
 @using (Html.BeginForm())
@@ -19,9 +19,37 @@
             @Html.LabelFor(m => m.ConnectionStringName)
             <div class="controls">
                 @Html.DropDownListFor(m => m.ConnectionStringName, Model.ConnectionStringOptions)
-				@Html.ValidationMessageFor(m => m.ConnectionStringName)
+                @Html.ValidationMessageFor(m => m.ConnectionStringName)
             </div>
         </div>
+		
+        <div class="control-group">
+            @Html.LabelFor(m => m.UserEmailAddress)
+            <div class="controls">
+                @Html.TextBoxFor(m => m.UserEmailAddress)
+                @Html.ValidationMessageFor(m => m.UserEmailAddress)
+            </div>
+        </div>
+		
+        <div class="control-group">
+            @Html.LabelFor(m => m.UserPassword)
+            <div class="controls">
+                @Html.PasswordFor(m => m.UserPassword)
+                @Html.ValidationMessageFor(m => m.UserPassword)
+            </div>
+        </div>
+		
+        <div class="control-group">
+            @Html.LabelFor(m => m.CmsDatabaseSetupSecretKey)
+            <div class="controls">
+                @Html.PasswordFor(m => m.CmsDatabaseSetupSecretKey)
+                @Html.ValidationMessageFor(m => m.CmsDatabaseSetupSecretKey)
+				
+				<input type="submit" class="btn btn-inverse" value="Submit"/>
+            </div>
+        </div>
+		
+
 		
 
     </fieldset>   

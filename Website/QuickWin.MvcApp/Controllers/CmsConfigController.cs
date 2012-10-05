@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Web.Mvc;
 using AttributeRouting.Web.Mvc;
+using QuickWin.Cms.Data.Persistence.Setup;
 using QuickWin.MvcApp.Models.CmsConfig;
+using ServiceStack.OrmLite.SqlServer;
 
 namespace QuickWin.MvcApp.Controllers
 {
-    public class CmsConfigController : Controller
+    public class CmsConfigController : BaseController
     {
         [GET("cms-config/initial-setup")]
         public ActionResult SetupDatabase()
@@ -16,23 +18,53 @@ namespace QuickWin.MvcApp.Controllers
             var model = new SetupDatabaseModel();
             InitialiseSetupDatabaseModel(model);
 
-            // Need to capture all fields required for new DatabaseSchemaSetup(..).Initialise(.., ..)
-
-            // Include a ReCaptcha on this page to prevent attack attempts??
             return View(model);
         }
 
         [POST("cms-config/initial-setup")]
         public ActionResult SetupDatabase(SetupDatabaseModel model) // The model should obviously be a proper class
         {
+            String setupSecretKey = ConfigurationHelper.GetApplicationSettingAsType<String>("QuickWin:CmsDatabaseSetupSecretKey");
+
             if (ModelState.IsValid)
             {
-                // Check the key entered equals AppSettings[""],
-                // if so, run new DatabaseSchemaSetup(..).Initialise(.., ..);
-                // Then redirect to SetupDatabaseComplete action
+                if (model.CmsDatabaseSetupSecretKey == setupSecretKey)
+                {
+                    // Initialise the database
+                    try
+                    {
+                        throw new NotImplementedException("Need to pass in an instance of IHashHelper, which could be injected via an IoC");
+
+
+                        new DatabaseSchemaSetup(null).Initialise(new DatabaseSetupConfig()
+                        {
+                            DatabaseDialect = new SqlServerOrmLiteDialectProvider(),
+                            UserEmailAddress = model.UserEmailAddress,
+                            UserPassword = model.UserPassword,
+                            ConnectionStringName = ConfigurationHelper.GetConnectionString(model.ConnectionStringName)
+                        });
+
+                        // Initialisation complete. Show success message
+                        return RedirectToAction("SetupDatabaseComplete");
+                    }
+                    catch (Exception e)
+                    {
+                        // Error initialising database. Show exception message
+                        ModelState.AddModelError(String.Empty, "Unable to initialise database. Error: " + e.Message);
+                    }
+
+                }
+                else
+                {
+                    // Setup secret key incorrect,
+                    ModelState.AddModelError("CmsDatabaseSetupSecretKey", "Incorrect");
+                }
             }
 
+            // Populate the model ready for display
             InitialiseSetupDatabaseModel(model);
+
+
             return View(model);
         }
 

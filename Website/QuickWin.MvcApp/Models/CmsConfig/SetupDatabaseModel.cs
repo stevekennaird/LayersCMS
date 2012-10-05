@@ -16,6 +16,9 @@ namespace QuickWin.MvcApp.Models.CmsConfig
         [Required, StringLength(30, MinimumLength = 8), Display(Name = "Admin Password")]
         public String UserPassword { get; set; }
 
+        [Required, Display(Name = "Secret Key")]
+        public String CmsDatabaseSetupSecretKey { get; set; }
+
         public IEnumerable<SelectListItem> ConnectionStringOptions { get; set; }
     }
 }
