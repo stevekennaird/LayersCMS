@@ -29,12 +29,12 @@ namespace QuickWin.Cms.Data.Persistence.Setup
         public void Initialise(DatabaseSetupConfig config)
         {
             // Get the connection string
-            String connectionString = ConfigurationManager.ConnectionStrings[config.ConnectionStringName].ConnectionString;
-            if (String.IsNullOrWhiteSpace(connectionString))
+            ConnectionStringSettings connectionString = ConfigurationManager.ConnectionStrings[config.ConnectionStringName];
+            if (connectionString == null)
                 throw new NullReferenceException("No connection string exists by that key.");
 
             // Initialise the data connection factory
-            var dbFactory = new OrmLiteConnectionFactory(config.ConnectionStringName, false, config.DatabaseDialect);
+            var dbFactory = new OrmLiteConnectionFactory(connectionString.ConnectionString, false, config.DatabaseDialect);
 
             // Check the config class passed is valid, and we have all we need to complete the setup
             if (config.DatabaseDialect == null)

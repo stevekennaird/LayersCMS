@@ -44,9 +44,11 @@
             <div class="controls">
                 @Html.PasswordFor(m => m.CmsDatabaseSetupSecretKey)
                 @Html.ValidationMessageFor(m => m.CmsDatabaseSetupSecretKey)
-				
-				<input type="submit" class="btn btn-inverse" value="Submit"/>
             </div>
+        </div>
+		
+        <div class="form-actions">
+            <input type="submit" class="btn btn-inverse" value="Submit"/>
         </div>
 		
 

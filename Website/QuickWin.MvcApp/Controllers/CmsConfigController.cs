@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Web.Mvc;
 using AttributeRouting.Web.Mvc;
 using QuickWin.Cms.Data.Persistence.Setup;
+using QuickWin.Cms.Util.Security.Interfaces;
 using QuickWin.MvcApp.Models.CmsConfig;
 using ServiceStack.OrmLite.SqlServer;
 
@@ -11,6 +12,18 @@ namespace QuickWin.MvcApp.Controllers
 {
     public class CmsConfigController : BaseController
     {
+        private readonly IHashHelper _hashHelper;
+
+        #region Constructor and Dependencies
+
+        public CmsConfigController(IHashHelper hashHelper)
+        {
+            _hashHelper = hashHelper;
+        }
+
+        #endregion
+        
+
         [GET("cms-config/initial-setup")]
         public ActionResult SetupDatabase()
         {
@@ -33,15 +46,12 @@ namespace QuickWin.MvcApp.Controllers
                     // Initialise the database
                     try
                     {
-                        throw new NotImplementedException("Need to pass in an instance of IHashHelper, which could be injected via an IoC");
-
-
-                        new DatabaseSchemaSetup(null).Initialise(new DatabaseSetupConfig()
+                        new DatabaseSchemaSetup(_hashHelper).Initialise(new DatabaseSetupConfig()
                         {
                             DatabaseDialect = new SqlServerOrmLiteDialectProvider(),
                             UserEmailAddress = model.UserEmailAddress,
                             UserPassword = model.UserPassword,
-                            ConnectionStringName = ConfigurationHelper.GetConnectionString(model.ConnectionStringName)
+                            ConnectionStringName = model.ConnectionStringName
                         });
 
                         // Initialisation complete. Show success message
@@ -69,7 +79,7 @@ namespace QuickWin.MvcApp.Controllers
         }
 
         [GET("cms-config/initial-setup/complete")]
-        public ActionResult SetupDatabaseComplete(bool success, string error = null)
+        public ActionResult SetupDatabaseComplete()
         {
             return View();
         }
