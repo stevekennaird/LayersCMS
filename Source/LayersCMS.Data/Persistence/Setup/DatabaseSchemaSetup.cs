@@ -33,6 +33,9 @@ namespace LayersCMS.Data.Persistence.Setup
             if (connectionString == null)
                 throw new NullReferenceException("No connection string exists by that key.");
 
+            // Tell the configuration to use unicode, e.g. nvarchar compared to varchar in SQL Server
+            config.DatabaseDialect.UseUnicode = true;
+
             // Initialise the data connection factory
             var dbFactory = new OrmLiteConnectionFactory(connectionString.ConnectionString, false, config.DatabaseDialect);
 

@@ -30,9 +30,9 @@ namespace LayersCMS.MvcApp.Controllers
             }
 
             // Check whether a redirect has been added for this page
-            if (cmsPage.RedirectType != RedirectTypeEnum.None && !String.IsNullOrWhiteSpace(cmsPage.RedirectUrl))
+            if (cmsPage.RedirectTypeEnum != RedirectTypeEnum.None && !String.IsNullOrWhiteSpace(cmsPage.RedirectUrl))
             {
-                return cmsPage.RedirectType == RedirectTypeEnum.Temporary
+                return cmsPage.RedirectTypeEnum == RedirectTypeEnum.Temporary
                            ? Redirect(cmsPage.RedirectUrl)
                            : RedirectPermanent(cmsPage.RedirectUrl);
             }
