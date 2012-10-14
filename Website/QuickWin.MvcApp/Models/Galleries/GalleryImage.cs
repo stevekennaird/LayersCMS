@@ -1,4 +1,4 @@
-﻿namespace QuickWin.MvcApp.Models.Galleries
+﻿namespace LayersCMS.MvcApp.Models.Galleries
 {
     public class GalleryImage
     {

@@ -1,7 +1,7 @@
 ﻿using System.Web.Optimization;
-using QuickWin.MvcApp.Application.Config;
+using LayersCMS.MvcApp.Application.Config;
 
-namespace QuickWin.MvcApp
+namespace LayersCMS.MvcApp.App_Start
 {
     public class BundleConfig
     {
@@ -43,13 +43,13 @@ namespace QuickWin.MvcApp
                         "~/content/jquery-themes/base/jquery.ui.progressbar.css",
                         "~/content/jquery-themes/base/jquery.ui.theme.css"));
 
-            bundles.Add(new ScriptBundle("~/bundles/quickwinjs").Include(
-                        "~/scripts/quickwinscripts.js"));
+            bundles.Add(new ScriptBundle("~/bundles/layerscmsjs").Include(
+                        "~/scripts/layerscmsscripts.js"));
         }
 
         private static string GetThemeCssFilepath()
         {
-            string themeName = new QuickWinConfigHelper().GetTheme();
+            string themeName = new LayersCmsConfigHelper().GetTheme();
             return string.Format("~/content/themes/{0}.css", themeName);
         }
     }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace QuickWin.Cms.Util.Security.Interfaces
+namespace LayersCMS.Util.Security.Interfaces
 {
     public interface IHashHelper
     {

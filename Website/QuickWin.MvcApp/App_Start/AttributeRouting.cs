@@ -1,9 +1,9 @@
 using System.Web.Routing;
 using AttributeRouting.Web.Mvc;
 
-[assembly: WebActivator.PreApplicationStartMethod(typeof(QuickWin.MvcApp.App_Start.AttributeRouting), "Start")]
+[assembly: WebActivator.PreApplicationStartMethod(typeof(LayersCMS.MvcApp.App_Start.AttributeRouting), "Start")]
 
-namespace QuickWin.MvcApp.App_Start {
+namespace LayersCMS.MvcApp.App_Start {
     public static class AttributeRouting {
 		public static void RegisterRoutes(RouteCollection routes) {
             

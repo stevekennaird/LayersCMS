@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Web.Mvc;
-using QuickWin.Cms.Data.Domain.Pages;
-using QuickWin.Cms.Data.Persistence.Interfaces.Reads;
+using LayersCMS.Data.Domain.Pages;
+using LayersCMS.Data.Persistence.Interfaces.Reads;
 
-namespace QuickWin.MvcApp.Controllers
+namespace LayersCMS.MvcApp.Controllers
 {
-    public class QuickWinCmsPageController : Controller
+    public class LayersCmsPageController : Controller
     {
         #region Constructor and Dependencies
 
-        private readonly IQuickWinPageReads _cmsPageReads;
+        private readonly ILayersCmsPageReads _cmsPageReads;
 
-        public QuickWinCmsPageController(IQuickWinPageReads cmsPageReads)
+        public LayersCmsPageController(ILayersCmsPageReads cmsPageReads)
         {
             _cmsPageReads = cmsPageReads;
         }
@@ -21,7 +21,7 @@ namespace QuickWin.MvcApp.Controllers
         public ActionResult HandleUrl(String url)
         {
             // Retrieve the page from the database
-            QuickWinPage cmsPage = _cmsPageReads.GetByUrl(url, true);
+            LayersCmsPage cmsPage = _cmsPageReads.GetByUrl(url, true);
 
             // If the page is null, no match found for url, return 404
             if (cmsPage == null)

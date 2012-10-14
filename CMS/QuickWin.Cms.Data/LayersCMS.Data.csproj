@@ -7,8 +7,8 @@
     <ProjectGuid>{3725E6F4-F386-4DA7-ACEE-B0A26BAE3780}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QuickWin.Cms.Data</RootNamespace>
-    <AssemblyName>QuickWin.Cms.Data</AssemblyName>
+    <RootNamespace>LayersCMS.Data</RootNamespace>
+    <AssemblyName>LayersCMS.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -55,14 +55,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Pages\QuickWinPage.cs" />
+    <Compile Include="Domain\Pages\LayersCmsPage.cs" />
     <Compile Include="Domain\Pages\RedirectTypeEnum.cs" />
-    <Compile Include="Domain\QuickWinDomainObject.cs" />
-    <Compile Include="Domain\Security\QuickWinUser.cs" />
-    <Compile Include="Persistence\Interfaces\Reads\Base\IQuickWinReads.cs" />
-    <Compile Include="Persistence\Interfaces\Reads\IQuickWinPageReads.cs" />
-    <Compile Include="Persistence\Interfaces\Writes\Base\IQuickWinPageWrites.cs" />
-    <Compile Include="Persistence\Interfaces\Writes\Base\IQuickWinWrites.cs" />
+    <Compile Include="Domain\LayersCmsDomainObject.cs" />
+    <Compile Include="Domain\Security\LayersCmsUser.cs" />
+    <Compile Include="Persistence\Interfaces\Reads\Base\ILayersCmsReads.cs" />
+    <Compile Include="Persistence\Interfaces\Reads\ILayersCmsPageReads.cs" />
+    <Compile Include="Persistence\Interfaces\Writes\Base\ILayersCmsPageWrites.cs" />
+    <Compile Include="Persistence\Interfaces\Writes\Base\ILayersCmsWrites.cs" />
     <Compile Include="Persistence\Setup\DatabaseSchemaSetup.cs" />
     <Compile Include="Persistence\Setup\DatabaseSetupConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,9 +71,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\QuickWin.Cms.Util\QuickWin.Cms.Util.csproj">
-      <Project>{A5CEE352-0640-40AF-A6F5-14456408098A}</Project>
-      <Name>QuickWin.Cms.Util</Name>
+    <ProjectReference Include="..\QuickWin.Cms.Util\LayersCMS.Util.csproj">
+      <Project>{a5cee352-0640-40af-a6f5-14456408098a}</Project>
+      <Name>LayersCMS.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

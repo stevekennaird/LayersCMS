@@ -1,12 +1,12 @@
 ﻿using System.Configuration;
-using QuickWin.Cms.Data.Domain.Pages;
-using QuickWin.Cms.Data.Domain.Security;
-using QuickWin.Cms.Util.Security.Interfaces;
+using LayersCMS.Data.Domain.Pages;
+using LayersCMS.Data.Domain.Security;
+using LayersCMS.Util.Security.Interfaces;
 using ServiceStack.OrmLite;
 using System;
 using System.Data;
 
-namespace QuickWin.Cms.Data.Persistence.Setup
+namespace LayersCMS.Data.Persistence.Setup
 {
     /// <summary>
     /// Constructs the database schema. Should only be run once, and access to run the code should be protected in the UI somehow,
@@ -23,7 +23,7 @@ namespace QuickWin.Cms.Data.Persistence.Setup
         }
 
         /// <summary>
-        /// Drops all tables matching the name of the QuickWinDomainObjects to be created,
+        /// Drops all tables matching the name of the LayersCmsDomainObjects to be created,
         /// then creates fresh tables for those domain objects.
         /// </summary>
         public void Initialise(DatabaseSetupConfig config)
@@ -50,12 +50,12 @@ namespace QuickWin.Cms.Data.Persistence.Setup
             // Open a database connection
             using (IDbConnection dbConn = dbFactory.OpenDbConnection())
             {
-                // Create the QuickWinPage table
-                dbConn.DropAndCreateTable<QuickWinPage>();
+                // Create the LayersCmsPage table
+                dbConn.DropAndCreateTable<LayersCmsPage>();
 
-                // Create the QuickWinUser table and insert the first user
-                dbConn.DropAndCreateTable<QuickWinUser>();
-                dbConn.Save(new QuickWinUser()
+                // Create the LayersCmsUser table and insert the first user
+                dbConn.DropAndCreateTable<LayersCmsUser>();
+                dbConn.Save(new LayersCmsUser()
                     {
                         Active = true,
                         EmailAddress = config.UserEmailAddress,

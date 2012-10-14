@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace QuickWin.MvcApp.Application.Validation
+namespace LayersCMS.MvcApp.Application.Validation
 {
     public class HoneyPotAttribute : ValidationAttribute
     {

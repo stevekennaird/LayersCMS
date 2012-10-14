@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using AttributeRouting.Web.Mvc;
 
-namespace QuickWin.MvcApp.Controllers
+namespace LayersCMS.MvcApp.Controllers
 {
     public class HomeController : Controller
     {

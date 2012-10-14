@@ -1,7 +1,7 @@
 ﻿using System;
 using ServiceStack.OrmLite;
 
-namespace QuickWin.Cms.Data.Persistence.Setup
+namespace LayersCMS.Data.Persistence.Setup
 {
     public class DatabaseSetupConfig
     {

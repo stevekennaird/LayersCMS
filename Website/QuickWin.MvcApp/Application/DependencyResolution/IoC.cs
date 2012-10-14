@@ -16,10 +16,10 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 
-using QuickWin.Cms.Util.Security.Implementations;
+using LayersCMS.Util.Security.Implementations;
 using StructureMap;
 
-namespace QuickWin.MvcApp.Application.DependencyResolution {
+namespace LayersCMS.MvcApp.Application.DependencyResolution {
     public static class IoC {
         public static IContainer Initialize() {
             ObjectFactory.Initialize(x =>

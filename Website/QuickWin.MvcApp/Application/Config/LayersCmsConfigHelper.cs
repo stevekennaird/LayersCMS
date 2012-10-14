@@ -1,14 +1,14 @@
 ﻿using System.Configuration;
 
-namespace QuickWin.MvcApp.Application.Config
+namespace LayersCMS.MvcApp.Application.Config
 {
-    public class QuickWinConfigHelper
+    public class LayersCmsConfigHelper
     {
-        private readonly QuickWinConfigurationSection _configSection;
+        private readonly LayersCmsConfigurationSection _configSection;
 
-        public QuickWinConfigHelper()
+        public LayersCmsConfigHelper()
         {
-            _configSection = ConfigurationManager.GetSection("QuickWin") as QuickWinConfigurationSection;
+            _configSection = ConfigurationManager.GetSection("LayersCMS") as LayersCmsConfigurationSection;
         }
 
         public string GetTheme()

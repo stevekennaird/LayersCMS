@@ -1,9 +1,9 @@
+using LayersCMS.MvcApp.Application.Config;
 using Mvc.Mailer;
 using System;
 using System.Web;
-using QuickWin.MvcApp.Application.Config;
 
-namespace QuickWin.MvcApp.Mailers
+namespace LayersCMS.MvcApp.Mailers
 { 
     public class ContactUsMailer : MailerBase, IContactUsMailer     
 	{
@@ -16,7 +16,7 @@ namespace QuickWin.MvcApp.Mailers
         public virtual MvcMailMessage BasicFormEmail(String firstName, String lastName, String emailAddress, String telephone, String message)
 		{
             var mailMessage = new MvcMailMessage { Subject = String.Format("Enquiry Received from {0}", HttpContext.Current.Request.ServerVariables["HTTP_HOST"]) };
-			mailMessage.To.Add(new QuickWinConfigHelper().GetContactEmailAddress());
+			mailMessage.To.Add(new LayersCmsConfigHelper().GetContactEmailAddress());
 
             ViewBag.FirstName = firstName;
             ViewBag.LastName = lastName;

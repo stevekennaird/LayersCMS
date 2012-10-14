@@ -1,9 +1,9 @@
 ﻿using System;
 using ServiceStack.DataAnnotations;
 
-namespace QuickWin.Cms.Data.Domain.Pages
+namespace LayersCMS.Data.Domain.Pages
 {
-    public class QuickWinPage : QuickWinDomainObject
+    public class LayersCmsPage : LayersCmsDomainObject
     {
         public virtual Int32? ParentId { get; set; }
 

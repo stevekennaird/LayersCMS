@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Web.Mvc;
 using AttributeRouting.Web.Mvc;
-using QuickWin.MvcApp.Mailers;
-using QuickWin.MvcApp.Models.ContactUs;
+using LayersCMS.MvcApp.Mailers;
+using LayersCMS.MvcApp.Models.ContactUs;
 
-namespace QuickWin.MvcApp.Controllers
+namespace LayersCMS.MvcApp.Controllers
 {
     public class ContactUsController : Controller
     {

@@ -4,28 +4,28 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
-using QuickWin.MvcApp.Application.Config;
-using QuickWin.MvcApp.Models.Galleries;
+using LayersCMS.MvcApp.Application.Config;
+using LayersCMS.MvcApp.Models.Galleries;
 
-namespace QuickWin.MvcApp.Application.Helpers
+namespace LayersCMS.MvcApp.Application.Helpers
 {
     public static class HtmlHelperExtensions
     {
-        #region QuickWin Configuration Values
+        #region LayersCMS Configuration Values
 
-        public static IHtmlString QuickWinConfigCompanyName(this HtmlHelper helper)
+        public static IHtmlString LayersCmsConfigCompanyName(this HtmlHelper helper)
         {
-            return new MvcHtmlString(new QuickWinConfigHelper().GetCompanyName());
+            return new MvcHtmlString(new LayersCmsConfigHelper().GetCompanyName());
         }
 
-        public static IHtmlString QuickWinConfigContactEmailAddress(this HtmlHelper helper)
+        public static IHtmlString LayersCmsConfigContactEmailAddress(this HtmlHelper helper)
         {
-            return new MvcHtmlString(new QuickWinConfigHelper().GetContactEmailAddress());
+            return new MvcHtmlString(new LayersCmsConfigHelper().GetContactEmailAddress());
         }
 
-        public static IHtmlString QuickWinConfigContactPhoneNumber(this HtmlHelper helper)
+        public static IHtmlString LayersCmsConfigContactPhoneNumber(this HtmlHelper helper)
         {
-            return new MvcHtmlString(new QuickWinConfigHelper().GetContactPhone());
+            return new MvcHtmlString(new LayersCmsConfigHelper().GetContactPhone());
         }
 
         #endregion
@@ -61,7 +61,7 @@ namespace QuickWin.MvcApp.Application.Helpers
 
         private static IHtmlString RenderThemeCustomPartial(HtmlHelper helper, string viewPathToFormat)
         {
-            string themeName = new QuickWinConfigHelper().GetTheme();
+            string themeName = new LayersCmsConfigHelper().GetTheme();
             string viewPath = string.Format(viewPathToFormat, themeName);
             string filePath = HttpContext.Current.Server.MapPath(String.Format("~/views/shared/{0}.cshtml", viewPath));
             if (File.Exists(filePath))

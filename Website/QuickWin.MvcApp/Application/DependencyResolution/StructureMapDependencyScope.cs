@@ -22,7 +22,7 @@ using System.Web.Http.Dependencies;
 using Microsoft.Practices.ServiceLocation;
 using StructureMap;
 
-namespace QuickWin.MvcApp.Application.DependencyResolution
+namespace LayersCMS.MvcApp.Application.DependencyResolution
 {
     /// <summary>
     /// The structure map dependency scope.
@@ -79,7 +79,9 @@ namespace QuickWin.MvcApp.Application.DependencyResolution
         /// <returns>
         /// The System.Object.
         /// </returns>
+#pragma warning disable 108,114
         public object GetService(Type serviceType)
+#pragma warning restore 108,114
         {
             if (serviceType == null)
             {

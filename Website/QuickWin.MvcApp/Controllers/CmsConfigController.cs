@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Web.Mvc;
 using AttributeRouting.Web.Mvc;
-using QuickWin.Cms.Data.Persistence.Setup;
-using QuickWin.Cms.Util.Security.Interfaces;
-using QuickWin.MvcApp.Models.CmsConfig;
+using LayersCMS.Data.Persistence.Setup;
+using LayersCMS.MvcApp.Controllers.Base;
+using LayersCMS.MvcApp.Models.CmsConfig;
+using LayersCMS.Util.Security.Interfaces;
 using ServiceStack.OrmLite.SqlServer;
 
-namespace QuickWin.MvcApp.Controllers
+namespace LayersCMS.MvcApp.Controllers
 {
     public class CmsConfigController : BaseController
     {
@@ -37,7 +38,7 @@ namespace QuickWin.MvcApp.Controllers
         [POST("cms-config/initial-setup")]
         public ActionResult SetupDatabase(SetupDatabaseModel model) // The model should obviously be a proper class
         {
-            String setupSecretKey = ConfigurationHelper.GetApplicationSettingAsType<String>("QuickWin:CmsDatabaseSetupSecretKey");
+            String setupSecretKey = ConfigurationHelper.GetApplicationSettingAsType<String>("LayersCMS:CmsDatabaseSetupSecretKey");
 
             if (ModelState.IsValid)
             {

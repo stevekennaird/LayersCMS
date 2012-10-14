@@ -1,8 +1,8 @@
-﻿using QuickWin.Cms.Util.Security.Interfaces;
-using System;
+﻿using System;
 using System.Text;
+using LayersCMS.Util.Security.Interfaces;
 
-namespace QuickWin.Cms.Util.Security.Implementations
+namespace LayersCMS.Util.Security.Implementations
 {
     public class HashHelper : IHashHelper
     {

@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace QuickWin.MvcApp
+namespace LayersCMS.MvcApp.App_Start
 {
     public static class WebApiConfig
     {

@@ -18,7 +18,7 @@
 using System.Web.Http.Dependencies;
 using StructureMap;
 
-namespace QuickWin.MvcApp.Application.DependencyResolution
+namespace LayersCMS.MvcApp.Application.DependencyResolution
 {
     /// <summary>
     /// The structure map dependency resolver.

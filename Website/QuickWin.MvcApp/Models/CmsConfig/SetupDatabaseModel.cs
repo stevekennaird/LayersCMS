@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
-namespace QuickWin.MvcApp.Models.CmsConfig
+namespace LayersCMS.MvcApp.Models.CmsConfig
 {
     public class SetupDatabaseModel
     {

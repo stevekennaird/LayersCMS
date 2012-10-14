@@ -1,4 +1,4 @@
-﻿var QuickWinScripts = {
+﻿var LayersCmsScripts = {
     init: function() {
         this.setupGalleries();
     },
@@ -8,5 +8,5 @@
 };
 
 $(function() {
-    QuickWinScripts.init();
+    LayersCmsScripts.init();
 });

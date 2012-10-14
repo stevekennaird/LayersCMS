@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Net;
 using System.Web.Mvc;
-using QuickWin.MvcApp.Application.Config;
+using LayersCMS.MvcApp.Application.Config;
 
-namespace QuickWin.MvcApp.Controllers
+namespace LayersCMS.MvcApp.Controllers.Base
 {
     public abstract class BaseController : Controller
     {

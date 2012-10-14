@@ -1,4 +1,4 @@
-﻿namespace QuickWin.Cms.Data.Domain.Pages
+﻿namespace LayersCMS.Data.Domain.Pages
 {
     public enum RedirectTypeEnum
     {

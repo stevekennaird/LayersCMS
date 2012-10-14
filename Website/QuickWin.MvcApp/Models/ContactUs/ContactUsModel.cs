@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using QuickWin.MvcApp.Application.Validation;
+using LayersCMS.MvcApp.Application.Validation;
 
-namespace QuickWin.MvcApp.Models.ContactUs
+namespace LayersCMS.MvcApp.Models.ContactUs
 {
     public class ContactUsModel
     {

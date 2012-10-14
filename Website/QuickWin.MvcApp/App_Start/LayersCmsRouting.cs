@@ -3,12 +3,13 @@ using System.Reflection;
 using System.Web.Mvc;
 using System.Web.Routing;
 using AttributeRouting.Web.Mvc;
+using LayersCMS.MvcApp.App_Start;
 
-[assembly: WebActivator.PreApplicationStartMethod(typeof(QuickWin.MvcApp.QuickWinRouting), "Start")]
+[assembly: WebActivator.PreApplicationStartMethod(typeof(LayersCmsRouting), "Start")]
 
-namespace QuickWin.MvcApp
+namespace LayersCMS.MvcApp.App_Start
 {
-    public static class QuickWinRouting
+    public static class LayersCmsRouting
     {
         public static void RegisterAttributeRoutes(RouteCollection routes)
         {
@@ -25,9 +26,9 @@ namespace QuickWin.MvcApp
         public static void RegisterCmsRoutes(RouteCollection routes)
         {
             /*routes.MapRoute(
-                "QuickWinCmsPage", // Route name
+                "LayersCmsPage", // Route name
                 "{url}", // URL with parameters
-                new { controller = "QuickWinCmsPage", action = "HandleUrl" } // Parameter defaults
+                new { controller = "LayersCmsPage", action = "HandleUrl" } // Parameter defaults
             );*/
         }
 

@@ -1,8 +1,8 @@
 ﻿using System.Configuration;
 
-namespace QuickWin.MvcApp.Application.Config
+namespace LayersCMS.MvcApp.Application.Config
 {
-    public class QuickWinConfigurationSection : ConfigurationSection
+    public class LayersCmsConfigurationSection : ConfigurationSection
     {
         [ConfigurationProperty("theme", DefaultValue = "standard", IsRequired = true)]
         public string Theme

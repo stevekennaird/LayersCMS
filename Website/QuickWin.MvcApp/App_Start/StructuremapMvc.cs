@@ -17,12 +17,13 @@
 
 using System.Web.Http;
 using System.Web.Mvc;
-using QuickWin.MvcApp.Application.DependencyResolution;
+using LayersCMS.MvcApp.App_Start;
+using LayersCMS.MvcApp.Application.DependencyResolution;
 using StructureMap;
 
-[assembly: WebActivator.PreApplicationStartMethod(typeof(QuickWin.MvcApp.App_Start.StructuremapMvc), "Start")]
+[assembly: WebActivator.PreApplicationStartMethod(typeof(StructuremapMvc), "Start")]
 
-namespace QuickWin.MvcApp.App_Start {
+namespace LayersCMS.MvcApp.App_Start {
     public static class StructuremapMvc {
         public static void Start() {
 			IContainer container = IoC.Initialize();

@@ -1,7 +1,7 @@
 using System;
 using Mvc.Mailer;
 
-namespace QuickWin.MvcApp.Mailers
+namespace LayersCMS.MvcApp.Mailers
 { 
     public interface IContactUsMailer
     {

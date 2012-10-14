@@ -1,9 +1,9 @@
 ﻿using System;
 using ServiceStack.DataAnnotations;
 
-namespace QuickWin.Cms.Data.Domain.Security
+namespace LayersCMS.Data.Domain.Security
 {
-    public class QuickWinUser : QuickWinDomainObject
+    public class LayersCmsUser : LayersCmsDomainObject
     {
         [Index(Unique = true)]
         public virtual String EmailAddress { get; set; }

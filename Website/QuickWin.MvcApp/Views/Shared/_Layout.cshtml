@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using LayersCMS.MvcApp.Application.Helpers
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -14,11 +15,11 @@
         <div id="outer-container">
             <div id="header">
                 <a id="logo-home" href="@Url.Action("Index", "Home")">
-                    <img src="http://placehold.it/250x100" alt="@Html.QuickWinConfigCompanyName()" width="250" height="100"/>
+                    <img src="http://placehold.it/250x100" alt="@Html.LayersCmsConfigCompanyName()" width="250" height="100"/>
                 </a>
                 @Html.Partial("MainNav")
                 <div id="contact-details">
-                    <em>Get in touch!</em> <span class="contact-tel">@Html.QuickWinConfigContactPhoneNumber()</span> <a href="@Url.Action("BasicForm", "ContactUs")" class="contact-email">@Html.QuickWinConfigContactEmailAddress()</a>
+                    <em>Get in touch!</em> <span class="contact-tel">@Html.LayersCmsConfigContactPhoneNumber()</span> <a href="@Url.Action("BasicForm", "ContactUs")" class="contact-email">@Html.LayersCmsConfigContactEmailAddress()</a>
                 </div>
             </div>
             <div id="container">
@@ -26,7 +27,7 @@
             </div>
             <div id="footer">
                 <div class="half fl text-left">
-                    &#169; @Html.QuickWinConfigCompanyName() @DateTime.Now.Year
+                    &#169; @Html.LayersCmsConfigCompanyName() @DateTime.Now.Year
                 </div>
                 <div class="half fr text-right">
                     website by <a href="http://www.steveonthefly.co.uk/" target="_blank">steve on the fly</a>
@@ -38,7 +39,7 @@
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/modernizr")
         @Scripts.Render("~/plugins/nivogalleryscripts")
-        @Scripts.Render("~/bundles/quickwinjs")
+        @Scripts.Render("~/bundles/layerscmsjs")
         @RenderSection("scripts", required: false)
         
         @Html.RenderThemeBodyCloseCustomHtml()

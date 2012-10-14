@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
 
-namespace QuickWin.MvcApp.Application.Config
+namespace LayersCMS.MvcApp.Application.Config
 {
     public class ApplicationConfigurationHelper
     {
