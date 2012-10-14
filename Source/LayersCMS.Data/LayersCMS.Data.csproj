@@ -71,7 +71,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\QuickWin.Cms.Util\LayersCMS.Util.csproj">
+    <ProjectReference Include="..\LayersCMS.Util\LayersCMS.Util.csproj">
       <Project>{a5cee352-0640-40af-a6f5-14456408098a}</Project>
       <Name>LayersCMS.Util</Name>
     </ProjectReference>

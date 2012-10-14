@@ -298,11 +298,11 @@
     <Content Include="Views\CmsConfig\SetupDatabaseComplete.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CMS\QuickWin.Cms.Data\LayersCMS.Data.csproj">
+    <ProjectReference Include="..\..\Source\LayersCMS.Data\LayersCMS.Data.csproj">
       <Project>{3725E6F4-F386-4DA7-ACEE-B0A26BAE3780}</Project>
       <Name>LayersCMS.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\CMS\QuickWin.Cms.Util\LayersCMS.Util.csproj">
+    <ProjectReference Include="..\..\Source\LayersCMS.Util\LayersCMS.Util.csproj">
       <Project>{A5CEE352-0640-40AF-A6F5-14456408098A}</Project>
       <Name>LayersCMS.Util</Name>
     </ProjectReference>
