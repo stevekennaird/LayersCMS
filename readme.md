@@ -1,10 +1,11 @@
-# QuickWin MVC4 #
+# LayersCMS #
+## ASP.Net Content Management System using MVC4 ##
 
-QuickWin is a C# MVC4 simple website template, no content management system, no database, no dependency resolution (there's no real need for it, yet!). It's simple, it'll get you up and running with a basic website with a standard theme, and will let you utilise the power of .NET and MVC4 to quickly build a static website.
+LayersCMS is a C#-based ASP.Net MVC4 content management system designed to allow developers to pick up and use with a small learning curve.
 
-If you want to take it from there and build on top of it, you can. It's only meant as a base. Nothing that has been done so far should stop you progressing and added features. Sure, you might want to add some dependency resolution, some caching, some dynamic stuff, but that's up to you. Or, you can use it to just create a simple site.
+It's still in development, and is very basic at the moment. The project stemmed from frustration with other ASP.Net open source CMS solutions, that offer more than is often necessary and aren't alway easy to extend when you need to implement some custom functionality. LayersCMS aims to eradicate these difficulties by keeping the code clean and simple and limiting layers of abstraction, allowing anybody who knows ASP.Net MVC to deploy and extend with relative ease.
 
-## Made with great open source software ##
+### Made with great open source software ###
 
 There's so much great open source software out there, you'd be a fool to not use it and participate in the communities. Amongst others, QuickWin uses Asp.NET MVC4, MvcMailer, Twitter Bootstrap (minimal use for form styling and buttons) and Attribute Routing.
 
@@ -14,19 +15,8 @@ There's so much great open source software out there, you'd be a fool to not use
 
 [Attribute Routing](https://github.com/mccalltd/AttributeRouting/wiki) is used to make it easier to define routes within your controller, no need to faff about with the global.asax to define your routes (unless you really want to!).
 
-## Keeping things simple ##
+#### Keeping things simple ####
 We could make use of the Bootstrap grid system for the layout, but that's an extra piece of learning for you to do if you're unfamiliar with it. So the CSS is all hand crafted, no [LESS](http://lesscss.org/) or [SASS](http://sass-lang.com/), just plain ol' CSS - again, less to learn, easier for you to pick up for a "quick win". If you want to take it on and add some form of dynamic CSS, be my guest!
 
-## Adding actions ##
 
-With attribute routing, it's very easy to add another action to represent a frontend web page.
-
-Add an ActionResult method to an existing Controller, or create a new Controller and add the method to that.
-Not the `[GET("/")]` attribute, that defines that the action should be run for all HTTP GET requests for the URL '/my-first-page'
-
-`[GET("my-first-page")] public ActionResult MyFirstPage() { return View(); }`
-
-Once you've got your action ready, add the view file (currently using the Razor view engine that ships with MVC3 and MVC4)
-
-
-*It's all very simple, but that's the point!*
+#####*It's all very simple, but that's the point!*#####
