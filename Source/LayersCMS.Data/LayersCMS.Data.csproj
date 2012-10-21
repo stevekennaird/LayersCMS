@@ -65,6 +65,9 @@
     <Compile Include="Domain\Pages\RedirectTypeEnum.cs" />
     <Compile Include="Domain\LayersCmsDomainObject.cs" />
     <Compile Include="Domain\Security\LayersCmsUser.cs" />
+    <Compile Include="Persistence\Implementations\Reads\Base\LayersCmsReads.cs" />
+    <Compile Include="Persistence\LayersCmsDb.cs" />
+    <Compile Include="Persistence\Implementations\Reads\LayersCmsUserReads.cs" />
     <Compile Include="Persistence\Interfaces\Reads\Base\ILayersCmsReads.cs" />
     <Compile Include="Persistence\Interfaces\Reads\ILayersCmsUserReads.cs" />
     <Compile Include="Persistence\Interfaces\Reads\ILayersCmsPageReads.cs" />
@@ -83,6 +86,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -16,7 +16,10 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 
+using LayersCMS.Data.Persistence.Implementations.Reads;
+using LayersCMS.Data.Persistence.Interfaces.Reads;
 using LayersCMS.Util.Security.Implementations;
+using LayersCMS.Util.Security.Interfaces;
 using StructureMap;
 
 namespace LayersCMS.MvcApp.Application.DependencyResolution {
@@ -28,9 +31,17 @@ namespace LayersCMS.MvcApp.Application.DependencyResolution {
                                     {
                                         scan.TheCallingAssembly();
                                         scan.AssemblyContainingType<HashHelper>();
+                                        scan.AssemblyContainingType<LayersCmsUserReads>();
                                         scan.WithDefaultConventions();
                                     });
-            //                x.For<IExample>().Use<Example>();
+            
+
+
+                            x.SetAllProperties(y =>
+                                {
+                                    y.OfType<ILayersCmsUserReads>();
+                                    y.OfType<IHashHelper>();
+                                });
                         });
             return ObjectFactory.Container;
         }

@@ -159,6 +159,7 @@
     <Compile Include="Application\Config\LayersCmsConfigHelper.cs" />
     <Compile Include="Application\Config\LayersCMSConfigurationSection.cs" />
     <Compile Include="Application\Helpers\HtmlHelperExtensions.cs" />
+    <Compile Include="Application\Membership\LayersCmsDefaultMembershipProvider.cs" />
     <Compile Include="Application\Validation\HoneyPotAttribute.cs" />
     <Compile Include="App_Start\AttributeRouting.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />

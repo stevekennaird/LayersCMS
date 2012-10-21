@@ -30,6 +30,29 @@ namespace LayersCMS.MvcApp.Areas.Admin.Controllers
             return View();
         }
 
+        [POST("login"), AllowAnonymous]
+        public ActionResult Login(object model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                /*if (Membership.ValidateUser(model.EmailAddress, model.Password))
+                {
+                    FormsAuthentication.SetAuthCookie(model.EmailAddress, false);
+                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                        && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    return RedirectToAction("Index", "Dashboard");
+                }
+
+                ModelState.AddModelError("", "The email address or password provided is incorrect, or your account is inactive.");*/
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
         [GET("logout")]
         public ActionResult Logout()
         {
