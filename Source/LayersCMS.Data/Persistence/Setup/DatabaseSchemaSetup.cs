@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
-using LayersCMS.Data.Domain.Pages;
-using LayersCMS.Data.Domain.Security;
+using LayersCMS.Data.Domain.Core.Pages;
+using LayersCMS.Data.Domain.Core.Security;
 using LayersCMS.Util.Security.Interfaces;
 using ServiceStack.OrmLite;
 using System;
@@ -26,7 +26,7 @@ namespace LayersCMS.Data.Persistence.Setup
         /// Drops all tables matching the name of the LayersCmsDomainObjects to be created,
         /// then creates fresh tables for those domain objects.
         /// </summary>
-        public void Initialise(DatabaseSetupConfig config)
+        public void InitialiseCoreTables(DatabaseSetupConfig config)
         {
             // Get the connection string
             ConnectionStringSettings connectionString = ConfigurationManager.ConnectionStrings[config.ConnectionStringName];

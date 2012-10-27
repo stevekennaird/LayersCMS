@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using ServiceStack.DataAnnotations;
 
-namespace LayersCMS.Data.Domain.Pages
+namespace LayersCMS.Data.Domain.Core.Pages
 {
     public class LayersCmsPage : LayersCmsDomainObject
     {

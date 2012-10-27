@@ -1,4 +1,4 @@
-﻿using LayersCMS.Data.Domain.Security;
+﻿using LayersCMS.Data.Domain.Core.Security;
 using LayersCMS.Data.Persistence.Interfaces.Reads.Base;
 
 namespace LayersCMS.Data.Persistence.Interfaces.Reads

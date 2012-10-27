@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using ServiceStack.DataAnnotations;
 
-namespace LayersCMS.Data.Domain.Security
+namespace LayersCMS.Data.Domain.Core.Security
 {
     public class LayersCmsUser : LayersCmsDomainObject
     {

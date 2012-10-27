@@ -1,4 +1,4 @@
-﻿namespace LayersCMS.Data.Domain.Pages
+﻿namespace LayersCMS.Data.Domain.Core.Pages
 {
     public enum RedirectTypeEnum
     {

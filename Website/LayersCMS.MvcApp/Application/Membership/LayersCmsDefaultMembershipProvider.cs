@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
-using LayersCMS.Data.Domain.Security;
+using LayersCMS.Data.Domain.Core.Security;
 using LayersCMS.Data.Persistence.Interfaces.Reads;
 using LayersCMS.Util.Security.Interfaces;
 using StructureMap;

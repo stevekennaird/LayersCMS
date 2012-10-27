@@ -61,10 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Pages\LayersCmsPage.cs" />
-    <Compile Include="Domain\Pages\RedirectTypeEnum.cs" />
+    <Compile Include="Domain\Core\Pages\LayersCmsPage.cs" />
+    <Compile Include="Domain\Core\Pages\RedirectTypeEnum.cs" />
     <Compile Include="Domain\LayersCmsDomainObject.cs" />
-    <Compile Include="Domain\Security\LayersCmsUser.cs" />
+    <Compile Include="Domain\Core\Security\LayersCmsUser.cs" />
     <Compile Include="Persistence\Implementations\Reads\Base\LayersCmsReads.cs" />
     <Compile Include="Persistence\LayersCmsDb.cs" />
     <Compile Include="Persistence\Implementations\Reads\LayersCmsUserReads.cs" />

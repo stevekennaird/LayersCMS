@@ -47,7 +47,7 @@ namespace LayersCMS.MvcApp.Controllers
                     // Initialise the database
                     try
                     {
-                        new DatabaseSchemaSetup(_hashHelper).Initialise(new DatabaseSetupConfig()
+                        new DatabaseSchemaSetup(_hashHelper).InitialiseCoreTables(new DatabaseSetupConfig()
                         {
                             DatabaseDialect = new SqlServerOrmLiteDialectProvider(),
                             UserEmailAddress = model.UserEmailAddress,

@@ -1,4 +1,4 @@
-﻿using LayersCMS.Data.Domain.Pages;
+﻿using LayersCMS.Data.Domain.Core.Pages;
 using LayersCMS.Data.Persistence.Interfaces.Reads.Base;
 
 namespace LayersCMS.Data.Persistence.Interfaces.Reads
