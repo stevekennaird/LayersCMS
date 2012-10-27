@@ -1,5 +1,11 @@
 ﻿/* General */
 
+body {
+    background-image: url(../img/bg/subtlenet2.png); 
+    background-position: initial; 
+    background-repeat: repeat; 
+}
+
 .ctr {
     text-align: center!important;
 }

@@ -198,6 +198,7 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\admin\img\bg\subtlenet2.png" />
     <Content Include="Content\admin\img\icons\accept.png" />
     <Content Include="Content\admin\img\icons\add.png" />
     <Content Include="Content\admin\img\icons\anchor.png" />
@@ -1200,12 +1201,26 @@
     <Content Include="Content\admin\img\icons\zoom_out.png" />
     <Content Include="Content\admin\img\logo\layers-cms-logo.png" />
     <Content Include="Content\admin\css\layers-cms-admin.css" />
+    <Content Include="Content\admin\favicon.ico" />
     <Content Include="Content\admin\plugins\bootstrap\css\bootstrap.css" />
     <Content Include="Content\admin\plugins\bootstrap\css\bootstrap.min.css" />
     <Content Include="Content\admin\plugins\bootstrap\img\glyphicons-halflings-white.png" />
     <Content Include="Content\admin\plugins\bootstrap\img\glyphicons-halflings.png" />
     <Content Include="Content\admin\plugins\bootstrap\js\bootstrap.js" />
     <Content Include="Content\admin\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\admin\plugins\fancybox\blank.gif" />
+    <Content Include="Content\admin\plugins\fancybox\fancybox_loading.gif" />
+    <Content Include="Content\admin\plugins\fancybox\fancybox_overlay.png" />
+    <Content Include="Content\admin\plugins\fancybox\fancybox_sprite.png" />
+    <Content Include="Content\admin\plugins\fancybox\helpers\fancybox_buttons.png" />
+    <Content Include="Content\admin\plugins\fancybox\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="Content\admin\plugins\fancybox\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="Content\admin\plugins\fancybox\helpers\jquery.fancybox-media.js" />
+    <Content Include="Content\admin\plugins\fancybox\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="Content\admin\plugins\fancybox\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="Content\admin\plugins\fancybox\jquery.fancybox.css" />
+    <Content Include="Content\admin\plugins\fancybox\jquery.fancybox.js" />
+    <Content Include="Content\admin\plugins\fancybox\jquery.fancybox.pack.js" />
     <Content Include="Content\admin\plugins\tipsy\jquery.tipsy.js" />
     <Content Include="Content\admin\plugins\tipsy\tipsy.css" />
     <Content Include="Content\admin\scripts\layers-cms-scripts.js" />

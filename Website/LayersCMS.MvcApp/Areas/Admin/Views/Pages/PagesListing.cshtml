@@ -6,8 +6,8 @@
             <tr>
                 <th>Title</th>
                 <th>Url</th>
-                <th>Published</th>
-                <th class="ctr">Options</th>
+                <th class="ctr" style="width: 50px;">Live</th>
+                <th class="ctr" style="width: 170px;">Options</th>
             </tr>
         </thead>
         <tbody>
@@ -16,11 +16,11 @@
                 <tr>
                     <td>@item.WindowTitle</td>
                     <td>@item.Url</td>
-                    <td>-</td>
+                    <td class="ctr"><img src="@(String.Format("/content/admin/img/icons/{0}.png", (item.IsPublished ? "tick" : "cross")))" alt=""/></td>
                     <td class="ctr table-buttons tips">
                         <a href="#" title="Edit this page"><img src="~/Content/admin/img/icons/pencil.png"/></a>
                         <a href="#" title="Add sub page"><img src="~/Content/admin/img/icons/page_add.png"/></a>
-                        <a href="@item.Url" title="View on frontend" target="_blank"><img src="~/Content/admin/img/icons/magnifier.png"/></a>
+                        <a href="@item.Url" title="View on frontend" target="_blank" class="page-preview fancybox.iframe" data-page-title="@item.WindowTitle"><img src="~/Content/admin/img/icons/magnifier.png"/></a>
                         <a href="#" title="Delete this page"><img src="~/Content/admin/img/icons/bin.png"/></a>
                     </td>
                 </tr>

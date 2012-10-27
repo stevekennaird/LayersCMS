@@ -1,6 +1,8 @@
 ﻿@model LayersCMS.Data.Domain.Core.Pages.LayersCmsPage
 @{
     ViewBag.Title = Model.WindowTitle;
+    ViewBag.MetaDescription = Model.MetaDescription;
+    ViewBag.MetaKeywords = Model.MetaKeywords;
 }
 
 @if (!String.IsNullOrWhiteSpace(Model.PageTitle))
