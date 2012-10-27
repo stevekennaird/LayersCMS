@@ -1,5 +1,46 @@
-﻿@{
+﻿@model LayersCMS.MvcApp.Areas.Admin.Models.Auth.LoginModel
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutLoggedOut.cshtml";
     ViewBag.Title = "Login";
 }
 
-<h1>Login</h1>
+@using (Html.BeginForm("Login", "Auth", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.ValidationSummary(true)
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.Username, new { @class = "control-label" })
+        <div class="controls">
+            @Html.TextBoxFor(m => m.Username)
+            @Html.ValidationMessageFor(m => m.Username)
+        </div>
+    </div>
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+        <div class="controls">
+            @Html.PasswordFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+    </div>
+    
+    <div class="control-group">
+        <div class="controls">
+            <label class="checkbox">
+                @Html.CheckBoxFor(m => m.RememberMe)
+                Remember me
+            </label>
+            <input type="submit" class="btn btn-inverse" value="Sign in" />
+        </div>
+    </div>
+}
+
+
+
+
+@section Scripts
+{
+    <script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+}

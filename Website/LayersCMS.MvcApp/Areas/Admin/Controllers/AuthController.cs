@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using AttributeRouting.Web.Mvc;
+using LayersCMS.MvcApp.Areas.Admin.Controllers.Base;
+using LayersCMS.MvcApp.Areas.Admin.Models.Auth;
 using System.Web.Mvc;
 using System.Web.Security;
-using AttributeRouting;
-using AttributeRouting.Web.Mvc;
-using LayersCMS.Data.Persistence.Interfaces.Reads;
-using LayersCMS.MvcApp.Areas.Admin.Controllers.Base;
 
 namespace LayersCMS.MvcApp.Areas.Admin.Controllers
 {
@@ -31,22 +26,30 @@ namespace LayersCMS.MvcApp.Areas.Admin.Controllers
         }
 
         [POST("login"), AllowAnonymous]
-        public ActionResult Login(object model, string returnUrl)
+        public ActionResult Login(LoginModel model, string returnUrl)
         {
+            // Check the posted model is valid
             if (ModelState.IsValid)
             {
-                /*if (Membership.ValidateUser(model.EmailAddress, model.Password))
+                if (Membership.ValidateUser(model.Username, model.Password))
                 {
-                    FormsAuthentication.SetAuthCookie(model.EmailAddress, false);
+                    // The member has been validated, so sign them in using the FormsAuthentication framework
+                    FormsAuthentication.SetAuthCookie(model.Username, model.RememberMe);
+
+                    // If a returnUrl has been specified in the querystring, redirect the user to that url
+                    // as long as it's a relative url
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                     {
                         return Redirect(returnUrl);
                     }
-                    return RedirectToAction("Index", "Dashboard");
+
+                    // If no returnUrl has been specified, redirect to the default page in the admin area
+                    return RedirectToAction("List", "Pages");
                 }
 
-                ModelState.AddModelError("", "The email address or password provided is incorrect, or your account is inactive.");*/
+                // Membership validation failed, display the error message
+                ModelState.AddModelError("", "The email address or password provided is incorrect, or your account is inactive.");
             }
 
             // If we got this far, something failed, redisplay form

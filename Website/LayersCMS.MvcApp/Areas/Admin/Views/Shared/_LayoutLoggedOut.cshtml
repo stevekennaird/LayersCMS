@@ -2,4 +2,15 @@
     Layout = "_BaseLayout.cshtml";
 }
 
-@RenderBody()
+<div class="row-fluid">
+    <div class="span6 offset3">
+        <img src="~/Content/admin/img/logo/layers-cms-logo.png" alt="Layers CMS" id="logged-out-logo" />
+        @RenderBody()
+    </div>
+</div>
+
+
+
+@section Scripts {
+  @RenderSection("Scripts", false)
+}

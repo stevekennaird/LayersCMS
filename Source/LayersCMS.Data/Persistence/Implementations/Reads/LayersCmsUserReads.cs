@@ -35,7 +35,7 @@ namespace LayersCMS.Data.Persistence.Implementations.Reads
 
             using (IDbConnection conn = GetDbConnection())
             {
-                return conn.First<LayersCmsUser>(u => u.EmailAddress == emailAddress && u.Password == hashedPassword && u.Active);
+                return conn.FirstOrDefault<LayersCmsUser>(u => u.EmailAddress == emailAddress && u.Password == hashedPassword && u.Active == true);
             }
         }
 
