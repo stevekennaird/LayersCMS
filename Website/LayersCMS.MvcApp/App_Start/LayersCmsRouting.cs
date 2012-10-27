@@ -25,11 +25,11 @@ namespace LayersCMS.MvcApp.App_Start
 
         public static void RegisterCmsRoutes(RouteCollection routes)
         {
-            /*routes.MapRoute(
+            routes.MapRoute(
                 "LayersCmsPage", // Route name
                 "{url}", // URL with parameters
                 new { controller = "LayersCmsPage", action = "HandleUrl" } // Parameter defaults
-            );*/
+            );
         }
 
         public static void Start()
@@ -39,7 +39,7 @@ namespace LayersCMS.MvcApp.App_Start
             RegisterAttributeRoutes(RouteTable.Routes);
 
             // Only add the routes for the CMS if the CMS has been activated
-            string useCmsAppSetting = ConfigurationManager.AppSettings["UseCms"] ?? "";
+            string useCmsAppSetting = ConfigurationManager.AppSettings["LayersCMS:UseCms"] ?? "";
             if (useCmsAppSetting.ToLower() == "true")
                 RegisterCmsRoutes(RouteTable.Routes);
         }

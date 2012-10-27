@@ -1,0 +1,30 @@
+﻿@model IEnumerable<LayersCMS.Data.Domain.Core.Pages.LayersCmsPage>
+
+<div class="table-container">
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Url</th>
+                <th>Published</th>
+                <th class="ctr">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.WindowTitle</td>
+                    <td>@item.Url</td>
+                    <td>-</td>
+                    <td class="ctr table-buttons tips">
+                        <a href="#" title="Edit this page"><img src="~/Content/admin/img/icons/pencil.png"/></a>
+                        <a href="#" title="Add sub page"><img src="~/Content/admin/img/icons/page_add.png"/></a>
+                        <a href="@item.Url" title="View on frontend" target="_blank"><img src="~/Content/admin/img/icons/magnifier.png"/></a>
+                        <a href="#" title="Delete this page"><img src="~/Content/admin/img/icons/bin.png"/></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

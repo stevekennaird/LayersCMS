@@ -2,8 +2,24 @@
     Layout = "_BaseLayout.cshtml";
 }
 
-@RenderBody()
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div id="left-nav-container" class="span2">
+            <div id="left-nav" class="well sidebar-nav sidebar-nav-fixed">
+                <div id="main-logo">
+                    <img src="~/Content/admin/img/logo/layers-cms-logo.png" alt="Layers CMS" />
+                </div>
+                @Html.Partial("Partials/LeftNav")
+            </div>
+        </div>
+        <div class="span10">
+            <div id="main-content">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</div>
 
 @section Scripts {
-  @RenderSection("Scripts", false)
+    @RenderSection("Scripts", false)
 }

@@ -1,0 +1,11 @@
+﻿@model LayersCMS.Data.Domain.Core.Pages.LayersCmsPage
+@{
+    ViewBag.Title = Model.WindowTitle;
+}
+
+@if (!String.IsNullOrWhiteSpace(Model.PageTitle))
+{
+    <h1>@Html.Raw(Model.PageTitle)</h1>
+}
+
+@Html.Raw(Model.Content)

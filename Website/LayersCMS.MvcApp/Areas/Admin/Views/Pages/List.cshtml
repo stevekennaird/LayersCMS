@@ -1,5 +1,22 @@
-﻿@{
+﻿@model IEnumerable<LayersCMS.Data.Domain.Core.Pages.LayersCmsPage>
+
+@{
     ViewBag.Title = "Pages";
 }
 
 <h1>Pages</h1>
+
+<div class="button-bar">
+    <a href="#" class="btn btn-success"><i class="icon-plus icon-white"></i> Add a new page</a>
+</div>
+
+@if (Model == null || !Model.Any())
+{
+    @Html.Alert("No pages have been set up yet.", "Wow, it's empty!", AlertTypes.Error)
+}
+else
+{
+    <div id="pages-table">
+        @Html.Partial("PagesListing", Model)
+    </div>
+}

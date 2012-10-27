@@ -25,7 +25,10 @@ namespace LayersCMS.Data.Persistence.Implementations.Reads
 
         public LayersCmsUser GetById(int id)
         {
-            throw new NotImplementedException();
+            using (IDbConnection conn = GetDbConnection())
+            {
+                return conn.QuerySingle<LayersCmsUser>(new { Id = id });
+            }
         }
 
         public LayersCmsUser GetForLogin(string emailAddress, string plainTextPassword)
