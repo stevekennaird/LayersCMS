@@ -79,6 +79,7 @@ h5 {
 
 #main-content {
     margin-top: 20px;
+    margin-bottom: 20px;
     min-height: 500px;
     background-color: #fefefe;
     border: solid 1px #ddd;
@@ -125,4 +126,14 @@ table.table td.table-buttons a:hover {
 
 .ctr {
     text-align: center;
+}
+
+form.form-horizontal fieldset legend {
+    font-size: 15px;
+    line-height: 20px;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    border: 0;
+    width: auto;
+    font-weight: bold;
 }

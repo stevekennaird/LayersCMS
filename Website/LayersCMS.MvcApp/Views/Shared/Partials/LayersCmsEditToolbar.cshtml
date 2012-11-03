@@ -1,0 +1,10 @@
+﻿@*Want this to show for editable pages on the frontend for logged in users
+But will need to show via AJAX for caching purposes
+No styles have been created yet*@
+
+@if (Request.IsAuthenticated)
+{
+    <div id="layers-cms-toolbar">
+        <span>Layers CMS</span> <a href="@Url.Action("Edit", "Pages", new {area = "Admin", id = ViewBag.Id})">edit this page</a>
+    </div>
+}

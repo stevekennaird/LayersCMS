@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -23,6 +24,78 @@ namespace LayersCMS.MvcApp.Application.Helpers.Admin
             sb.Append(message);
             return new MvcHtmlString(sb.ToString());
         }
+
+
+        /// <summary>
+        /// Returns either "Yes" or "No" after calculating the boolean value for an object.
+        /// If a boolean value cannot be determined, "-" is returned.
+        /// </summary>
+        public static String FriendlyBoolean(this HtmlHelper helper, Object value)
+        {
+            if (value == null)
+                return "-";
+
+            var val = value.ToString();
+            if (!string.IsNullOrEmpty(val))
+            {
+                val = val.ToLower();
+                if (val == "true" || val == "yes" || val == "1")
+                    return "Yes";
+            }
+
+            return "No";
+        }
+
+        /// <summary>
+        /// Create a text input element for a model property, adding the necessary classes to turn the input into a datepicker
+        /// </summary>
+        public static MvcHtmlString CalendarFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression, string dateFormat = "dd/MM/yyyy")
+        {
+            string value = string.Empty;
+            var memberExpression = expression.Body as MemberExpression;
+
+            if (htmlHelper.ViewData.Model != null)
+            {
+                var prop = expression.Compile().Invoke(htmlHelper.ViewData.Model);
+                value = prop == null ? string.Empty : prop.ToString();
+            }
+            DateTime outputDate;
+            if (DateTime.TryParse(value, out outputDate))
+                value = outputDate.ToString(dateFormat);
+            else
+                value = "";
+
+            //string propertyName = memberExpression.Member.Name;
+            var sb = new StringBuilder("<div class=\"input-append date datepicker\">");
+            sb.AppendFormat("<input type=\"text\" class=\"input-medium\" id=\"{0}\" name=\"{0}\" value=\"{1}\" />", memberExpression.Member.Name, value);
+            sb.AppendFormat("<span class=\"add-on\"><i class=\"icon-calendar\"></i></span></div>");
+            return new MvcHtmlString(sb.ToString());
+        }
+
+        /// <summary>
+        /// Create a text input element for a model property, adding the necessary classes to turn the input into a timepicker
+        /// </summary>
+        public static MvcHtmlString TimepickerFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression)
+        {
+            string value = string.Empty;
+            var memberExpression = expression.Body as MemberExpression;
+
+            if (htmlHelper.ViewData.Model != null)
+            {
+                var prop = expression.Compile().Invoke(htmlHelper.ViewData.Model);
+                value = prop == null ? string.Empty : prop.ToString();
+            }
+
+            var sb = new StringBuilder("<div class=\"input-append bootstrap-timepicker-component\">");
+            sb.AppendFormat("<input type=\"text\" class=\"timepicker-default input-small\" id=\"{0}\" name=\"{0}\" value=\"{1}\" />", memberExpression.Member.Name, value);
+            sb.AppendFormat("<span class=\"add-on\"><i class=\"icon-time\"></i></span></div>");
+            return new MvcHtmlString(sb.ToString());
+        }
+
+
+
+
+
     }
 
     /// <summary>

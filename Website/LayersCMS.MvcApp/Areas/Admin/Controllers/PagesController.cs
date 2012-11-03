@@ -30,5 +30,11 @@ namespace LayersCMS.MvcApp.Areas.Admin.Controllers
             return View(rootLevelPages);
         }
 
+        [GET("pages/add")]
+        public ActionResult Add()
+        {
+            return View();
+        }
+
     }
 }

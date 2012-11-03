@@ -1,0 +1,117 @@
+﻿@model LayersCMS.MvcApp.Areas.Admin.Models.Auth.CmsPageModel
+
+@{
+    ViewBag.Title = "Add page";
+}
+
+<h1>Create a new page</h1>
+
+@using (Html.BeginForm("Add", "Pages", FormMethod.Post, new {@class = "form-horizontal"}))
+{
+    <fieldset>
+        <legend>Main Details</legend>
+        
+        <div class="control-group">
+            @Html.LabelFor(m => m.PageTitle, new { @class = "control-label" })
+            <div class="controls">
+                @Html.TextBoxFor(m => m.PageTitle, new {@class = "input-xxlarge"})
+                @Html.ValidationMessageFor(m => m.PageTitle)
+            </div>
+        </div>
+        
+        <div class="control-group">
+            @Html.LabelFor(m => m.Url, new { @class = "control-label" })
+            <div class="controls">
+                @Html.TextBoxFor(m => m.Url, new {@class = "input-xxlarge"})
+                @Html.ValidationMessageFor(m => m.Url)
+            </div>
+        </div>
+
+
+    </fieldset>
+    
+    <fieldset>
+        <legend>Publish Status</legend>
+        
+        <div class="control-group">
+            @Html.LabelFor(m => m.Active, new { @class = "control-label" })
+            <div class="controls">
+                @Html.CheckBoxFor(m => m.Active)
+                @Html.ValidationMessageFor(m => m.Active)
+            </div>
+        </div>
+        
+        <div class="control-group">
+            @Html.LabelFor(m => m.PublishStartDate, new { @class = "control-label" })
+            <div class="controls">
+                @Html.CalendarFor(m => m.PublishStartDate) 
+                @Html.TimepickerFor(m => m.PublishStartTime)
+                @Html.ValidationMessageFor(m => m.PublishStartDate)
+            </div>
+        </div>
+        
+        <div class="control-group">
+            @Html.LabelFor(m => m.PublishEndDate, new { @class = "control-label" })
+            <div class="controls">
+                @Html.CalendarFor(m => m.PublishEndDate)
+                @Html.TimepickerFor(m => m.PublishEndTime)
+                @Html.ValidationMessageFor(m => m.PublishEndDate)
+            </div>
+        </div>
+
+    </fieldset>
+    
+    <fieldset>
+        <legend>Meta Data</legend>
+        
+        <div class="control-group">
+            @Html.LabelFor(m => m.WindowTitle, new { @class = "control-label" })
+            <div class="controls">
+                @Html.TextBoxFor(m => m.WindowTitle, new {@class = "input-xxlarge"})
+                @Html.ValidationMessageFor(m => m.WindowTitle)
+            </div>
+        </div>
+        
+        <div class="control-group">
+            @Html.LabelFor(m => m.MetaDescription, new { @class = "control-label" })
+            <div class="controls">
+                @Html.TextBoxFor(m => m.MetaDescription, new {@class = "input-xxlarge"})
+                @Html.ValidationMessageFor(m => m.MetaDescription)
+            </div>
+        </div>
+        
+        <div class="control-group">
+            @Html.LabelFor(m => m.MetaKeywords, new { @class = "control-label" })
+            <div class="controls">
+                @Html.TextAreaFor(m => m.MetaKeywords, new {@class = "input-xxlarge"})
+                @Html.ValidationMessageFor(m => m.MetaKeywords)
+            </div>
+        </div>
+        
+
+    </fieldset>
+    
+    <fieldset>
+        <legend>Content</legend>
+        
+        @Html.LabelFor(m => m.Content, new { @class = "control-label" })
+        <div class="controls">
+            @Html.TextAreaFor(m => m.Content, new {@class = "wysiwyg"})
+            @Html.ValidationMessageFor(m => m.Content)
+        </div>
+
+    </fieldset>
+    
+    
+    <div class="form-actions">
+        <input type="submit" class="btn btn-primary" value="Save new page" />
+    </div>
+    
+}
+
+
+@section Scripts
+{
+    <script src="~/Content/admin/plugins/tinymce/jquery.tinymce.js"></script>
+    <script src="~/Content/admin/plugins/tinymce/layers_cms_tinymce.js"></script>
+}
