@@ -92,7 +92,20 @@ namespace LayersCMS.MvcApp.Application.Helpers.Admin
             return new MvcHtmlString(sb.ToString());
         }
 
-
+        /// <summary>
+        /// Create a standard form help icon with tooltip text
+        /// </summary>
+        /// <param name="tipText">The help message to display in the tooltip</param>
+        public static IHtmlString HelpIcon(this HtmlHelper helper, String tipText)
+        {
+            var builder = new TagBuilder("i");
+            builder.AddCssClass("help-tip");
+            builder.AddCssClass("icon-question-sign");
+            builder.MergeAttribute("title", tipText);
+            
+            // Render tag
+            return new MvcHtmlString(builder.ToString(TagRenderMode.Normal));
+        }
 
 
 

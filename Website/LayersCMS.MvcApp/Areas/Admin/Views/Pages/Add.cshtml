@@ -6,24 +6,28 @@
 
 <h1>Create a new page</h1>
 
-@using (Html.BeginForm("Add", "Pages", FormMethod.Post, new {@class = "form-horizontal"}))
+@using (Html.BeginForm("Add", "Pages", FormMethod.Post, new {@class = "form-horizontal form-help"}))
 {
     <fieldset>
         <legend>Main Details</legend>
         
         <div class="control-group">
             @Html.LabelFor(m => m.PageTitle, new { @class = "control-label" })
+            @Html.HelpIcon("The H1 tag, the main heading on the page")
             <div class="controls">
-                @Html.TextBoxFor(m => m.PageTitle, new {@class = "input-xxlarge"})
                 @Html.ValidationMessageFor(m => m.PageTitle)
+                @Html.TextBoxFor(m => m.PageTitle, new {@class = "input-xxlarge"})
             </div>
         </div>
         
         <div class="control-group">
             @Html.LabelFor(m => m.Url, new { @class = "control-label" })
+            @Html.HelpIcon("The address that the page can be accessed by")
             <div class="controls">
-                @Html.TextBoxFor(m => m.Url, new {@class = "input-xxlarge"})
                 @Html.ValidationMessageFor(m => m.Url)
+                <span>@Request.Url.GetLeftPart(UriPartial.Authority)</span>
+                @Html.TextBoxFor(m => m.Url, new {style = "width: 200px;"})
+                <span class="help-block">From the root, should start with a forward slash and must be unique, cannot end with a forward slash</span>
             </div>
         </div>
 
@@ -35,27 +39,32 @@
         
         <div class="control-group">
             @Html.LabelFor(m => m.Active, new { @class = "control-label" })
+            @Html.HelpIcon("When left unticked, this page will not be accessible on the front end, regardless of publish dates")
             <div class="controls">
-                @Html.CheckBoxFor(m => m.Active)
                 @Html.ValidationMessageFor(m => m.Active)
+                @Html.CheckBoxFor(m => m.Active)
             </div>
         </div>
         
         <div class="control-group">
             @Html.LabelFor(m => m.PublishStartDate, new { @class = "control-label" })
+            @Html.HelpIcon("The date that this page can be accessed from. A value must be set for the page to display on the front end")
             <div class="controls">
+                @Html.ValidationMessageFor(m => m.PublishStartDate)
+                @Html.ValidationMessageFor(m => m.PublishStartTime)
                 @Html.CalendarFor(m => m.PublishStartDate) 
                 @Html.TimepickerFor(m => m.PublishStartTime)
-                @Html.ValidationMessageFor(m => m.PublishStartDate)
             </div>
         </div>
         
         <div class="control-group">
             @Html.LabelFor(m => m.PublishEndDate, new { @class = "control-label" })
+            @Html.HelpIcon("The date that this page can be accessed until. This is usually left blank so a page never expires")
             <div class="controls">
+                @Html.ValidationMessageFor(m => m.PublishEndDate)
+                @Html.ValidationMessageFor(m => m.PublishEndTime)
                 @Html.CalendarFor(m => m.PublishEndDate)
                 @Html.TimepickerFor(m => m.PublishEndTime)
-                @Html.ValidationMessageFor(m => m.PublishEndDate)
             </div>
         </div>
 
@@ -66,25 +75,28 @@
         
         <div class="control-group">
             @Html.LabelFor(m => m.WindowTitle, new { @class = "control-label" })
+            @Html.HelpIcon("The title for this page shown at the top of the browser/tab. This is generally the title displayed in search engine results for this page too.")
             <div class="controls">
-                @Html.TextBoxFor(m => m.WindowTitle, new {@class = "input-xxlarge"})
                 @Html.ValidationMessageFor(m => m.WindowTitle)
+                @Html.TextBoxFor(m => m.WindowTitle, new {@class = "input-xxlarge"})
             </div>
         </div>
         
         <div class="control-group">
             @Html.LabelFor(m => m.MetaDescription, new { @class = "control-label" })
+            @Html.HelpIcon("A description of the page to show in search engine results. Should be relevant to the content on the page and contain keywords")
             <div class="controls">
-                @Html.TextBoxFor(m => m.MetaDescription, new {@class = "input-xxlarge"})
                 @Html.ValidationMessageFor(m => m.MetaDescription)
+                @Html.TextBoxFor(m => m.MetaDescription, new {@class = "input-xxlarge"})
             </div>
         </div>
         
         <div class="control-group">
             @Html.LabelFor(m => m.MetaKeywords, new { @class = "control-label" })
+            @Html.HelpIcon("A comma seperated list of key words and phrases in the content of your page. Helps with search engine optimisation")
             <div class="controls">
-                @Html.TextAreaFor(m => m.MetaKeywords, new {@class = "input-xxlarge"})
                 @Html.ValidationMessageFor(m => m.MetaKeywords)
+                @Html.TextAreaFor(m => m.MetaKeywords, new {@class = "input-xxlarge"})
             </div>
         </div>
         
@@ -94,16 +106,20 @@
     <fieldset>
         <legend>Content</legend>
         
-        @Html.LabelFor(m => m.Content, new { @class = "control-label" })
-        <div class="controls">
-            @Html.TextAreaFor(m => m.Content, new {@class = "wysiwyg"})
-            @Html.ValidationMessageFor(m => m.Content)
+        <div class="control-group">
+            @Html.LabelFor(m => m.Content, new { @class = "control-label" })
+            @Html.HelpIcon("The HTML content to display on the page")
+            <div class="controls">
+                @Html.ValidationMessageFor(m => m.Content)
+                @Html.TextAreaFor(m => m.Content, new {@class = "wysiwyg"})
+            </div>
         </div>
 
     </fieldset>
     
     
     <div class="form-actions">
+        @Html.HiddenFor(m => m.ParentId)
         <input type="submit" class="btn btn-primary" value="Save new page" />
     </div>
     

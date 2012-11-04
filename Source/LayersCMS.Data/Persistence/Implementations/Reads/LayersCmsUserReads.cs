@@ -3,12 +3,11 @@ using LayersCMS.Data.Persistence.Implementations.Reads.Base;
 using LayersCMS.Data.Persistence.Interfaces.Reads;
 using LayersCMS.Util.Security.Interfaces;
 using ServiceStack.OrmLite;
-using System;
 using System.Data;
 
 namespace LayersCMS.Data.Persistence.Implementations.Reads
 {
-    public class LayersCmsUserReads : LayersCmsReads, ILayersCmsUserReads
+    public class LayersCmsUserReads : LayersCmsReads<LayersCmsUser>, ILayersCmsUserReads
     {
         #region Constructor and Dependencies
 
@@ -22,14 +21,6 @@ namespace LayersCMS.Data.Persistence.Implementations.Reads
         #endregion
 
         #region Implementation of ILayersCmsReads<LayersCmsUser>
-
-        public LayersCmsUser GetById(int id)
-        {
-            using (IDbConnection conn = GetDbConnection())
-            {
-                return conn.QuerySingle<LayersCmsUser>(new { Id = id });
-            }
-        }
 
         public LayersCmsUser GetForLogin(string emailAddress, string plainTextPassword)
         {

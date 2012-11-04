@@ -165,6 +165,8 @@
     <Compile Include="Application\Helpers\HtmlHelperExtensions.cs" />
     <Compile Include="Application\Membership\LayersCmsDefaultMembershipProvider.cs" />
     <Compile Include="Application\Validation\HoneyPotAttribute.cs" />
+    <Compile Include="Application\Validation\RegexTime24HrAttribute.cs" />
+    <Compile Include="Application\Validation\RelativeUrlAttribute.cs" />
     <Compile Include="App_Start\AttributeRouting.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\LayersCmsRouting.cs" />
@@ -744,6 +746,7 @@
     <Content Include="Content\admin\img\icons\lorry_go.png" />
     <Content Include="Content\admin\img\icons\lorry_link.png" />
     <Content Include="Content\admin\img\icons\magifier_zoom_out.png" />
+    <Content Include="Content\admin\img\icons\magnifier-greyscale.png" />
     <Content Include="Content\admin\img\icons\magnifier.png" />
     <Content Include="Content\admin\img\icons\magnifier_zoom_in.png" />
     <Content Include="Content\admin\img\icons\male.png" />

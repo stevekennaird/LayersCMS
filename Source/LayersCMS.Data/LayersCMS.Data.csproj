@@ -67,6 +67,8 @@
     <Compile Include="Domain\Core\Security\LayersCmsUser.cs" />
     <Compile Include="Persistence\Implementations\Reads\Base\LayersCmsReads.cs" />
     <Compile Include="Persistence\Implementations\Reads\LayersCmsPageReads.cs" />
+    <Compile Include="Persistence\Implementations\Writes\Base\LayersCmsWrites.cs" />
+    <Compile Include="Persistence\Implementations\Writes\LayersCmsPageWrites.cs" />
     <Compile Include="Persistence\LayersCmsDb.cs" />
     <Compile Include="Persistence\Implementations\Reads\LayersCmsUserReads.cs" />
     <Compile Include="Persistence\Interfaces\Reads\Base\ILayersCmsReads.cs" />

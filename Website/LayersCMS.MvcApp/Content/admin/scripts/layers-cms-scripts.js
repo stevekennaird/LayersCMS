@@ -2,7 +2,8 @@
 
 // Tooltips
 layersCms.initTooltips = function () {
-    $('a.tip, .tips a').tipsy({ fade: true, gravity: 'n' });
+    $('a.tip, .tips a').tipsy({ fade: true, gravity: 'n', opacity: 0.85 });
+    $('i.help-tip').tipsy({ fade: true, gravity: 'sw', opacity: 0.85 });
 };
 
 // Page preview lightboxes
@@ -33,7 +34,20 @@ layersCms.initDateAndTimeControls = function () {
     });
 };
 
+// Bootstrap validation styles with MVC jQuery validation
+$.validator.setDefaults({
+    highlight: function (element) {
+        $(element).closest(".control-group").addClass("error");
+    },
+    unhighlight: function (element) {
+        console.log(element);
+        $(element).closest(".control-group").removeClass("error");
+    }
+});
 
+layersCms.initBootstrapValidationStyles = function() {
+    $('form .input-validation-error').closest(".control-group").addClass("error");
+};
 
 
 
@@ -50,6 +64,7 @@ layersCms.init = function() {
     layersCms.initTooltips();
     layersCms.initPagePreviews();
     layersCms.initDateAndTimeControls();
+    layersCms.initBootstrapValidationStyles();
 };
 
 

@@ -8,20 +8,8 @@ using System.Data;
 
 namespace LayersCMS.Data.Persistence.Implementations.Reads
 {
-    public class LayersCmsPageReads : LayersCmsReads,  ILayersCmsPageReads
+    public class LayersCmsPageReads : LayersCmsReads<LayersCmsPage>,  ILayersCmsPageReads
     {
-        #region Implementation of ILayersCmsReads<LayersCmsPage>
-
-        public LayersCmsPage GetById(int id)
-        {
-            using (IDbConnection conn = GetDbConnection())
-            {
-                return conn.QuerySingle<LayersCmsPage>(new {Id = id});
-            }
-        }
-
-        #endregion
-
         #region Implementation of ILayersCmsPageReads
 
         public LayersCmsPage GetByUrl(string url)
@@ -33,6 +21,10 @@ namespace LayersCMS.Data.Persistence.Implementations.Reads
             if (!url.StartsWith("/"))
                 url = String.Format("/{0}", url);
 
+            // If the url ends with a forward slash, remove it
+            url = url.TrimEnd('/');
+
+            // Query the database
             using (IDbConnection conn = GetDbConnection())
             {
                 return conn.QuerySingle<LayersCmsPage>(new { Url = url });

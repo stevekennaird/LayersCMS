@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
+using LayersCMS.MvcApp.Application.Validation;
 
 namespace LayersCMS.MvcApp.Areas.Admin.Models.Auth
 {
@@ -18,13 +20,13 @@ namespace LayersCMS.MvcApp.Areas.Admin.Models.Auth
         [StringLength(175), Display(Name = "Meta keywords")]
         public virtual String MetaKeywords { get; set; }
 
-        [Required, StringLength(250)]
+        [Required, StringLength(250), RelativeUrl]
         public virtual String Url { get; set; }
 
         [Required, StringLength(250), Display(Name = "Page title")]
         public virtual String PageTitle { get; set; }
 
-        [Required, StringLength(4000), Display(Name = "Page content")]
+        [Required, StringLength(4000), Display(Name = "Page content"), AllowHtml]
         public virtual String Content { get; set; }
 
         [StringLength(4000), Display(Name = "Custom scripts")]
@@ -33,11 +35,13 @@ namespace LayersCMS.MvcApp.Areas.Admin.Models.Auth
         [Display(Name = "Publish from")]
         public virtual DateTime? PublishStartDate { get; set; }
 
+        [RegexTime24Hr]
         public virtual String PublishStartTime { get; set; }
 
         [Display(Name = "Publish until")]
         public virtual DateTime? PublishEndDate { get; set; }
 
+        [RegexTime24Hr]
         public virtual String PublishEndTime { get; set; }
 
         [StringLength(250), Display(Name = "Redirect to")]
