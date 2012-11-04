@@ -16,7 +16,7 @@
                 <tr>
                     <td>@item.WindowTitle</td>
                     <td>@item.Url</td>
-                    <td class="ctr"><img src="@(String.Format("/content/admin/img/icons/{0}.png", (item.IsPublished ? "tick" : "cross")))" alt=""/></td>
+                    <td class="ctr">@Html.BooleanIcon(item.IsPublished)</td>
                     <td class="ctr table-buttons tips">
                         <a href="@Url.Action("Edit", new {id = item.Id})" title="Edit this page"><img src="~/Content/admin/img/icons/pencil.png"/></a>
                         <a href="@Url.Action("Add", new {parentId = item.Id})" title="Add sub page"><img src="~/Content/admin/img/icons/page_add.png"/></a>

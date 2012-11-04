@@ -94,7 +94,15 @@
                 });
             }
 
-            this.setDefaultTime(this.defaultTime);
+            // Custom code here as (unbelievably) the plugin doesn't work when a value has already been set for the input
+            // see https://github.com/jdewit/bootstrap-timepicker/issues/50
+            var currentValue = this.$element.val();
+            if (currentValue.length > 0) {
+                this.setDefaultTime(currentValue);
+            }
+            else {
+                this.setDefaultTime(this.defaultTime);
+            }
         }
 
         , showWidget: function(e) {

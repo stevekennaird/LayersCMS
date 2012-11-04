@@ -9,5 +9,8 @@ namespace LayersCMS.Data.Persistence.Interfaces.Writes.Base
 
         // Update the values held in the database for an existing record
         T Update(T obj);
+
+        // Delete an object by its id
+        void Delete(T obj);
     }
 }

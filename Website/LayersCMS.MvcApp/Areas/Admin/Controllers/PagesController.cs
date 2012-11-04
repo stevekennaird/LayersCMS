@@ -36,6 +36,34 @@ namespace LayersCMS.MvcApp.Areas.Admin.Controllers
             return View(rootLevelPages);
         }
 
+        [GET("pages/delete/{id}")]
+        public ActionResult Delete(int id)
+        {
+            LayersCmsPage pageToDelete = _pageReads.GetById(id);
+
+            // Return to the list page if the id is invalid
+            if (pageToDelete == null)
+                return RedirectToAction("List");
+
+            return View(pageToDelete);
+        }
+
+        [POST("pages/delete/{id}")]
+        public ActionResult Delete(int id, Boolean delete)
+        {
+            LayersCmsPage pageToDelete = _pageReads.GetById(id);
+
+            // Return to the list page if the id is invalid
+            if (pageToDelete != null && delete)
+            {
+                // Delete the page from the database
+                _pageWrites.Delete(pageToDelete);
+            }
+
+            // Redirect back to the pages list
+            return RedirectToAction("List");
+        }
+
         [GET("pages/add")]
         public ActionResult Add(int? parentId = null)
         {
@@ -85,7 +113,7 @@ namespace LayersCMS.MvcApp.Areas.Admin.Controllers
                         {
                             Active = model.Active,
                             Content = model.Content,
-                            CustomScripts = null,
+                            CustomScripts = model.CustomScripts,
                             MetaDescription = model.MetaDescription,
                             MetaKeywords = model.MetaKeywords,
                             ParentId = model.ParentId,
@@ -107,6 +135,86 @@ namespace LayersCMS.MvcApp.Areas.Admin.Controllers
             // Validation failed, show the original view with errors
             return View();
         }
+
+        [GET("pages/edit/{id}")]
+        public ActionResult Edit(int id)
+        {
+            LayersCmsPage pageToEdit = _pageReads.GetById(id);
+
+            // Return to the list page if the id is invalid
+            if (pageToEdit == null)
+                return RedirectToAction("List");
+
+            // Create the view model from the database page
+            var model = new CmsPageModel()
+                {
+                    Active = pageToEdit.Active,
+                    Content = pageToEdit.Content,
+                    CustomScripts = pageToEdit.CustomScripts,
+                    Id = pageToEdit.Id,
+                    MetaDescription = pageToEdit.MetaDescription,
+                    MetaKeywords = pageToEdit.MetaKeywords,
+                    PageTitle = pageToEdit.PageTitle,
+                    ParentId = pageToEdit.ParentId,
+                    PublishEndDate = pageToEdit.PublishEnd,
+                    PublishEndTime = (pageToEdit.PublishEnd.HasValue ? pageToEdit.PublishEnd.Value.ToString("HH:mm") : null),
+                    PublishStartDate = pageToEdit.PublishStart,
+                    PublishStartTime = (pageToEdit.PublishStart.HasValue ? pageToEdit.PublishStart.Value.ToString("HH:mm") : null),
+                    RedirectType = pageToEdit.RedirectType,
+                    RedirectUrl = pageToEdit.RedirectUrl,
+                    Url = pageToEdit.Url,
+                    WindowTitle = pageToEdit.WindowTitle
+                };
+
+            return View(model);
+        }
+
+        [POST("pages/edit/{id}")]
+        public ActionResult Edit(int id, CmsPageModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                // Check that the url is unique
+                LayersCmsPage pageWithSameUrl = _pageReads.GetByUrl(model.Url);
+                if (pageWithSameUrl != null && pageWithSameUrl.Id != id)
+                {
+                    ModelState.AddModelError("Url", "This url is already in use. Please enter a different url");
+                }
+
+
+                // Check if any further validation errors have been applied
+                if (ModelState.IsValid)
+                {
+                    // All validation passed
+                    // Update the record
+                    _pageWrites.Update(new LayersCmsPage()
+                    {
+                        Id = id,
+                        Active = model.Active,
+                        Content = model.Content,
+                        CustomScripts = model.CustomScripts,
+                        MetaDescription = model.MetaDescription,
+                        MetaKeywords = model.MetaKeywords,
+                        ParentId = model.ParentId,
+                        PageTitle = model.PageTitle,
+                        PublishEnd = MergeDateAndTime(model.PublishEndDate, model.PublishEndTime),
+                        PublishStart = MergeDateAndTime(model.PublishStartDate, model.PublishStartTime),
+                        RedirectTypeEnum = RedirectTypeEnum.None, // Not yet implemented
+                        RedirectUrl = null, // Not yet implemented
+                        Url = model.Url,
+                        WindowTitle = model.WindowTitle
+                    });
+
+                    // Redirect to the listing page
+                    return RedirectToAction("List");
+                }
+
+            }
+
+            // Validation failed, show the original view with errors
+            return View();
+        }
+
 
         #endregion
 

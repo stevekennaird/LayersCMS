@@ -1,12 +1,12 @@
 ﻿@model LayersCMS.MvcApp.Areas.Admin.Models.Auth.CmsPageModel
 
 @{
-    ViewBag.Title = "Add page";
+    ViewBag.Title = "Edit page";
 }
 
-<h1>Create a new page</h1>
+<h1>Edit an existing page</h1>
 
-@using (Html.BeginForm("Add", "Pages", FormMethod.Post, new {@class = "form-horizontal form-help"}))
+@using (Html.BeginForm("Edit", "Pages", new {id = Model.Id}, FormMethod.Post, new {@class = "form-horizontal form-help"}))
 {
     <fieldset>
         <legend>Main Details</legend>
@@ -126,10 +126,18 @@
 
     </fieldset>
     
+    @*    
+    ToDo: Come back to this
+    <fieldset>
+        <legend>Redirect</legend>
+        
+    </fieldset>*@
+    
     
     <div class="form-actions">
+        @Html.HiddenFor(m => m.Id)
         @Html.HiddenFor(m => m.ParentId)
-        <input type="submit" class="btn btn-primary" value="Save new page" />
+        <input type="submit" class="btn btn-primary" value="Save changes" />
     </div>
     
 }

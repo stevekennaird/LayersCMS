@@ -1603,6 +1603,8 @@
     <Content Include="Areas\Admin\Views\Shared\Partials\LeftNav.cshtml" />
     <Content Include="Areas\Admin\Views\Pages\PagesListing.cshtml" />
     <Content Include="Areas\Admin\Views\Pages\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Edit.cshtml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />

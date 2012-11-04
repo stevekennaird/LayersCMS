@@ -22,6 +22,7 @@ namespace LayersCMS.MvcApp.Application.Helpers.Admin
             if (!String.IsNullOrWhiteSpace(boldMessage))
                 sb.AppendFormat("<strong>{0}</strong> ", boldMessage);
             sb.Append(message);
+            sb.Append("</div>");
             return new MvcHtmlString(sb.ToString());
         }
 
@@ -44,6 +45,19 @@ namespace LayersCMS.MvcApp.Application.Helpers.Admin
             }
 
             return "No";
+        }
+
+        /// <summary>
+        /// Return either a tick or cross img tag, depending on the value passed
+        /// </summary>
+        public static IHtmlString BooleanIcon(this HtmlHelper helper, Boolean boolValue)
+        {
+            var builder = new TagBuilder("img");
+            builder.MergeAttribute("alt", boolValue ? "Yes" : "No");
+            builder.MergeAttribute("src", String.Format("/content/admin/img/icons/{0}.png", (boolValue ? "tick" : "cross")));
+
+            // Render tag
+            return new MvcHtmlString(builder.ToString(TagRenderMode.SelfClosing));
         }
 
         /// <summary>

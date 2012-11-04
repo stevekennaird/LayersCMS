@@ -29,7 +29,7 @@ namespace LayersCMS.MvcApp.Areas.Admin.Models.Auth
         [Required, StringLength(4000), Display(Name = "Page content"), AllowHtml]
         public virtual String Content { get; set; }
 
-        [StringLength(4000), Display(Name = "Custom scripts")]
+        [StringLength(4000), Display(Name = "Custom scripts"), AllowHtml]
         public virtual String CustomScripts { get; set; }
 
         [Display(Name = "Publish from")]
