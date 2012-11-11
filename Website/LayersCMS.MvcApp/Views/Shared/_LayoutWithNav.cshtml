@@ -12,5 +12,10 @@
     @RenderSection("scripts", required: false)
 }
 
+@section TrackingCode
+{
+    @Html.Action("GoogleAnalyticsTrackingCode", "Layout")
+}
+
 @RenderBody()
 

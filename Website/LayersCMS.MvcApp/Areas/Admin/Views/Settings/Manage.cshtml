@@ -1,0 +1,65 @@
+﻿@model LayersCMS.MvcApp.Areas.Admin.Models.Auth.MainSettingsModel
+
+@{
+    ViewBag.Title = "Manage settings";
+}
+
+<h1>Manage fundamental settings</h1>
+
+@if (Model.SavedSuccessfully)
+{
+    @Html.Alert("The settings have been saved successfully", "Good work!", AlertTypes.Success)
+}
+
+@using (Html.BeginForm("Manage", "Settings", FormMethod.Post, new { @class = "form-horizontal form-help" }))
+{
+    <fieldset>
+        <legend>Contact details</legend>
+        
+        <div class="control-group">
+            @Html.LabelFor(m => m.ContactEmailAddress, new { @class = "control-label" })
+            @Html.HelpIcon("The email address to display in contact details, and to send enquiries to")
+            <div class="controls">
+                @Html.ValidationMessageFor(m => m.ContactEmailAddress)
+                @Html.TextBoxFor(m => m.ContactEmailAddress, new {@class = "input-large"})
+            </div>
+        </div>
+        
+        <div class="control-group">
+            @Html.LabelFor(m => m.ContactPhoneNumber, new { @class = "control-label" })
+            @Html.HelpIcon("The telephone number to display in contact details")
+            <div class="controls">
+                @Html.ValidationMessageFor(m => m.ContactPhoneNumber)
+                @Html.TextBoxFor(m => m.ContactPhoneNumber, new {@class = "input-large"})
+            </div>
+        </div>
+
+    </fieldset>
+    
+    <fieldset>
+        <legend>Analytics</legend>
+        
+        <div class="control-group">
+            @Html.LabelFor(m => m.GoogleAnalyticsAccountId, new { @class = "control-label" })
+            @Html.HelpIcon("The Google Analytics account UA number, e.g. UA-00000-0")
+            <div class="controls">
+                @Html.ValidationMessageFor(m => m.GoogleAnalyticsAccountId)
+                @Html.TextBoxFor(m => m.GoogleAnalyticsAccountId, new {@class = "input-large"})
+                <span class="help-block">Leave blank if you don't want to use Google Analytics</span>
+            </div>
+        </div>
+
+    </fieldset>
+    
+    <div class="form-actions">
+        <input type="submit" class="btn btn-primary" value="Save settings" />
+    </div>
+}
+
+
+
+@section Scripts
+{
+    <script src="~/Content/admin/plugins/tinymce/jquery.tinymce.js"></script>
+    <script src="~/Content/admin/plugins/tinymce/layers_cms_tinymce.js"></script>
+}

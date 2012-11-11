@@ -182,8 +182,10 @@
     <Compile Include="Areas\Admin\Controllers\AuthController.cs" />
     <Compile Include="Areas\Admin\Controllers\Base\LayersCmsAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\PagesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SettingsController.cs" />
     <Compile Include="Areas\Admin\Models\Auth\CmsPageModel.cs" />
     <Compile Include="Areas\Admin\Models\Auth\LoginModel.cs" />
+    <Compile Include="Areas\Admin\Models\Auth\MainSettingsModel.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\CmsConfigController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
@@ -192,6 +194,7 @@
     <Compile Include="Application\DependencyResolution\IoC.cs" />
     <Compile Include="Application\DependencyResolution\StructureMapDependencyResolver.cs" />
     <Compile Include="Application\DependencyResolution\StructureMapDependencyScope.cs" />
+    <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyResolver.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
@@ -1612,6 +1615,7 @@
     <Content Include="Areas\Admin\Views\Pages\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Pages\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Pages\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Settings\Manage.cshtml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -1656,6 +1660,7 @@
     <Content Include="Views\Shared\_BaseLayout.cshtml" />
     <Content Include="Views\Shared\_LayoutWithoutNav.cshtml" />
     <Content Include="Views\CmsConfig\_ViewStart.cshtml" />
+    <Content Include="Views\Layout\GoogleAnalyticsTrackingCode.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Source\LayersCMS.Data\LayersCMS.Data.csproj">

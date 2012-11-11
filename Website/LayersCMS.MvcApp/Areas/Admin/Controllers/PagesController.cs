@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using AttributeRouting.Web.Mvc;
 using LayersCMS.Data.Domain.Core.Pages;
 using LayersCMS.Data.Persistence.Interfaces.Reads;
+using LayersCMS.Data.Persistence.Interfaces.Writes;
 using LayersCMS.Data.Persistence.Interfaces.Writes.Base;
 using LayersCMS.MvcApp.Areas.Admin.Controllers.Base;
 using LayersCMS.MvcApp.Areas.Admin.Models.Auth;

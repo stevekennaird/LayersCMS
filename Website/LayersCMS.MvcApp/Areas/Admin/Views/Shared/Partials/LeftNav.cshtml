@@ -3,8 +3,8 @@
     @*<li class="active"><a href="#"><i class="icon-home"></i> Home</a></li>*@ @*ToDo: later, apply the active class to active link*@
     <li><a href="@Url.Action("List", "Pages")"><i class="icon-file"></i> Pages</a></li>
     <li class="nav-header">Configuration</li>
-    <li><a href="#"><i class="icon-user"></i> Profile</a></li>
-    <li><a href="#"><i class="icon-wrench"></i> Settings</a></li>
+    <li><a href="@Url.Action("Manage", "Settings")"><i class="icon-wrench"></i> Settings</a></li>
+    <li><a href="#"><i class="icon-user"></i> User details</a></li>
     <li class="divider"></li>
     <li>
         <a href="@Url.Action("LogOut", "Auth")"><i class="icon-remove"></i> Sign out</a>

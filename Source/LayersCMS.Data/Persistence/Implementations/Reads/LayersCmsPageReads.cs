@@ -52,8 +52,8 @@ namespace LayersCMS.Data.Persistence.Implementations.Reads
             using (IDbConnection conn = GetDbConnection())
             {
                 List<NavigationPageDetails> output = conn.Select<NavigationPageDetails>(typeof (LayersCmsPage),
-                                                                "Active = {0} AND ShowInNavigation = {1} AND ISNULL(ParentId, 0) = {2}",
-                                                                true, true, parentId.GetValueOrDefault(0));
+                                                                "Active = {0} AND ShowInNavigation = {1} AND ISNULL(ParentId, 0) = {2} AND PublishStart <= {3} AND (PublishEnd IS NULL OR PublishEnd >= {3})",
+                                                                true, true, parentId.GetValueOrDefault(0), DateTime.Now);
                 return output.OrderBy(p => p.SortOrder).ToList();
             }
         }
@@ -62,7 +62,7 @@ namespace LayersCMS.Data.Persistence.Implementations.Reads
         {
             using (IDbConnection conn = GetDbConnection())
             {
-                return conn.Scalar<int>("select max(SortOrder) + 1 from LayersCmsPage where isnull(ParentId, 0) = {0}", parentId.GetValueOrDefault(0));
+                return conn.Scalar<int>("SELECT MAX(SortOrder) + 1 FROM LayersCmsPage WHERE ISNULL(ParentId, 0) = {0}", parentId.GetValueOrDefault(0));
             }
         }
 

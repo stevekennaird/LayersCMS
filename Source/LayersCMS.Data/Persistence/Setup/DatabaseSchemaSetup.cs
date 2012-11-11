@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 using LayersCMS.Data.Domain.Core.Pages;
 using LayersCMS.Data.Domain.Core.Security;
+using LayersCMS.Data.Domain.Core.Settings;
 using LayersCMS.Util.Security.Interfaces;
 using ServiceStack.OrmLite;
 using System;
@@ -81,6 +82,15 @@ namespace LayersCMS.Data.Persistence.Setup
                         Active = true,
                         EmailAddress = config.UserEmailAddress,
                         Password = _hashHelper.HashString(config.UserPassword) // A hashed version of the plain text password
+                    });
+
+                // Create the settings table and add some default settings
+                dbConn.DropAndCreateTable<LayersCmsSetting>();
+                dbConn.SaveAll(new []
+                    {
+                        new LayersCmsSetting(){SettingType = LayersCmsSettingType.ContactEmailAddress, Value = "email@address.com"},
+                        new LayersCmsSetting(){SettingType = LayersCmsSettingType.ContactTelephoneNumber, Value = "0000 000000"},
+                        new LayersCmsSetting(){SettingType = LayersCmsSettingType.GoogleAnalyticsAccountId, Value = ""}
                     });
 
             }            
