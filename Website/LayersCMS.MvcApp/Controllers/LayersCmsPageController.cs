@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using LayersCMS.Data.Domain.Core.Pages;
 using LayersCMS.Data.Persistence.Interfaces.Reads;
+using LayersCMS.Data.Persistence.Models.Pages;
 using LayersCMS.MvcApp.Controllers.Base;
 
 namespace LayersCMS.MvcApp.Controllers
@@ -46,6 +48,13 @@ namespace LayersCMS.MvcApp.Controllers
 
             // Page must not be published. Return a 404.
             return PageNotFound();
+        }
+
+        [ChildActionOnly]
+        public ActionResult RootNavigation()
+        {
+            IEnumerable<NavigationPageDetails> model = _cmsPageReads.GetForNavigation(null);
+            return PartialView(model);
         }
 
     }

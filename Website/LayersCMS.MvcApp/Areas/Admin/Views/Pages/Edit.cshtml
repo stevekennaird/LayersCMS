@@ -12,6 +12,15 @@
         <legend>Main Details</legend>
         
         <div class="control-group">
+            @Html.LabelFor(m => m.DisplayName, new { @class = "control-label" })
+            @Html.HelpIcon("The name of the page, will be displayed in navigation menus")
+            <div class="controls">
+                @Html.ValidationMessageFor(m => m.DisplayName)
+                @Html.TextBoxFor(m => m.DisplayName, new {@class = "input-large"})
+            </div>
+        </div>
+        
+        <div class="control-group">
             @Html.LabelFor(m => m.PageTitle, new { @class = "control-label" })
             @Html.HelpIcon("The H1 tag, the main heading on the page")
             <div class="controls">
@@ -121,6 +130,15 @@
             <div class="controls">
                 @Html.ValidationMessageFor(m => m.CustomScripts)
                 @Html.TextAreaFor(m => m.CustomScripts)
+            </div>
+        </div>
+        
+        <div class="control-group">
+            @Html.LabelFor(m => m.ShowInNavigation, new { @class = "control-label" })
+            @Html.HelpIcon("When unticked, this page will not show as a link in navigation menus")
+            <div class="controls">
+                @Html.ValidationMessageFor(m => m.ShowInNavigation)
+                @Html.CheckBoxFor(m => m.ShowInNavigation)
             </div>
         </div>
 

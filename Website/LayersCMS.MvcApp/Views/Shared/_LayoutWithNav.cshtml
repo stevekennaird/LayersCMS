@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "_BaseLayout.cshtml";
+}
+
+@section RootNav
+{
+    @Html.Action("RootNavigation", "LayersCmsPage")
+}
+
+@section scripts
+{
+    @RenderSection("scripts", required: false)
+}
+
+@RenderBody()
+

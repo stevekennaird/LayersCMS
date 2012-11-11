@@ -46,9 +46,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\ServiceStack.OrmLite.SqlServer.3.9.26\lib\ServiceStack.OrmLite.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.Text, Version=3.9.26.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ServiceStack.Text, Version=3.9.27.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\ServiceStack.Text.3.9.26\lib\net35\ServiceStack.Text.dll</HintPath>
+      <HintPath>..\..\packages\ServiceStack.Text.3.9.27\lib\net35\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -76,6 +76,7 @@
     <Compile Include="Persistence\Interfaces\Reads\ILayersCmsPageReads.cs" />
     <Compile Include="Persistence\Interfaces\Writes\Base\ILayersCmsPageWrites.cs" />
     <Compile Include="Persistence\Interfaces\Writes\Base\ILayersCmsWrites.cs" />
+    <Compile Include="Persistence\Models\Pages\NavigationPageDetails.cs" />
     <Compile Include="Persistence\Setup\DatabaseSchemaSetup.cs" />
     <Compile Include="Persistence\Setup\DatabaseSetupConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

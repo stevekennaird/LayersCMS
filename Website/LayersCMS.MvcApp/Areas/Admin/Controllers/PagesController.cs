@@ -86,6 +86,7 @@ namespace LayersCMS.MvcApp.Areas.Admin.Controllers
                 {
                     Active = true,
                     ParentId = parentId,
+                    ShowInNavigation = true,
                     Url = baseUrl // Should always start with a forward slash
                 };
 
@@ -114,6 +115,7 @@ namespace LayersCMS.MvcApp.Areas.Admin.Controllers
                             Active = model.Active,
                             Content = model.Content,
                             CustomScripts = model.CustomScripts,
+                            DisplayName = model.DisplayName,
                             MetaDescription = model.MetaDescription,
                             MetaKeywords = model.MetaKeywords,
                             ParentId = model.ParentId,
@@ -122,6 +124,8 @@ namespace LayersCMS.MvcApp.Areas.Admin.Controllers
                             PublishStart = MergeDateAndTime(model.PublishStartDate, model.PublishStartTime),
                             RedirectTypeEnum = RedirectTypeEnum.None,
                             RedirectUrl = null,
+                            ShowInNavigation = model.ShowInNavigation,
+                            SortOrder = _pageReads.GetMaxSortOrderForParent(model.ParentId),
                             Url = model.Url,
                             WindowTitle = model.WindowTitle
                         });
@@ -151,6 +155,7 @@ namespace LayersCMS.MvcApp.Areas.Admin.Controllers
                     Active = pageToEdit.Active,
                     Content = pageToEdit.Content,
                     CustomScripts = pageToEdit.CustomScripts,
+                    DisplayName = pageToEdit.DisplayName,
                     Id = pageToEdit.Id,
                     MetaDescription = pageToEdit.MetaDescription,
                     MetaKeywords = pageToEdit.MetaKeywords,
@@ -162,6 +167,7 @@ namespace LayersCMS.MvcApp.Areas.Admin.Controllers
                     PublishStartTime = (pageToEdit.PublishStart.HasValue ? pageToEdit.PublishStart.Value.ToString("HH:mm") : null),
                     RedirectType = pageToEdit.RedirectType,
                     RedirectUrl = pageToEdit.RedirectUrl,
+                    ShowInNavigation = pageToEdit.ShowInNavigation,
                     Url = pageToEdit.Url,
                     WindowTitle = pageToEdit.WindowTitle
                 };
@@ -193,6 +199,7 @@ namespace LayersCMS.MvcApp.Areas.Admin.Controllers
                         Active = model.Active,
                         Content = model.Content,
                         CustomScripts = model.CustomScripts,
+                        DisplayName = model.DisplayName,
                         MetaDescription = model.MetaDescription,
                         MetaKeywords = model.MetaKeywords,
                         ParentId = model.ParentId,
@@ -201,6 +208,7 @@ namespace LayersCMS.MvcApp.Areas.Admin.Controllers
                         PublishStart = MergeDateAndTime(model.PublishStartDate, model.PublishStartTime),
                         RedirectTypeEnum = RedirectTypeEnum.None, // Not yet implemented
                         RedirectUrl = null, // Not yet implemented
+                        ShowInNavigation = model.ShowInNavigation,
                         Url = model.Url,
                         WindowTitle = model.WindowTitle
                     });
@@ -212,7 +220,7 @@ namespace LayersCMS.MvcApp.Areas.Admin.Controllers
             }
 
             // Validation failed, show the original view with errors
-            return View();
+            return View(model);
         }
 
 

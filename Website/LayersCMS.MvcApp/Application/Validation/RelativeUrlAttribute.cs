@@ -24,7 +24,7 @@ namespace LayersCMS.MvcApp.Application.Validation
             // If the string value is null or an empty string, return true. Use RequiredAttribute to overcome this.
             if (string.IsNullOrEmpty(url)) return true;
 
-            return url.StartsWith("/") && Uri.IsWellFormedUriString(url, UriKind.Relative) && !url.EndsWith("/");
+            return url == "/" || (url.StartsWith("/") && Uri.IsWellFormedUriString(url, UriKind.Relative) && !url.EndsWith("/"));
         }
     }
 }

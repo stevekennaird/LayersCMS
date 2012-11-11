@@ -56,6 +56,24 @@ namespace LayersCMS.Data.Persistence.Setup
                 // Create the LayersCmsPage table
                 dbConn.DropAndCreateTable<LayersCmsPage>();
 
+                // Add the homepage
+                dbConn.Save(new LayersCmsPage()
+                    {
+                        Active = true,
+                        Content = "<p>Welcome to Layers CMS</p>",
+                        DisplayName = "Home",
+                        PageTitle = "Index",
+                        ParentId = null,
+                        PublishEnd = null,
+                        PublishStart = DateTime.Now.Date,
+                        RedirectTypeEnum = RedirectTypeEnum.None,
+                        RedirectUrl = null,
+                        ShowInNavigation = true,
+                        SortOrder = 0,
+                        Url = "/",
+                        WindowTitle = "Index"
+                    });
+
                 // Create the LayersCmsUser table and insert the first user
                 dbConn.DropAndCreateTable<LayersCmsUser>();
                 dbConn.Save(new LayersCmsUser()

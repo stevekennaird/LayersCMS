@@ -6,6 +6,7 @@ namespace LayersCMS.Data.Domain.Core.Pages
 {
     public class LayersCmsPage : LayersCmsDomainObject
     {
+        [Index]
         public virtual Int32? ParentId { get; set; }
 
         [Required, StringLength(75)]
@@ -16,6 +17,9 @@ namespace LayersCMS.Data.Domain.Core.Pages
 
         [StringLength(175)]
         public virtual String MetaKeywords { get; set; }
+
+        [Required, StringLength(50)]
+        public virtual String DisplayName { get; set; }
 
         [Index(Unique = true), Required, StringLength(250)]
         public virtual String Url { get; set; }
@@ -29,8 +33,10 @@ namespace LayersCMS.Data.Domain.Core.Pages
         [StringLength(4000)]
         public virtual String CustomScripts { get; set; }
 
+        [Index]
         public virtual DateTime? PublishStart { get; set; }
 
+        [Index]
         public virtual DateTime? PublishEnd { get; set; }
 
         [StringLength(250)]
@@ -38,8 +44,14 @@ namespace LayersCMS.Data.Domain.Core.Pages
 
         public virtual Int32? RedirectType { get; set; }
 
+        [Index]
         public virtual Boolean Active { get; set; }
 
+        [Index]
+        public virtual Boolean ShowInNavigation { get; set; }
+
+        [Index]
+        public virtual Int32 SortOrder { get; set; }
 
 
         [Ignore]

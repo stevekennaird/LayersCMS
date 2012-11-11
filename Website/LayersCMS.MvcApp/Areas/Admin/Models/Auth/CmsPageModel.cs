@@ -51,6 +51,13 @@ namespace LayersCMS.MvcApp.Areas.Admin.Models.Auth
 
         public virtual Boolean Active { get; set; }
 
+        [Display(Name = "Show in navigation")]
+        public virtual Boolean ShowInNavigation { get; set; }
+
+        [Required, StringLength(50), Display(Name = "Display name")]
+        public virtual String DisplayName { get; set; }
+
+        public virtual Int32 SortOrder { get; set; }
 
     }
 }

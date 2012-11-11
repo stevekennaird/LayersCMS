@@ -4,7 +4,7 @@
     <table class="table table-bordered table-striped table-hover">
         <thead>
             <tr>
-                <th>Title</th>
+                <th>Name</th>
                 <th>Url</th>
                 <th class="ctr" style="width: 50px;">Live</th>
                 <th class="ctr" style="width: 170px;">Options</th>
@@ -14,7 +14,7 @@
             @foreach(var item in Model)
             {
                 <tr>
-                    <td>@item.WindowTitle</td>
+                    <td>@item.DisplayName</td>
                     <td>@item.Url</td>
                     <td class="ctr">@Html.BooleanIcon(item.IsPublished)</td>
                     <td class="ctr table-buttons tips">

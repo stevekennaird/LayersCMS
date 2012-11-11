@@ -1,0 +1,15 @@
+﻿@model IEnumerable<LayersCMS.Data.Persistence.Models.Pages.NavigationPageDetails>
+
+<div id="main-nav">
+    <ul>
+        @if (Model != null && Model.Any())
+        {
+            foreach(var page in Model.OrderBy(x => x.SortOrder))
+            {
+                <li><a href="@page.Url">@page.DisplayName</a></li>
+            }   
+        }
+        <li>@Html.ActionLink("Contact Us", "BasicForm", "ContactUs")</li>
+    </ul>
+    <div class="clearfix"></div>
+</div>
