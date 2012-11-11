@@ -14,7 +14,9 @@
             @foreach(var item in Model)
             {
                 <tr>
-                    <td>@item.DisplayName</td>
+                    <td>
+                        @Html.ActionLink(item.DisplayName, "Edit", new {id = item.Id})
+                    </td>
                     <td>@item.Url</td>
                     <td class="ctr">@Html.BooleanIcon(item.IsPublished)</td>
                     <td class="ctr table-buttons tips">
