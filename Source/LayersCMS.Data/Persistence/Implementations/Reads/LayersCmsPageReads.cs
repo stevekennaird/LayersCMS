@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Linq;
 using LayersCMS.Data.Domain.Core.Pages;
 using LayersCMS.Data.Persistence.Implementations.Reads.Base;
@@ -33,7 +34,14 @@ namespace LayersCMS.Data.Persistence.Implementations.Reads
             // Query the database
             using (IDbConnection conn = GetDbConnection())
             {
-                return conn.QuerySingle<LayersCmsPage>(new { Url = url });
+                try
+                {
+                    return conn.QuerySingle<LayersCmsPage>(new { Url = url });
+                }
+                catch (SqlException e)
+                {
+                    throw new Exception("If the LayersCmsPage table doesn't exist, the initial configuration hasn't been completed. Go to the CmsConfig action.", e);
+                }
             }
         }
 

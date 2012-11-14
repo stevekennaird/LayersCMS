@@ -1,0 +1,16 @@
+﻿@model IEnumerable<LayersCMS.Data.Domain.Core.Security.LayersCmsUser>
+@{
+    ViewBag.Title = "Users";
+}
+
+<h1>User management</h1>
+
+@if (Model != null && Model.Any())
+{
+    <ul>
+        @foreach(var user in Model)
+        {
+            <li>@user.EmailAddress</li>
+        }
+    </ul>
+}

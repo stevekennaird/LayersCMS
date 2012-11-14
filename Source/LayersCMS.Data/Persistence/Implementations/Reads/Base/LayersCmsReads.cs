@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 using LayersCMS.Data.Domain;
 using ServiceStack.OrmLite;
 
@@ -11,6 +12,14 @@ namespace LayersCMS.Data.Persistence.Implementations.Reads.Base
             using (IDbConnection conn = GetDbConnection())
             {
                 return conn.QuerySingle<T>(new { Id = id });
+            }
+        }
+
+        public IEnumerable<T> GetAll()
+        {
+            using (IDbConnection conn = GetDbConnection())
+            {
+                return conn.Select<T>();
             }
         }
     }

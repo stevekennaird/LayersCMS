@@ -169,6 +169,7 @@
     <Compile Include="Application\Config\LayersCmsConfigHelper.cs" />
     <Compile Include="Application\Config\LayersCMSConfigurationSection.cs" />
     <Compile Include="Application\Helpers\Admin\AdminHtmlHelperExtensions.cs" />
+    <Compile Include="Application\Helpers\Admin\AdminUrlHelperExtensions.cs" />
     <Compile Include="Application\Helpers\HtmlHelperExtensions.cs" />
     <Compile Include="Application\Membership\LayersCmsDefaultMembershipProvider.cs" />
     <Compile Include="Application\Validation\HoneyPotAttribute.cs" />
@@ -183,6 +184,7 @@
     <Compile Include="Areas\Admin\Controllers\Base\LayersCmsAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\PagesController.cs" />
     <Compile Include="Areas\Admin\Controllers\SettingsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Admin\Models\Auth\CmsPageModel.cs" />
     <Compile Include="Areas\Admin\Models\Auth\LoginModel.cs" />
     <Compile Include="Areas\Admin\Models\Auth\MainSettingsModel.cs" />
@@ -1616,6 +1618,7 @@
     <Content Include="Areas\Admin\Views\Pages\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Pages\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Settings\Manage.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\List.cshtml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
