@@ -33,6 +33,22 @@ namespace LayersCMS.Data.Persistence.Implementations.Reads
             }
         }
 
+        public LayersCmsUser GetByEmailAddress(string emailAddress)
+        {
+            using (IDbConnection conn = GetDbConnection())
+            {
+                return conn.FirstOrDefault<LayersCmsUser>(u => u.EmailAddress == emailAddress);
+            }
+        }
+
+        public LayersCmsUser GetByEmailAddress(string emailAddress, int excludeUserId)
+        {
+            using (IDbConnection conn = GetDbConnection())
+            {
+                return conn.FirstOrDefault<LayersCmsUser>(u => u.EmailAddress == emailAddress && u.Id != excludeUserId);
+            }
+        }
+
         #endregion
     }
 }

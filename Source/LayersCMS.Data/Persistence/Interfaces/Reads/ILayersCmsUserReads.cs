@@ -6,5 +6,7 @@ namespace LayersCMS.Data.Persistence.Interfaces.Reads
     public interface ILayersCmsUserReads : ILayersCmsReads<LayersCmsUser>
     {
         LayersCmsUser GetForLogin(string emailAddress, string plainTextPassword);
+        LayersCmsUser GetByEmailAddress(string emailAddress);
+        LayersCmsUser GetByEmailAddress(string emailAddress, int excludeUserId);
     }
 }

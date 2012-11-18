@@ -73,8 +73,10 @@
     <Compile Include="Persistence\Implementations\Writes\Base\LayersCmsWrites.cs" />
     <Compile Include="Persistence\Implementations\Writes\LayersCmsPageWrites.cs" />
     <Compile Include="Persistence\Implementations\Writes\LayersCmsSettingWrites.cs" />
+    <Compile Include="Persistence\Implementations\Writes\LayersCmsUserWrites.cs" />
     <Compile Include="Persistence\Interfaces\Reads\ILayersCmsSettingReads.cs" />
     <Compile Include="Persistence\Interfaces\Writes\ILayersCmsSettingWrites.cs" />
+    <Compile Include="Persistence\Interfaces\Writes\ILayersCmsUserWrites.cs" />
     <Compile Include="Persistence\LayersCmsDb.cs" />
     <Compile Include="Persistence\Implementations\Reads\LayersCmsUserReads.cs" />
     <Compile Include="Persistence\Interfaces\Reads\Base\ILayersCmsReads.cs" />

@@ -70,7 +70,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Newtonsoft.Json.4.5.10\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.Common">
+    <Reference Include="ServiceStack.Common, Version=3.9.25.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\ServiceStack.Common.3.9.25\lib\net35\ServiceStack.Common.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Interfaces, Version=3.9.25.0, Culture=neutral, processorArchitecture=MSIL">
@@ -185,9 +186,12 @@
     <Compile Include="Areas\Admin\Controllers\PagesController.cs" />
     <Compile Include="Areas\Admin\Controllers\SettingsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
-    <Compile Include="Areas\Admin\Models\Auth\CmsPageModel.cs" />
+    <Compile Include="Areas\Admin\Models\Pages\CmsPageModel.cs" />
     <Compile Include="Areas\Admin\Models\Auth\LoginModel.cs" />
-    <Compile Include="Areas\Admin\Models\Auth\MainSettingsModel.cs" />
+    <Compile Include="Areas\Admin\Models\Settings\MainSettingsModel.cs" />
+    <Compile Include="Areas\Admin\Models\Users\AddUserModel.cs" />
+    <Compile Include="Areas\Admin\Models\Users\EditUserModel.cs" />
+    <Compile Include="Areas\Admin\Models\Users\CurrentUserModel.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\CmsConfigController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
@@ -1619,6 +1623,9 @@
     <Content Include="Areas\Admin\Views\Pages\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Settings\Manage.cshtml" />
     <Content Include="Areas\Admin\Views\Users\List.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\EditCurrentUser.cshtml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />

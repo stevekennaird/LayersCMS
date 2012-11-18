@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using LayersCMS.MvcApp.Application.Validation;
 
-namespace LayersCMS.MvcApp.Areas.Admin.Models.Auth
+namespace LayersCMS.MvcApp.Areas.Admin.Models.Pages
 {
     public class CmsPageModel
     {

@@ -1,0 +1,52 @@
+﻿@model LayersCMS.MvcApp.Areas.Admin.Models.Users.CurrentUserModel
+
+@{
+    ViewBag.Title = "Edit your details";
+}
+
+<h1>Edit your details</h1>
+
+@using (Html.BeginForm("EditCurrentUser", "Users", FormMethod.Post, new { @class = "form-horizontal form-help" }))
+{
+    <fieldset>
+        <legend>Main details</legend>
+
+        <div class="control-group">
+            @Html.LabelFor(m => m.EmailAddress, new { @class = "control-label" })
+            @Html.HelpIcon("The email address for your account")
+            <div class="controls">
+                @Html.ValidationMessageFor(m => m.EmailAddress)
+                @Html.TextBoxFor(m => m.EmailAddress, new { @class = "input-large" })
+            </div>
+        </div>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Change password (optional)</legend>
+
+        <div class="control-group">
+            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+            @Html.HelpIcon("Your new password. Case sensitive.")
+            <div class="controls">
+                @Html.ValidationMessageFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password, new { @class = "input-medium" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+            @Html.HelpIcon("The same password as above. The passwords must match.")
+            <div class="controls">
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "input-medium" })
+            </div>
+        </div>
+
+    </fieldset>
+
+    <div class="form-actions">
+        <input type="submit" class="btn btn-primary" value="Save changes" />
+    </div>
+
+}

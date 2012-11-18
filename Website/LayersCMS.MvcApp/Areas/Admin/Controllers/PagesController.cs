@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using AttributeRouting.Web.Mvc;
+﻿using AttributeRouting.Web.Mvc;
 using LayersCMS.Data.Domain.Core.Pages;
 using LayersCMS.Data.Persistence.Interfaces.Reads;
 using LayersCMS.Data.Persistence.Interfaces.Writes;
-using LayersCMS.Data.Persistence.Interfaces.Writes.Base;
 using LayersCMS.MvcApp.Areas.Admin.Controllers.Base;
-using LayersCMS.MvcApp.Areas.Admin.Models.Auth;
+using LayersCMS.MvcApp.Areas.Admin.Models.Pages;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace LayersCMS.MvcApp.Areas.Admin.Controllers
 {
@@ -20,7 +18,9 @@ namespace LayersCMS.MvcApp.Areas.Admin.Controllers
         private readonly ILayersCmsPageWrites _pageWrites;
 
         public PagesController(ILayersCmsPageReads pageReads, 
-                                ILayersCmsPageWrites pageWrites)
+                                ILayersCmsPageWrites pageWrites,
+                                ILayersCmsUserReads userReads)
+                                : base(userReads)
         {
             _pageReads = pageReads;
             _pageWrites = pageWrites;

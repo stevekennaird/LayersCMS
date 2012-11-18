@@ -3,7 +3,7 @@ using LayersCMS.Data.Domain.Core.Settings;
 using LayersCMS.Data.Persistence.Interfaces.Reads;
 using LayersCMS.Data.Persistence.Interfaces.Writes;
 using LayersCMS.MvcApp.Areas.Admin.Controllers.Base;
-using LayersCMS.MvcApp.Areas.Admin.Models.Auth;
+using LayersCMS.MvcApp.Areas.Admin.Models.Settings;
 using System.Web.Mvc;
 
 namespace LayersCMS.MvcApp.Areas.Admin.Controllers
@@ -15,8 +15,10 @@ namespace LayersCMS.MvcApp.Areas.Admin.Controllers
         private readonly ILayersCmsSettingReads _settingReads;
         private readonly ILayersCmsSettingWrites _settingWrites;
 
-        public SettingsController(ILayersCmsSettingReads settingReads, 
-                                    ILayersCmsSettingWrites settingWrites)
+        public SettingsController(ILayersCmsSettingReads settingReads,
+                                    ILayersCmsSettingWrites settingWrites,
+                                    ILayersCmsUserReads userReads)
+                                    : base(userReads)
         {
             _settingReads = settingReads;
             _settingWrites = settingWrites;

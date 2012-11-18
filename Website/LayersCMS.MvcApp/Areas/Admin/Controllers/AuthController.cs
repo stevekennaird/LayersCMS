@@ -1,4 +1,5 @@
 ﻿using AttributeRouting.Web.Mvc;
+using LayersCMS.Data.Persistence.Interfaces.Reads;
 using LayersCMS.MvcApp.Areas.Admin.Controllers.Base;
 using LayersCMS.MvcApp.Areas.Admin.Models.Auth;
 using System.Web.Mvc;
@@ -10,14 +11,9 @@ namespace LayersCMS.MvcApp.Areas.Admin.Controllers
     {
         #region Constructor and Dependencies
 
-        /*private readonly ILayersCmsUserReads _userReads;
+        public AuthController(ILayersCmsUserReads userReads) : base(userReads) { }
 
-        public AuthController(ILayersCmsUserReads userReads)
-        {
-            _userReads = userReads;
-        }*/
-
-        #endregion  
+        #endregion
 
         [GET("login"), AllowAnonymous]
         public ActionResult Login()

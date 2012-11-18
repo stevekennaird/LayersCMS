@@ -1,0 +1,62 @@
+﻿@model LayersCMS.MvcApp.Areas.Admin.Models.Users.EditUserModel
+
+@{
+    ViewBag.Title = "Edit user";
+}
+
+<h1>Edit a user's details</h1>
+
+@using (Html.BeginForm("Edit", "Users", new { id = Model.Id }, FormMethod.Post, new { @class = "form-horizontal form-help" }))
+{
+    <fieldset>
+        <legend>Main details</legend>
+
+        <div class="control-group">
+            @Html.LabelFor(m => m.EmailAddress, new { @class = "control-label" })
+            @Html.HelpIcon("The email address of the user")
+            <div class="controls">
+                @Html.ValidationMessageFor(m => m.EmailAddress)
+                @Html.TextBoxFor(m => m.EmailAddress, new { @class = "input-large" })
+            </div>
+        </div>
+        
+        <div class="control-group">
+            @Html.LabelFor(m => m.Active, new { @class = "control-label" })
+            @Html.HelpIcon("Whether or not the user can log in to this CMS")
+            <div class="controls">
+                @Html.ValidationMessageFor(m => m.Active)
+                @Html.CheckBoxFor(m => m.Active)
+            </div>
+        </div>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Change password (optional)</legend>
+
+        <div class="control-group">
+            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+            @Html.HelpIcon("The password for the new user. Case sensitive.")
+            <div class="controls">
+                @Html.ValidationMessageFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password, new { @class = "input-medium" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+            @Html.HelpIcon("The same password as above. The passwords must match.")
+            <div class="controls">
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "input-medium" })
+            </div>
+        </div>
+
+    </fieldset>
+
+    <div class="form-actions">
+        @Html.HiddenFor(m => m.Id)
+        <input type="submit" class="btn btn-primary" value="Update user" />
+    </div>
+
+}

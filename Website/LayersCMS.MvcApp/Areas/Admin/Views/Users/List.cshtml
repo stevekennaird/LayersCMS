@@ -5,12 +5,33 @@
 
 <h1>User management</h1>
 
+<div class="button-bar">
+    <a href="@Url.Action("Add")" class="btn btn-success"><i class="icon-plus icon-white"></i> Add a new user</a>
+</div>
+
 @if (Model != null && Model.Any())
 {
-    <ul>
-        @foreach(var user in Model)
-        {
-            <li>@user.EmailAddress</li>
-        }
-    </ul>
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th class="ctr" style="width: 70px;">Active</th>
+                <th class="ctr" style="width: 170px;">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var user in Model.OrderBy(x => x.Active).ThenBy(x => x.EmailAddress))
+            {
+                <tr>
+                    <td>@Html.ActionLink(user.EmailAddress, "Edit", new { id = user.Id })</td>
+                    <td class="ctr">@Html.BooleanIcon(user.Active)</td>
+                    <td class="ctr table-buttons tips">
+                        <a href="@Url.Action("Edit", new { id = user.Id })" title="Edit this user">
+                            <img src="~/Content/admin/img/icons/pencil.png"/>
+                        </a>
+                    </td>
+                </tr>
+            }    
+        </tbody>
+    </table>
 }

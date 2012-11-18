@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace LayersCMS.MvcApp.Areas.Admin.Models.Auth
+namespace LayersCMS.MvcApp.Areas.Admin.Models.Settings
 {
     public class MainSettingsModel
     {
