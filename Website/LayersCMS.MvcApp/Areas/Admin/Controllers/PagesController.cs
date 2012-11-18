@@ -194,25 +194,25 @@ namespace LayersCMS.MvcApp.Areas.Admin.Controllers
                 {
                     // All validation passed
                     // Update the record
-                    _pageWrites.Update(new LayersCmsPage()
-                    {
-                        Id = id,
-                        Active = model.Active,
-                        Content = model.Content,
-                        CustomScripts = model.CustomScripts,
-                        DisplayName = model.DisplayName,
-                        MetaDescription = model.MetaDescription,
-                        MetaKeywords = model.MetaKeywords,
-                        ParentId = model.ParentId,
-                        PageTitle = model.PageTitle,
-                        PublishEnd = MergeDateAndTime(model.PublishEndDate, model.PublishEndTime),
-                        PublishStart = MergeDateAndTime(model.PublishStartDate, model.PublishStartTime),
-                        RedirectTypeEnum = RedirectTypeEnum.None, // Not yet implemented
-                        RedirectUrl = null, // Not yet implemented
-                        ShowInNavigation = model.ShowInNavigation,
-                        Url = model.Url,
-                        WindowTitle = model.WindowTitle
-                    });
+                    LayersCmsPage existingPage = _pageReads.GetById(id);
+
+                    existingPage.Active = model.Active;
+                    existingPage.Content = model.Content;
+                    existingPage.CustomScripts = model.CustomScripts;
+                    existingPage.DisplayName = model.DisplayName;
+                    existingPage.MetaDescription = model.MetaDescription;
+                    existingPage.MetaKeywords = model.MetaKeywords;
+                    existingPage.ParentId = model.ParentId;
+                    existingPage.PageTitle = model.PageTitle;
+                    existingPage.PublishEnd = MergeDateAndTime(model.PublishEndDate, model.PublishEndTime);
+                    existingPage.PublishStart = MergeDateAndTime(model.PublishStartDate, model.PublishStartTime);
+                    existingPage.RedirectTypeEnum = RedirectTypeEnum.None; // Not yet implemented
+                    existingPage.RedirectUrl = null; // Not yet implemented
+                    existingPage.ShowInNavigation = model.ShowInNavigation;
+                    existingPage.Url = model.Url;
+                    existingPage.WindowTitle = model.WindowTitle;
+
+                    _pageWrites.Update(existingPage);
 
                     // Redirect to the listing page
                     return RedirectToAction("List");
