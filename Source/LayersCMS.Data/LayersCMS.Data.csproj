@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Core\Media\LayersCmsImage.cs" />
     <Compile Include="Domain\Core\Pages\LayersCmsPage.cs" />
     <Compile Include="Domain\Core\Pages\RedirectTypeEnum.cs" />
     <Compile Include="Domain\Core\Settings\LayersCmsSetting.cs" />
@@ -68,13 +69,17 @@
     <Compile Include="Domain\LayersCmsDomainObject.cs" />
     <Compile Include="Domain\Core\Security\LayersCmsUser.cs" />
     <Compile Include="Persistence\Implementations\Reads\Base\LayersCmsReads.cs" />
+    <Compile Include="Persistence\Implementations\Reads\LayersCmsImageReads.cs" />
     <Compile Include="Persistence\Implementations\Reads\LayersCmsPageReads.cs" />
     <Compile Include="Persistence\Implementations\Reads\LayersCmsSettingReads.cs" />
     <Compile Include="Persistence\Implementations\Writes\Base\LayersCmsWrites.cs" />
+    <Compile Include="Persistence\Implementations\Writes\LayersCmsImageWrites.cs" />
     <Compile Include="Persistence\Implementations\Writes\LayersCmsPageWrites.cs" />
     <Compile Include="Persistence\Implementations\Writes\LayersCmsSettingWrites.cs" />
     <Compile Include="Persistence\Implementations\Writes\LayersCmsUserWrites.cs" />
+    <Compile Include="Persistence\Interfaces\Reads\ILayersCmsImageReads.cs" />
     <Compile Include="Persistence\Interfaces\Reads\ILayersCmsSettingReads.cs" />
+    <Compile Include="Persistence\Interfaces\Writes\ILayersCmsImageWrites.cs" />
     <Compile Include="Persistence\Interfaces\Writes\ILayersCmsSettingWrites.cs" />
     <Compile Include="Persistence\Interfaces\Writes\ILayersCmsUserWrites.cs" />
     <Compile Include="Persistence\LayersCmsDb.cs" />

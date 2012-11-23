@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using LayersCMS.Data.Domain.Core.Media;
 using LayersCMS.Data.Domain.Core.Pages;
 using LayersCMS.Data.Domain.Core.Security;
 using LayersCMS.Data.Domain.Core.Settings;
@@ -83,6 +84,9 @@ namespace LayersCMS.Data.Persistence.Setup
                         EmailAddress = config.UserEmailAddress,
                         Password = _hashHelper.HashString(config.UserPassword) // A hashed version of the plain text password
                     });
+
+                // Create the LayersCmsImage table
+                dbConn.DropAndCreateTable<LayersCmsImage>();
 
                 // Create the settings table and add some default settings
                 dbConn.DropAndCreateTable<LayersCmsSetting>();
