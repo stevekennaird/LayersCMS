@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayersCMS.Util", "Source\La
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayersCMS.MvcApp", "Website\LayersCMS.MvcApp\LayersCMS.MvcApp.csproj", "{502366A6-88E3-47AD-ABE0-8030B45B882A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayersCMS.Images", "Source\LayersCMS.Images\LayersCMS.Images.csproj", "{2AEBF4B9-5457-4CCE-BA95-E0D19D3DA3D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{502366A6-88E3-47AD-ABE0-8030B45B882A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{502366A6-88E3-47AD-ABE0-8030B45B882A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{502366A6-88E3-47AD-ABE0-8030B45B882A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AEBF4B9-5457-4CCE-BA95-E0D19D3DA3D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AEBF4B9-5457-4CCE-BA95-E0D19D3DA3D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AEBF4B9-5457-4CCE-BA95-E0D19D3DA3D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AEBF4B9-5457-4CCE-BA95-E0D19D3DA3D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{3725E6F4-F386-4DA7-ACEE-B0A26BAE3780} = {AC161342-A923-4F7C-9E03-3816CE4CD7A3}
 		{A5CEE352-0640-40AF-A6F5-14456408098A} = {AC161342-A923-4F7C-9E03-3816CE4CD7A3}
+		{2AEBF4B9-5457-4CCE-BA95-E0D19D3DA3D0} = {AC161342-A923-4F7C-9E03-3816CE4CD7A3}
 		{502366A6-88E3-47AD-ABE0-8030B45B882A} = {99A345E3-C144-4561-96E7-9B495B69A455}
 	EndGlobalSection
 EndGlobal
