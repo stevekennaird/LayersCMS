@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ImageResizer">
+      <HintPath>..\..\packages\ImageResizer.3.2.4\lib\ImageResizer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -43,13 +46,17 @@
     <Compile Include="Manipulation\IImageManipulator.cs" />
     <Compile Include="Manipulation\ImageResizeDetails.cs" />
     <Compile Include="Manipulation\ImageResizeType.cs" />
+    <Compile Include="Manipulation\Implementations\ImageResizerManipulator.cs" />
+    <Compile Include="Manipulation\StandardImageManipulator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\IImageStore.cs" />
     <Compile Include="Storage\ImageFileStore.cs" />
     <Compile Include="Storage\ImageRetrieveResult.cs" />
     <Compile Include="Storage\ImageSaveResult.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LayersCMS.Data\LayersCMS.Data.csproj">
       <Project>{3725E6F4-F386-4DA7-ACEE-B0A26BAE3780}</Project>

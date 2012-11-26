@@ -21,6 +21,8 @@ using System.IO;
 using System.Web.Hosting;
 using LayersCMS.Data.Persistence.Implementations.Reads;
 using LayersCMS.Data.Persistence.Interfaces.Reads;
+using LayersCMS.Images.Manipulation;
+using LayersCMS.Images.Manipulation.Implementations;
 using LayersCMS.Images.Storage;
 using LayersCMS.Util.Security.Implementations;
 using LayersCMS.Util.Security.Interfaces;
@@ -42,7 +44,7 @@ namespace LayersCMS.MvcApp.Application.DependencyResolution {
                             String cmsUploadPath = HostingEnvironment.MapPath("~/Content/_files/");
                             String cmsImageUploadPath = Path.Combine(cmsUploadPath, @"img/");
                             x.For<IImageStore>().Use<ImageFileStore>().Ctor<String>("folderPath").Is(cmsImageUploadPath);
-
+                            x.For<IImageManipulator>().Use<ImageResizerManipulator>();
 
                             x.SetAllProperties(y =>
                                 {
