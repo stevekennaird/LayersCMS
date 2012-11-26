@@ -1677,6 +1677,10 @@
       <Project>{3725E6F4-F386-4DA7-ACEE-B0A26BAE3780}</Project>
       <Name>LayersCMS.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Source\LayersCMS.Images\LayersCMS.Images.csproj">
+      <Project>{2AEBF4B9-5457-4CCE-BA95-E0D19D3DA3D0}</Project>
+      <Name>LayersCMS.Images</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Source\LayersCMS.Util\LayersCMS.Util.csproj">
       <Project>{A5CEE352-0640-40AF-A6F5-14456408098A}</Project>
       <Name>LayersCMS.Util</Name>
@@ -1685,7 +1689,9 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\_files\img\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
