@@ -1,4 +1,5 @@
-﻿@model IEnumerable<LayersCMS.Data.Domain.Core.Pages.LayersCmsPage>
+﻿@using LayersCMS.Data.Domain.Core.Pages
+@model IEnumerable<LayersCMS.Data.Domain.Core.Pages.LayersCmsPage>
 
 <div class="table-container">
     <table class="table table-bordered table-striped table-hover">
@@ -11,31 +12,39 @@
             </tr>
         </thead>
         <tbody>
-            @foreach(var item in Model.OrderBy(x => x.SortOrder))
+            @foreach(var item in Model.Where(x => x.ParentId == null).OrderBy(x => x.SortOrder))
             {
-                <tr>
-                    <td>
-                        @Html.ActionLink(item.DisplayName, "Edit", new {id = item.Id})
-                    </td>
-                    <td>@item.Url</td>
-                    <td class="ctr">@Html.BooleanIcon(item.IsPublished)</td>
-                    <td class="ctr table-buttons tips">
-                        <a href="@Url.Action("Edit", new {id = item.Id})" title="Edit this page"><img src="~/Content/admin/img/icons/pencil.png"/></a>
-                        <a href="@Url.Action("Add", new {parentId = item.Id})" title="Add sub page"><img src="~/Content/admin/img/icons/page_add.png"/></a>
-                        
-                        @if (item.IsPublished)
-                        {
-                            <a href="@item.Url" title="View on frontend" target="_blank" class="page-preview fancybox.iframe" data-page-title="@item.WindowTitle"><img src="~/Content/admin/img/icons/magnifier.png"/></a>    
-                        }
-                        else
-                        {
-                            <a title="Not live. Cannot view page on frontend."><img src="~/Content/admin/img/icons/magnifier-greyscale.png"/></a>
-                        }
-                        
-                        <a href="@Url.Action("Delete", new {id = item.Id})" title="Delete this page"><img src="~/Content/admin/img/icons/bin.png"/></a>
-                    </td>
-                </tr>
+                @RenderPages(item, 0)
             }
         </tbody>
     </table>
 </div>
+
+@helper RenderPages(LayersCmsPage page, int depth) {
+    <tr>
+        <td style="padding-left: @string.Format("{0}px", 10 + (depth * 10))">
+            @Html.ActionLink(page.DisplayName, "Edit", new {id = page.Id})
+        </td>
+        <td>@page.Url</td>
+        <td class="ctr">@Html.BooleanIcon(page.IsPublished)</td>
+        <td class="ctr table-buttons tips">
+            <a href="@Url.Action("Edit", new {id = page.Id})" title="Edit this page"><img src="~/Content/admin/img/icons/pencil.png"/></a>
+            <a href="@Url.Action("Add", new {parentId = page.Id})" title="Add sub page"><img src="~/Content/admin/img/icons/page_add.png"/></a>
+                        
+            @if (page.IsPublished)
+            {
+                <a href="@page.Url" title="View on frontend" target="_blank" class="page-preview fancybox.iframe" data-page-title="@page.WindowTitle"><img src="~/Content/admin/img/icons/magnifier.png"/></a>    
+            }
+            else
+            {
+                <a title="Not live. Cannot view page on frontend."><img src="~/Content/admin/img/icons/magnifier-greyscale.png"/></a>
+            }
+                        
+            <a href="@Url.Action("Delete", new {id = page.Id})" title="Delete this page"><img src="~/Content/admin/img/icons/bin.png"/></a>
+        </td>
+    </tr>
+    foreach (var childPage in Model.Where(x => x.ParentId.HasValue && x.ParentId.Value == page.Id))
+    {
+        @RenderPages(childPage, depth + 1)
+    }
+}
