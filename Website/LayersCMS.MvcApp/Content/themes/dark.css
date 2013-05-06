@@ -30,3 +30,7 @@ body {
 #header a, #footer a {
     color: #FCFCFC;
 }
+
+ul.drop li:hover, ul.drop li:hover ul li {
+    background-color: #777;
+}

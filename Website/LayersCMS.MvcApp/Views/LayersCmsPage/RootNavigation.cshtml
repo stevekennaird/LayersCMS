@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<LayersCMS.Data.Persistence.Models.Pages.NavigationPageDetails>
 
 <div id="main-nav">
-    <ul>
+    <ul class="drop">
         @if (Model != null && Model.Any())
         {
             foreach(var page in Model.Where(x => x.ParentId == null).OrderBy(x => x.SortOrder))

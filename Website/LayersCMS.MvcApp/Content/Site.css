@@ -30,24 +30,19 @@
     left: 400px;
 }
 
-#header #main-nav ul {
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px;
-}
 
-#header #main-nav ul li {
-    float: left;
-    font-size: 16px;
-    line-height: 16px;
-}
+/* Main Nav */
+ul.drop a { display:block; color: #fff; font-size: 14px; text-decoration: none;padding: 5px 10px;}
+ul.drop, ul.drop li, ul.drop ul { list-style: none; margin: 0; padding: 0;}
+ul.drop { position: relative; z-index: 597; float: left; }
+ul.drop li { float: left; line-height: 1.3em; vertical-align: middle; zoom: 1; padding: 0;margin-right: 5px; }
+ul.drop li.hover, ul.drop li:hover { position: relative; z-index: 599; cursor: default; }
+ul.drop ul { visibility: hidden; position: absolute; top: 100%; left: 0; z-index: 598; width: 195px; }
+ul.drop ul li { float: none; }
+ul.drop ul ul { top: -2px; left: 100%; }
+ul.drop li:hover > ul { visibility: visible }
+ul.drop li:hover ul li { /* Background for this should be specified in the theme css with this selector */ }
 
-#header #main-nav ul li a {
-    text-decoration: none;
-    display: block;
-    padding: 5px 10px 0 10px;
-    margin-right: 20px;
-}
 
 #header #contact-details {
     position: absolute;
