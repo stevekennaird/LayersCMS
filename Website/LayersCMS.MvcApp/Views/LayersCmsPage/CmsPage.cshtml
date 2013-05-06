@@ -5,7 +5,7 @@
     ViewBag.MetaKeywords = Model.MetaKeywords;
 }
 
-@if (!String.IsNullOrWhiteSpace(Model.PageTitle))
+@if (!String.IsNullOrWhiteSpace(Model.PageTitle) && Request.Url.LocalPath != "/")
 {
     <h1>@Html.Raw(Model.PageTitle)</h1>
 }

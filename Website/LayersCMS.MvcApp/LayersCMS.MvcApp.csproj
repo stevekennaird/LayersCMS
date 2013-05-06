@@ -1525,8 +1525,12 @@
     <Content Include="Content\bootstrap\css\bootstrap.css" />
     <Content Include="Content\bootstrap\img\glyphicons-halflings-white.png" />
     <Content Include="Content\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="Content\img\logo\logo-h100.png" />
+    <Content Include="Content\img\logo\logo-large.png" />
+    <Content Include="Content\themes\img\bg\cream_dust.png" />
     <Content Include="Content\img\icons\general\email.png" />
     <Content Include="Content\img\icons\general\telephone.png" />
+    <Content Include="Content\img\logo\logo-w250.png" />
     <Content Include="Content\jquery-themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\jquery-themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\jquery-themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -1590,6 +1594,7 @@
     <Content Include="Content\nivo\nivo-gallery.css" />
     <Content Include="Content\reset.css" />
     <Content Include="Content\site.css" />
+    <Content Include="Content\themes\aim.css" />
     <Content Include="Content\themes\dark.css" />
     <Content Include="Content\themes\pink.css" />
     <Content Include="Content\themes\standard.css" />

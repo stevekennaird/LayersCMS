@@ -7,7 +7,8 @@
     <title>@ViewBag.Title</title>
     <meta name="description" content="@ViewBag.MetaDescription" />
     <meta name="keywords" content="@ViewBag.MetaKeywords" />
-
+    
+    <link href='http://fonts.googleapis.com/css?family=Didact+Gothic' rel='stylesheet' type='text/css' />
     @Styles.Render("~/Content/css")
     @Styles.Render("~/plugins/nivogallerycss")
 
@@ -20,7 +21,7 @@
         <div id="outer-container">
             <div id="header">
                 <a id="logo-home" href="/">
-                    <img src="http://placehold.it/250x100" alt="@Html.LayersCmsConfigCompanyName()" width="250" height="100"/>
+                    <img src="~/Content/img/logo/logo-h100.png" alt="@Html.LayersCmsConfigCompanyName()" width="175" height="100"/>
                 </a>
                 
                 @RenderSection("RootNav", required: false)
