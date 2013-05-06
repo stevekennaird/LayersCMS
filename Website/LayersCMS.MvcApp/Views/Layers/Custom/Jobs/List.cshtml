@@ -1,0 +1,44 @@
+﻿@model IEnumerable<LayersCMS.Layers.BestNetwork.Jobs.Domain.Job>
+
+@{
+    ViewBag.Title = "Jobs";
+}
+
+<h1>Find a job</h1>
+
+<h2>Jobs with Best Recruitment Network</h2>
+
+@if (!Model.Any())
+{
+    <p>There aren't any jobs currently being advertised.</p>
+    <p>Please check back soon.</p>
+}
+else
+{
+    <p>
+        We specialise in jobs in the following areas Agriculture, Care, Commercial, Construction work and drivers, Domestic and Catering, Industrial, including warehouse operatives and Transport - from LGV drivers to dustcart drivers and multi-drop van drivers throughout the UK. We are sure that we have something that would suit your skills and experience.
+    </p>
+    
+    <h3>Browse our jobs:</h3>
+    
+    <div id="job-list">
+        @foreach (var job in Model)
+        {
+            <div class="job">
+                <div class="title">
+                    <a href="@string.Format("/jobs/{0}", job.Url)">@job.Name</a>
+                </div>
+                <div class="attributes">
+                    Posted on @job.PublishStart.Value.ToString("dd MMMM yyyy")
+                </div>
+                <div class="desc">
+                    <p>@Html.Raw(job.ShortDescription)</p>
+                </div>
+                <div class="buttons">
+                    <a class="fr" href="@string.Format("/jobs/{0}", job.Url)">More details</a>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        }
+    </div>
+}

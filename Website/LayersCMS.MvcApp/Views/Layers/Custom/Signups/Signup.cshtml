@@ -1,0 +1,80 @@
+﻿@model LayersCMS.Layers.BestNetwork.Signups.Models.SignupModel
+
+@{
+    ViewBag.Title = "Register your cv";
+}
+
+<h1>Register with Best Recruitment Network</h1>
+
+<p>Register your details with Best Recruitment Network and one of our team members will contact you regarding any positions we think would suit you.</p>
+
+@using (Html.BeginForm("Signup", "Signups", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    <fieldset>
+        <legend>Your details</legend>
+        
+        <div class="control-group">
+            @Html.LabelFor(x => x.FirstName, new {@class="control-label"})
+            <div class="controls">
+                @Html.TextBoxFor(x => x.FirstName, new {@class="input-xlarge"})
+                @Html.ValidationMessageFor(x => x.FirstName)
+            </div>
+        </div>
+        
+        <div class="control-group">
+            @Html.LabelFor(x => x.LastName, new {@class="control-label"})
+            <div class="controls">
+                @Html.TextBoxFor(x => x.LastName, new {@class="input-xlarge"})
+                @Html.ValidationMessageFor(x => x.LastName)
+            </div>
+        </div>
+        
+        <div class="control-group hp">
+            @Html.LabelFor(x => x.Dob, new {@class="control-label"})
+            <div class="controls">
+                @Html.TextBoxFor(x => x.Dob, new {@class="input-xlarge", tabindex="99"})
+                @Html.ValidationMessageFor(x => x.Dob)
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(x => x.EmailAddress, new {@class="control-label"})
+            <div class="controls">
+                @Html.TextBoxFor(x => x.EmailAddress, new {@class="input-xlarge"})
+                @Html.ValidationMessageFor(x => x.EmailAddress)
+            </div>
+        </div>
+        
+        <div class="control-group">
+            @Html.LabelFor(x => x.TelephoneNumber, new {@class="control-label"})
+            <div class="controls">
+                @Html.TextBoxFor(x => x.TelephoneNumber, new {@class="input-xlarge"})
+                @Html.ValidationMessageFor(x => x.TelephoneNumber)
+            </div>
+        </div>
+        
+        <div class="control-group">
+            @Html.LabelFor(x => x.File, new {@class="control-label"})
+            <div class="controls">
+                <input type="file" id="File" name="File"/>
+                @Html.ValidationMessageFor(x => x.File)
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(x => x.Notes, new {@class="control-label"})
+            <div class="controls">
+                @Html.TextAreaFor(x => x.Notes, 10, 50, new {@class="input-xxlarge", placeholder = "Tell us more about yourself, what kind of position you're looking for..."})
+                @Html.ValidationMessageFor(x => x.Notes)
+            </div>
+        </div>
+        
+        @Html.HiddenFor(x => x.DateFormLoaded)
+        
+        <div class="buttons">
+            <input type="submit" value="Submit" class="fr"/>
+            <div class="clear"></div>
+        </div>
+
+    </fieldset>
+}

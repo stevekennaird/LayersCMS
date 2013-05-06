@@ -1,0 +1,39 @@
+﻿@model LayersCMS.Layers.BestNetwork.Signups.Domain.Signup
+@{
+    ViewBag.Title = "View signup";
+}
+
+<h1>View signup</h1>
+
+<table class="table table-bordered table-striped table-hover">
+    <tbody>
+        <tr>
+            <th>First Name</th>
+            <td>@Model.FirstName</td>
+        </tr>    
+        <tr>
+            <th>Last Name</th>
+            <td>@Model.LastName</td>
+        </tr>
+        <tr>
+            <th>Email Address</th>
+            <td><a href="@string.Format("mailto:{0}", Model.EmailAddress)">@Model.EmailAddress</a></td>
+        </tr>
+        <tr>
+            <th>Telephone Number</th>
+            <td>@Model.TelephoneNumber</td>
+        </tr>
+        <tr>
+            <th>Notes</th>
+            <td>@Html.Raw(Model.Notes)</td>
+        </tr>
+        <tr>
+            <th>CV</th>
+            <td>
+                @Html.ActionLink("Download", "DownloadCvForSignup", "SignupsAdmin", new {id = Model.Id}, null)
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<a class="btn" href="@Url.Action("List")"><i class="icon-arrow-left"></i> Back to List</a>

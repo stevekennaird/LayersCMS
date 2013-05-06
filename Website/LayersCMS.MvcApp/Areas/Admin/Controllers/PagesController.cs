@@ -2,12 +2,12 @@
 using LayersCMS.Data.Domain.Core.Pages;
 using LayersCMS.Data.Persistence.Interfaces.Reads;
 using LayersCMS.Data.Persistence.Interfaces.Writes;
-using LayersCMS.MvcApp.Areas.Admin.Controllers.Base;
 using LayersCMS.MvcApp.Areas.Admin.Models.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using LayersCMS.Web.Controllers;
 
 namespace LayersCMS.MvcApp.Areas.Admin.Controllers
 {
@@ -224,39 +224,6 @@ namespace LayersCMS.MvcApp.Areas.Admin.Controllers
             return View(model);
         }
 
-
-        #endregion
-
-        #region Private Methods
-
-        /// <summary>
-        /// Takes a date field and a time string (e.g. 04:52:00) and merges them together to a valid DateTime value
-        /// </summary>
-        /// <param name="date">A nullable DateTime value to take the date part from</param>
-        /// <param name="time">A time string (e.g. 04:52:00)</param>
-        private DateTime? MergeDateAndTime(DateTime? date, String time)
-        {
-            if (date.HasValue)
-            {
-                if (!String.IsNullOrWhiteSpace(time) && time.Contains(":"))
-                {
-                    try
-                    {
-                        IEnumerable<int> timeParts = time.Split(':').Select(int.Parse).ToArray();
-                        date = new DateTime(date.Value.Year, date.Value.Month, date.Value.Day,
-                                            timeParts.ElementAtOrDefault(0),
-                                            timeParts.ElementAtOrDefault(1),
-                                            timeParts.ElementAtOrDefault(2));
-                    }
-                    catch (Exception)
-                    {
-                        return date;
-                    }
-                }
-                return date;
-            }
-            return null;
-        }
 
         #endregion
 

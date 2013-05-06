@@ -12,10 +12,10 @@ namespace LayersCMS.Data.Domain.Core.Pages
         [Required, StringLength(75)]
         public virtual String WindowTitle { get; set; }
 
-        [StringLength(150)]
+        [StringLength(160)]
         public virtual String MetaDescription { get; set; }
 
-        [StringLength(175)]
+        [StringLength(250)]
         public virtual String MetaKeywords { get; set; }
 
         [Required, StringLength(50)]
@@ -27,7 +27,7 @@ namespace LayersCMS.Data.Domain.Core.Pages
         [Required, StringLength(250)]
         public virtual String PageTitle { get; set; }
 
-        [Required, StringLength(4000)]
+        [Required, StringLength(10000)] /* HOW TO GET ORMLITE TO WORK WITH NVARCHAR(MAX)?! */
         public virtual String Content { get; set; }
 
         [StringLength(4000)]

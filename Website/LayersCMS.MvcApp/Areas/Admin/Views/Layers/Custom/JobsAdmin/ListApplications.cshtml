@@ -1,0 +1,54 @@
+﻿@model IEnumerable<LayersCMS.Layers.BestNetwork.Jobs.Domain.JobApplication>
+
+@{
+    ViewBag.Title = "Job Applications";
+}
+
+<h1>Applications for @ViewBag.Job.Name</h1>
+
+<div class="button-bar">
+    <a href="@Url.Action("List")" class="btn"><i class="icon-arrow-left"></i> Back to Jobs List</a>
+</div>
+
+@if (Model == null || !Model.Any())
+{
+    @Html.Alert("No applications have been received for this job yet.", "Wow, it's empty!", AlertTypes.Error)
+}
+else
+{
+    <div id="pages-table">
+        
+        <div class="table-container">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Telephone</th>
+                        <th>Email</th>
+                        <th class="ctr" style="width: 150px;">Date Applied</th>
+                        <th class="ctr" style="width: 100px;">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.OrderByDescending(x => x.ApplicationDate))
+                    {
+                        <tr>
+                            <td>
+                                @Html.ActionLink(item.FullName, "ViewApplication", new {id = item.Id, jobId = item.JobId})
+                            </td>
+                            <td>@item.TelephoneNumber</td>
+                            <td><a href="@string.Format("mailto:{0}", item.EmailAddress)">@item.EmailAddress</a></td>
+                            <td class="ctr">@item.ApplicationDate.ToString("dd-MMM-yyyy HH:mm")</td>
+                            <td class="ctr table-buttons tips">
+                                <a href="@Url.Action("ViewApplication", new {id = item.Id, jobId = item.JobId})" title="View this application">
+                                    <img src="~/Content/admin/img/icons/magnifier.png"/>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+}

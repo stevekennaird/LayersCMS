@@ -1,0 +1,18 @@
+﻿@model LayersCMS.Layers.BestNetwork.Jobs.Domain.Job
+
+@{
+    ViewBag.Title = String.Format("{0} - Job application received", Model.Name);
+}
+
+<h1>Job application received</h1>
+
+<p><strong>Thank you</strong>, we have received your application for '@Model.Name'.</p>
+<p>A member of our team will be in contact with you shortly.</p>
+
+<div>
+    <div class="buttons">
+        <a class="fl" href="@string.Format("/jobs/{0}", Model.Url)">Back to job details</a>
+        <a class="fr" href="@Url.Action("List")">Back to all jobs</a>
+        <div class="clear"></div>
+    </div>
+</div>

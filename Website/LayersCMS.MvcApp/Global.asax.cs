@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using LayersCMS.MvcApp.App_Start;
+using LayersCMS.Web.ViewEngines;
 
 namespace LayersCMS.MvcApp
 {
@@ -24,7 +25,7 @@ namespace LayersCMS.MvcApp
         {
             // Clear the aspx view engine for efficiency: http://blogs.msdn.com/b/marcinon/archive/2011/08/16/optimizing-mvc-view-lookup-performance.aspx
             ViewEngines.Engines.Clear();
-            ViewEngines.Engines.Add(new RazorViewEngine());
+            ViewEngines.Engines.Add(new LayersCmsViewEngine());
         }
     }
 }

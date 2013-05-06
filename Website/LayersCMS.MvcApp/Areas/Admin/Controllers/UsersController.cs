@@ -4,10 +4,10 @@ using AttributeRouting.Web.Mvc;
 using LayersCMS.Data.Domain.Core.Security;
 using LayersCMS.Data.Persistence.Interfaces.Reads;
 using LayersCMS.Data.Persistence.Interfaces.Writes;
-using LayersCMS.MvcApp.Areas.Admin.Controllers.Base;
 using System.Web.Mvc;
 using LayersCMS.MvcApp.Areas.Admin.Models.Users;
 using LayersCMS.Util.Security.Interfaces;
+using LayersCMS.Web.Controllers;
 
 namespace LayersCMS.MvcApp.Areas.Admin.Controllers
 {

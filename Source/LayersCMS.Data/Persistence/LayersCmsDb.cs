@@ -8,12 +8,12 @@ namespace LayersCMS.Data.Persistence
     /// <summary>
     /// Should be the single point of reference for constructing connections to the database
     /// </summary>
-    public abstract class LayersCmsDb
+    public class LayersCmsDb
     {
         private const String ConnectionStringKey = "LayersCms";
         internal OrmLiteConnectionFactory DbFactory;
 
-        protected LayersCmsDb()
+        public LayersCmsDb()
         {
             // Get the connection string
             ConnectionStringSettings connectionString = ConfigurationManager.ConnectionStrings[ConnectionStringKey];

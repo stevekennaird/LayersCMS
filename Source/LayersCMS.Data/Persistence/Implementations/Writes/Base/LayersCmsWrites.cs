@@ -11,6 +11,7 @@ namespace LayersCMS.Data.Persistence.Implementations.Writes.Base
             using (IDbConnection conn = GetDbConnection())
             {
                 conn.Insert(obj);
+                obj.Id = (int) conn.GetLastInsertId();
                 return obj;
             }
         }

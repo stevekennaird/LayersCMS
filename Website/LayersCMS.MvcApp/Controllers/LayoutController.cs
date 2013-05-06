@@ -1,8 +1,8 @@
 ﻿using LayersCMS.Data.Domain.Core.Settings;
 using LayersCMS.Data.Persistence.Interfaces.Reads;
-using LayersCMS.MvcApp.Controllers.Base;
 using System;
 using System.Web.Mvc;
+using LayersCMS.Web.Controllers;
 
 namespace LayersCMS.MvcApp.Controllers
 {

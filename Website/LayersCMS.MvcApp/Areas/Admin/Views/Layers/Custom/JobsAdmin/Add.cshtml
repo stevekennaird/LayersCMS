@@ -1,0 +1,96 @@
+﻿@model LayersCMS.Layers.BestNetwork.Jobs.Models.JobModel
+
+@{
+    ViewBag.Title = "Add page";
+}
+
+<h1>Create a new page</h1>
+
+@using (Html.BeginForm("Add", "JobsAdmin", FormMethod.Post, new {@class = "form-horizontal form-help"}))
+{
+    <fieldset>
+        <legend>Main Details</legend>
+        
+        <div class="control-group">
+            @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+            @Html.HelpIcon("The name of the job being advertised, try to make it unique")
+            <div class="controls">
+                @Html.ValidationMessageFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name, new {@class = "input-large"})
+            </div>
+        </div>
+        
+        <div class="control-group">
+            @Html.LabelFor(m => m.ShortDescription, new { @class = "control-label" })
+            @Html.HelpIcon("The mini description shown on the job listing page, and in search result listings")
+            <div class="controls">
+                @Html.ValidationMessageFor(m => m.ShortDescription)
+                @Html.TextAreaFor(m => m.ShortDescription, new {@class = "input-xxlarge"})
+            </div>
+        </div>
+
+    </fieldset>
+    
+    <fieldset>
+        <legend>Publish Status</legend>
+        
+        <div class="control-group">
+            @Html.LabelFor(m => m.Active, new { @class = "control-label" })
+            @Html.HelpIcon("When left unticked, this job will not be accessible on the front end, regardless of publish dates")
+            <div class="controls">
+                @Html.ValidationMessageFor(m => m.Active)
+                @Html.CheckBoxFor(m => m.Active)
+            </div>
+        </div>
+        
+        <div class="control-group">
+            @Html.LabelFor(m => m.PublishStartDate, new { @class = "control-label" })
+            @Html.HelpIcon("The date that this job can be accessed from. A value must be set for the job to display on the front end")
+            <div class="controls">
+                @Html.ValidationMessageFor(m => m.PublishStartDate)
+                @Html.ValidationMessageFor(m => m.PublishStartTime)
+                @Html.CalendarFor(m => m.PublishStartDate) 
+                @Html.TimepickerFor(m => m.PublishStartTime)
+            </div>
+        </div>
+        
+        <div class="control-group">
+            @Html.LabelFor(m => m.PublishEndDate, new { @class = "control-label" })
+            @Html.HelpIcon("The date that this job can be accessed until. This is usually left blank so a job never expires")
+            <div class="controls">
+                @Html.ValidationMessageFor(m => m.PublishEndDate)
+                @Html.ValidationMessageFor(m => m.PublishEndTime)
+                @Html.CalendarFor(m => m.PublishEndDate)
+                @Html.TimepickerFor(m => m.PublishEndTime)
+            </div>
+        </div>
+
+    </fieldset>
+    
+    <fieldset>
+        <legend>Content</legend>
+        
+        <div class="control-group">
+            @Html.LabelFor(m => m.LongDescription, new { @class = "control-label" })
+            @Html.HelpIcon("The HTML content to display for this job")
+            <div class="controls">
+                @Html.ValidationMessageFor(m => m.LongDescription)
+                @Html.TextAreaFor(m => m.LongDescription, new {@class = "wysiwyg"})
+            </div>
+        </div>
+
+    </fieldset>
+    
+    
+    <div class="form-actions">
+        <input type="submit" class="btn btn-primary" value="Save new job" />
+    </div>
+    
+}
+
+
+@section Scripts
+{
+    <script src="~/Content/admin/plugins/tinymce/jquery.tinymce.js"></script>
+    <script src="~/Content/admin/plugins/tinymce/layers_cms_tinymce.js"></script>
+}

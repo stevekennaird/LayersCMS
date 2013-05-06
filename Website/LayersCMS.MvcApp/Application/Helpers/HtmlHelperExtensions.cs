@@ -4,8 +4,8 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
-using LayersCMS.MvcApp.Application.Config;
 using LayersCMS.MvcApp.Models.Galleries;
+using LayersCMS.Web.Config;
 
 namespace LayersCMS.MvcApp.Application.Helpers
 {

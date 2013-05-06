@@ -1,0 +1,32 @@
+﻿@model LayersCMS.Layers.BestNetwork.Jobs.Domain.Job
+
+@{
+    ViewBag.Title = "Delete job";
+}
+
+<h1>Delete a job</h1>
+
+@using (Html.BeginForm("Delete", "JobsAdmin", FormMethod.Post, new {@class = "form-horizontal"}))
+{
+    @Html.Alert("Are you sure you want to delete this job?", "Hold up!", AlertTypes.Error)
+
+    <table class="table table-striped table-bordered table-hover">
+        <tbody>
+            <tr>
+                <th>Job title</th>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <th>Live</th>
+                <td>@Html.BooleanIcon(Model.IsPublished)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="form-actions">
+        @Html.HiddenFor(m => m.Id)
+        <input type="hidden" name="delete" value="true" />
+        <input type="submit" name="delete" value="Yes, delete the job" class="btn btn-danger" />
+        @Html.ActionLink("No, cancel", "List", "JobsAdmin", null, new {@class = "btn btn-link"})
+    </div>   
+}

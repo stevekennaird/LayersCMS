@@ -1,4 +1,4 @@
-using LayersCMS.MvcApp.Application.Config;
+using LayersCMS.Web.Config;
 using Mvc.Mailer;
 using System;
 using System.Web;

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Web.Mvc;
 using AttributeRouting.Web.Mvc;
+using LayersCMS.Data.Persistence.DialectProviders;
 using LayersCMS.Data.Persistence.Setup;
-using LayersCMS.MvcApp.Controllers.Base;
 using LayersCMS.MvcApp.Models.CmsConfig;
 using LayersCMS.Util.Security.Interfaces;
+using LayersCMS.Web.Controllers;
 using ServiceStack.OrmLite.SqlServer;
 
 namespace LayersCMS.MvcApp.Controllers
@@ -47,9 +48,9 @@ namespace LayersCMS.MvcApp.Controllers
                     // Initialise the database
                     try
                     {
-                        new DatabaseSchemaSetup(_hashHelper).InitialiseCoreTables(new DatabaseSetupConfig()
+                        new DatabaseSchemaSetup(_hashHelper).InitialiseDatabaseTables(new DatabaseSetupConfig()
                         {
-                            DatabaseDialect = new SqlServerOrmLiteDialectProvider(),
+                            DatabaseDialect = new MsSqlServerOrmLiteDialectProvider(),
                             UserEmailAddress = model.UserEmailAddress,
                             UserPassword = model.UserPassword,
                             ConnectionStringName = model.ConnectionStringName

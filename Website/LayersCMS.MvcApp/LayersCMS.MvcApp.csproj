@@ -166,23 +166,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\Config\ApplicationConfigurationHelper.cs" />
-    <Compile Include="Application\Config\LayersCmsConfigHelper.cs" />
-    <Compile Include="Application\Config\LayersCMSConfigurationSection.cs" />
     <Compile Include="Application\Helpers\Admin\AdminHtmlHelperExtensions.cs" />
     <Compile Include="Application\Helpers\Admin\AdminUrlHelperExtensions.cs" />
     <Compile Include="Application\Helpers\HtmlHelperExtensions.cs" />
     <Compile Include="Application\Membership\LayersCmsDefaultMembershipProvider.cs" />
-    <Compile Include="Application\Validation\HoneyPotAttribute.cs" />
-    <Compile Include="Application\Validation\RegexTime24HrAttribute.cs" />
-    <Compile Include="Application\Validation\RelativeUrlAttribute.cs" />
-    <Compile Include="App_Start\AttributeRouting.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\LayersCmsRouting.cs" />
+    <Compile Include="App_Start\KickstartLayersCms.cs" />
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AuthController.cs" />
-    <Compile Include="Areas\Admin\Controllers\Base\LayersCmsAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\PagesController.cs" />
     <Compile Include="Areas\Admin\Controllers\SettingsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
@@ -192,7 +184,6 @@
     <Compile Include="Areas\Admin\Models\Users\AddUserModel.cs" />
     <Compile Include="Areas\Admin\Models\Users\EditUserModel.cs" />
     <Compile Include="Areas\Admin\Models\Users\CurrentUserModel.cs" />
-    <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\CmsConfigController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -201,9 +192,6 @@
     <Compile Include="Application\DependencyResolution\StructureMapDependencyResolver.cs" />
     <Compile Include="Application\DependencyResolution\StructureMapDependencyScope.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
-    <Compile Include="DependencyResolution\IoC.cs" />
-    <Compile Include="DependencyResolution\StructureMapDependencyResolver.cs" />
-    <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1600,7 +1588,8 @@
     <Content Include="Content\nivo\jquery.nivo.gallery.js" />
     <Content Include="Content\nivo\license.txt" />
     <Content Include="Content\nivo\nivo-gallery.css" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\reset.css" />
+    <Content Include="Content\site.css" />
     <Content Include="Content\themes\dark.css" />
     <Content Include="Content\themes\pink.css" />
     <Content Include="Content\themes\standard.css" />
@@ -1661,8 +1650,6 @@
     <Content Include="Views\Home\Gallery.cshtml" />
     <Content Include="Views\Shared\_LayoutWithNav.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\ThemePartials\PinkBodyClose.cshtml" />
-    <Content Include="Views\Shared\ThemePartials\PinkHead.cshtml" />
     <Content Include="Views\CmsConfig\SetupDatabaseComplete.cshtml" />
     <Content Include="Views\LayersCmsPage\CmsPage.cshtml" />
     <Content Include="Views\Shared\Partials\LayersCmsEditToolbar.cshtml" />
@@ -1671,19 +1658,29 @@
     <Content Include="Views\Shared\_LayoutWithoutNav.cshtml" />
     <Content Include="Views\CmsConfig\_ViewStart.cshtml" />
     <Content Include="Views\Layout\GoogleAnalyticsTrackingCode.cshtml" />
+    <Content Include="Views\Layers\Standard\Search\BasicSearchResults.cshtml" />
+    <Content Include="Views\Shared\_LayoutWithSubNav.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Source\LayersCMS.Data\LayersCMS.Data.csproj">
       <Project>{3725E6F4-F386-4DA7-ACEE-B0A26BAE3780}</Project>
       <Name>LayersCMS.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Source\LayersCMS.Images\LayersCMS.Images.csproj">
-      <Project>{2AEBF4B9-5457-4CCE-BA95-E0D19D3DA3D0}</Project>
-      <Name>LayersCMS.Images</Name>
+    <ProjectReference Include="..\..\Source\LayersCMS.Layers.Core\LayersCMS.Layers.Core.csproj">
+      <Project>{DDCCEE05-9CC5-4F59-A65C-62175CE3734A}</Project>
+      <Name>LayersCMS.Layers.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\LayersCMS.Layers.Standard\LayersCMS.Layers.Standard.csproj">
+      <Project>{DC8D7437-0606-423C-AB81-BA93463EEC3A}</Project>
+      <Name>LayersCMS.Layers.Standard</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Source\LayersCMS.Util\LayersCMS.Util.csproj">
       <Project>{A5CEE352-0640-40AF-A6F5-14456408098A}</Project>
       <Name>LayersCMS.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\LayersCMS.Web\LayersCMS.Web.csproj">
+      <Project>{5296C2E1-99CE-486A-A75F-6F468F24868A}</Project>
+      <Name>LayersCMS.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -1706,7 +1703,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53834</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

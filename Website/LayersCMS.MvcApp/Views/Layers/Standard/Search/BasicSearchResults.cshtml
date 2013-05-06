@@ -1,0 +1,23 @@
+﻿@model LayersCMS.Layers.Standard.Searching.Models.BasicSearchResult
+
+@{
+    ViewBag.Title = "Search Results";
+    int searchResultCount = Model.SearchResultGroups.Sum(grp => grp.SearchResults.Count());
+}
+
+<h1>Search Results</h1>
+
+<p>There @(searchResultCount == 1 ? "is" : "are") @searchResultCount search @(searchResultCount == 1 ? "result" : "results") for '@Model.Query'</p>
+
+@foreach (var searchResultGroup in Model.SearchResultGroups.Where(grp => grp.SearchResults.Any()).OrderBy(grp => grp.Priority))
+{
+    <h2>@searchResultGroup.Title</h2>
+    
+    foreach (var result in searchResultGroup.SearchResults)
+    {
+        <div class="search-result">
+            <div class="title"><a href="@result.Url">@result.Name</a></div>
+            <div class="desc">@Html.Raw(result.Description)</div>
+        </div>
+    }
+}

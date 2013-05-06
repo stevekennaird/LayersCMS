@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using LayersCMS.MvcApp.Application.Validation;
+using LayersCMS.Web.Validation;
 
 namespace LayersCMS.MvcApp.Models.ContactUs
 {
@@ -8,16 +8,16 @@ namespace LayersCMS.MvcApp.Models.ContactUs
     {
         #region Form Fields
 
-        [Required, StringLength(50), Display(Name = "First Name")]
+        [Required, StringLength(50), Display(Name = "First name")]
         public virtual String FirstName { get; set; }
 
-        [Required, StringLength(50), Display(Name = "Last Name")]
+        [Required, StringLength(50), Display(Name = "Last name")]
         public virtual String LastName { get; set; }
 
-        [Required, StringLength(250), EmailAddress, Display(Name = "Email Address")]
+        [Required, StringLength(250), EmailAddress, Display(Name = "Email address")]
         public virtual String EmailAddress { get; set; }
 
-        [StringLength(50), Display(Name = "Telephone Number")]
+        [StringLength(50), Display(Name = "Telephone number")]
         public virtual String TelephoneNumber { get; set; }
 
         [Required, StringLength(5000)]

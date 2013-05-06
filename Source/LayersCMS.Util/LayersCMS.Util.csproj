@@ -46,6 +46,7 @@
       <HintPath>..\..\packages\ServiceStack.Text.3.9.27\lib\net35\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -54,10 +55,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Files\FileHelper.cs" />
+    <Compile Include="FileSystem\IFileStore.cs" />
+    <Compile Include="FileSystem\MimeTypes.cs" />
+    <Compile Include="FileSystem\SecureDiskFileStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Implementations\HashHelper.cs" />
     <Compile Include="Security\Interfaces\IHashHelper.cs" />
+    <Compile Include="UrlGeneration\UrlGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

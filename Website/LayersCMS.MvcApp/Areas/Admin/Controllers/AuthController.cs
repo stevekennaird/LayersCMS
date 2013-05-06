@@ -1,9 +1,9 @@
 ﻿using AttributeRouting.Web.Mvc;
 using LayersCMS.Data.Persistence.Interfaces.Reads;
-using LayersCMS.MvcApp.Areas.Admin.Controllers.Base;
 using LayersCMS.MvcApp.Areas.Admin.Models.Auth;
 using System.Web.Mvc;
 using System.Web.Security;
+using LayersCMS.Web.Controllers;
 
 namespace LayersCMS.MvcApp.Areas.Admin.Controllers
 {

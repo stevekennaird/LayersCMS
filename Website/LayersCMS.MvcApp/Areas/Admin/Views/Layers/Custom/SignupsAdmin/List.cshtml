@@ -1,0 +1,49 @@
+﻿@model IEnumerable<LayersCMS.Layers.BestNetwork.Signups.Domain.Signup>
+@{
+    ViewBag.Title = "Signups";
+}
+
+<h1>View signups</h1>
+
+@if (Model == null || !Model.Any())
+{
+    @Html.Alert("No registrations have been received yet.", "Wow, it's empty!", AlertTypes.Error)
+}
+else
+{
+    <div id="pages-table">
+        
+        <div class="table-container">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Telephone</th>
+                        <th>Email</th>
+                        <th class="ctr" style="width: 150px;">Date</th>
+                        <th class="ctr" style="width: 100px;">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.OrderByDescending(x => x.DateCreated))
+                    {
+                        <tr>
+                            <td>
+                                @Html.ActionLink(item.FullName, "View", new {id = item.Id})
+                            </td>
+                            <td>@item.TelephoneNumber</td>
+                            <td><a href="@string.Format("mailto:{0}", item.EmailAddress)">@item.EmailAddress</a></td>
+                            <td class="ctr">@item.DateCreated.ToString("dd-MMM-yyyy HH:mm")</td>
+                            <td class="ctr table-buttons tips">
+                                <a href="@Url.Action("View", new {id = item.Id})" title="View this signup">
+                                    <img src="~/Content/admin/img/icons/magnifier.png"/>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+}

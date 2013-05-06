@@ -10,6 +10,7 @@ namespace LayersCMS.Data.Persistence.Interfaces.Reads
     {
         LayersCmsPage GetByUrl(String url);
         IEnumerable<LayersCmsPage> GetCollectionForParent(Int32? parentId);
+        IEnumerable<NavigationPageDetails> GetForNavigation();
         IEnumerable<NavigationPageDetails> GetForNavigation(Int32? parentId);
         Int32 GetMaxSortOrderForParent(Int32? parentId);
     }

@@ -8,8 +8,6 @@
     <meta name="description" content="@ViewBag.MetaDescription" />
     <meta name="keywords" content="@ViewBag.MetaKeywords" />
 
-    
-
     @Styles.Render("~/Content/css")
     @Styles.Render("~/plugins/nivogallerycss")
 
@@ -50,7 +48,6 @@
         @Scripts.Render("~/plugins/nivogalleryscripts")
         @Scripts.Render("~/bundles/layerscmsjs")
         @RenderSection("scripts", required: false)
-        
         @Html.RenderThemeBodyCloseCustomHtml()
     </body>
 </html>

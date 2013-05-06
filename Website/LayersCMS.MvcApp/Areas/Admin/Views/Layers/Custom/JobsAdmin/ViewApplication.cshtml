@@ -1,0 +1,40 @@
+﻿@model LayersCMS.Layers.BestNetwork.Jobs.Domain.JobApplication
+
+@{
+    ViewBag.Title = "View Job Application";
+}
+
+<h1>View Job Application for @ViewBag.Job.Name</h1>
+
+<table class="table table-bordered table-striped table-hover">
+    <tbody>
+        <tr>
+            <th>First Name</th>
+            <td>@Model.FirstName</td>
+        </tr>    
+        <tr>
+            <th>Last Name</th>
+            <td>@Model.LastName</td>
+        </tr>
+        <tr>
+            <th>Email Address</th>
+            <td><a href="@string.Format("mailto:{0}", Model.EmailAddress)">@Model.EmailAddress</a></td>
+        </tr>
+        <tr>
+            <th>Telephone Number</th>
+            <td>@Model.TelephoneNumber</td>
+        </tr>
+        <tr>
+            <th>Notes</th>
+            <td>@Html.Raw(Model.ApplicationNotes)</td>
+        </tr>
+        <tr>
+            <th>CV</th>
+            <td>
+                @Html.ActionLink("Download", "DownloadCvForJobApplication", "JobsAdmin", new {id = Model.Id}, null)
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<a class="btn" href="@Url.Action("ListApplications", new {id = Model.JobId})"><i class="icon-arrow-left"></i> Back to List</a>

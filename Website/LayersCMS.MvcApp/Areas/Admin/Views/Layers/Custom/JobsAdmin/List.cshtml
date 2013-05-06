@@ -1,0 +1,63 @@
+﻿@model IEnumerable<LayersCMS.Layers.BestNetwork.Jobs.Domain.Job>
+
+@{
+    ViewBag.Title = "Jobs";
+}
+
+<h1>Manage jobs</h1>
+
+<div class="button-bar">
+    <a href="@Url.Action("Add")" class="btn btn-success"><i class="icon-plus icon-white"></i> Add a new job</a>
+</div>
+
+@if (Model == null || !Model.Any())
+{
+    @Html.Alert("No jobs have been set up yet.", "Wow, it's empty!", AlertTypes.Error)
+}
+else
+{
+    <div id="pages-table">
+        
+        <div class="table-container">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Job title</th>
+                        <th>Url</th>
+                        <th class="ctr" style="width: 50px;">Live</th>
+                        <th class="ctr" style="width: 200px;">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.OrderByDescending(j => j.PublishStart.GetValueOrDefault(DateTime.Now.AddYears(-10))))
+                    {
+                        <tr>
+                            <td>
+                                @Html.ActionLink(item.Name, "Edit", new {id = item.Id})
+                            </td>
+                            <td>@item.Url</td>
+                            <td class="ctr">@Html.BooleanIcon(item.IsPublished)</td>
+                            <td class="ctr table-buttons tips">
+                                <a href="@Url.Action("Edit", new {id = item.Id})" title="Edit this job"><img src="~/Content/admin/img/icons/pencil.png"/></a>
+                                
+                                @if (item.IsPublished)
+                                {
+                                    <a href="@(string.Format("/jobs/{0}", item.Url))" title="View on frontend" target="_blank" class="page-preview fancybox.iframe" data-page-title="@item.Name"><img src="~/Content/admin/img/icons/magnifier.png"/></a>    
+                                }
+                                else
+                                {
+                                    <a title="Not live. Cannot view job on frontend."><img src="~/Content/admin/img/icons/magnifier-greyscale.png"/></a>
+                                }
+                        
+                                <a href="@Url.Action("ListApplications", new {id = item.Id})" title="View applications"><img src="~/Content/admin/img/icons/user_suit.png"/></a>
+
+                                <a href="@Url.Action("Delete", new {id = item.Id})" title="Delete this job"><img src="~/Content/admin/img/icons/bin.png"/></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+}

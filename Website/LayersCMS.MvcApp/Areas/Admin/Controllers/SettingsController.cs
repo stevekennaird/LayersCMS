@@ -2,9 +2,9 @@
 using LayersCMS.Data.Domain.Core.Settings;
 using LayersCMS.Data.Persistence.Interfaces.Reads;
 using LayersCMS.Data.Persistence.Interfaces.Writes;
-using LayersCMS.MvcApp.Areas.Admin.Controllers.Base;
 using LayersCMS.MvcApp.Areas.Admin.Models.Settings;
 using System.Web.Mvc;
+using LayersCMS.Web.Controllers;
 
 namespace LayersCMS.MvcApp.Areas.Admin.Controllers
 {

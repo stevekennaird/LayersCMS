@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
-using LayersCMS.MvcApp.Application.Validation;
+using LayersCMS.Web.Validation;
 
 namespace LayersCMS.MvcApp.Areas.Admin.Models.Pages
 {
@@ -26,7 +26,7 @@ namespace LayersCMS.MvcApp.Areas.Admin.Models.Pages
         [Required, StringLength(250), Display(Name = "Page title")]
         public virtual String PageTitle { get; set; }
 
-        [Required, StringLength(4000), Display(Name = "Page content"), AllowHtml]
+        [Required, StringLength(10000), Display(Name = "Page content"), AllowHtml]
         public virtual String Content { get; set; }
 
         [StringLength(4000), Display(Name = "Custom scripts"), AllowHtml]

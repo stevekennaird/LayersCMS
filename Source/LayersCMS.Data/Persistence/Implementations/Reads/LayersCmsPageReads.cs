@@ -55,6 +55,17 @@ namespace LayersCMS.Data.Persistence.Implementations.Reads
             }
         }
 
+        public IEnumerable<NavigationPageDetails> GetForNavigation()
+        {
+            using (IDbConnection conn = GetDbConnection())
+            {
+                List<NavigationPageDetails> output = conn.Select<NavigationPageDetails>(typeof(LayersCmsPage),
+                                                                "Active = {0} AND ShowInNavigation = {1} AND PublishStart <= {2} AND (PublishEnd IS NULL OR PublishEnd >= {2})",
+                                                                true, true, DateTime.Now);
+                return output.OrderBy(p => p.SortOrder).ToList();
+            }
+        }
+
         public IEnumerable<NavigationPageDetails> GetForNavigation(int? parentId)
         {
             using (IDbConnection conn = GetDbConnection())

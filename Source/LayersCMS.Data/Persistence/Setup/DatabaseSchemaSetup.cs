@@ -1,12 +1,14 @@
-﻿using System.Configuration;
-using LayersCMS.Data.Domain.Core.Media;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Linq;
 using LayersCMS.Data.Domain.Core.Pages;
 using LayersCMS.Data.Domain.Core.Security;
 using LayersCMS.Data.Domain.Core.Settings;
+using LayersCMS.Layers.Core.Base;
 using LayersCMS.Util.Security.Interfaces;
 using ServiceStack.OrmLite;
-using System;
-using System.Data;
 
 namespace LayersCMS.Data.Persistence.Setup
 {
@@ -25,10 +27,9 @@ namespace LayersCMS.Data.Persistence.Setup
         }
 
         /// <summary>
-        /// Drops all tables matching the name of the LayersCmsDomainObjects to be created,
-        /// then creates fresh tables for those domain objects.
+        /// Initialise the database for both the core tables and any bespoke layers (modules)
         /// </summary>
-        public void InitialiseCoreTables(DatabaseSetupConfig config)
+        public void InitialiseDatabaseTables(DatabaseSetupConfig config)
         {
             // Get the connection string
             ConnectionStringSettings connectionString = ConfigurationManager.ConnectionStrings[config.ConnectionStringName];
@@ -45,6 +46,17 @@ namespace LayersCMS.Data.Persistence.Setup
             if (config.DatabaseDialect == null)
                 throw new NullReferenceException("No DatabaseDialect specified. Cannot initialise a database without knowing what type of database to use.");
 
+            InitialiseCoreTables(config, dbFactory);
+
+            InitialiseLayers(dbFactory);
+        }
+
+        /// <summary>
+        /// Drops all tables matching the name of the LayersCmsDomainObjects to be created,
+        /// then creates fresh tables for those domain objects.
+        /// </summary>
+        private void InitialiseCoreTables(DatabaseSetupConfig config, OrmLiteConnectionFactory dbFactory)
+        {
             if (String.IsNullOrWhiteSpace(config.UserEmailAddress))
                 throw new NullReferenceException("No UserEmailAddress specified. Cannot create primary user without an email address.");
 
@@ -85,9 +97,6 @@ namespace LayersCMS.Data.Persistence.Setup
                         Password = _hashHelper.HashString(config.UserPassword) // A hashed version of the plain text password
                     });
 
-                // Create the LayersCmsImage table
-                dbConn.DropAndCreateTable<LayersCmsImage>();
-
                 // Create the settings table and add some default settings
                 dbConn.DropAndCreateTable<LayersCmsSetting>();
                 dbConn.SaveAll(new []
@@ -99,5 +108,48 @@ namespace LayersCMS.Data.Persistence.Setup
 
             }            
         }
+
+        /// <summary>
+        /// Create any database tables for any layers (e.g. a news layer/module)
+        /// </summary>
+        private void InitialiseLayers(OrmLiteConnectionFactory dbFactory)
+        {
+            // Get a collection of layers using reflection
+            IEnumerable<Layer> enabledLayers = new LayersHelper().GetEnabledLayers().ToList();
+
+            if (!enabledLayers.Any())
+            {
+                // If there aren't any enabled layers, exit the method
+                return;
+            }
+            
+            // Open a database connection, then initialise the database
+            // for each layer
+            using (IDbConnection dbConn = dbFactory.OpenDbConnection())
+            {
+                using (IDbTransaction dbTran = dbConn.OpenTransaction())
+                {
+                    try
+                    {
+                        foreach (Layer enabledLayer in enabledLayers)
+                        {
+                            enabledLayer.InitialiseDatabase(dbConn);
+                        }
+
+                        // If no exceptions, commit the transaction
+                        dbTran.Commit();
+                    }
+                    catch (Exception e)
+                    {
+                        // Exception caught, rollback the transaction
+                        dbTran.Rollback();
+                        throw e;
+                    }
+                }
+            }
+            
+        }
+
+        
     }
 }

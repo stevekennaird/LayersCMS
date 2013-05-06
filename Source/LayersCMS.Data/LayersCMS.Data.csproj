@@ -61,25 +61,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Core\Media\LayersCmsImage.cs" />
     <Compile Include="Domain\Core\Pages\LayersCmsPage.cs" />
     <Compile Include="Domain\Core\Pages\RedirectTypeEnum.cs" />
     <Compile Include="Domain\Core\Settings\LayersCmsSetting.cs" />
     <Compile Include="Domain\Core\Settings\LayersCmsSettingType.cs" />
     <Compile Include="Domain\LayersCmsDomainObject.cs" />
     <Compile Include="Domain\Core\Security\LayersCmsUser.cs" />
+    <Compile Include="Persistence\DialectProviders\MsSqlServerOrmLiteDialectProvider.cs" />
     <Compile Include="Persistence\Implementations\Reads\Base\LayersCmsReads.cs" />
-    <Compile Include="Persistence\Implementations\Reads\LayersCmsImageReads.cs" />
     <Compile Include="Persistence\Implementations\Reads\LayersCmsPageReads.cs" />
     <Compile Include="Persistence\Implementations\Reads\LayersCmsSettingReads.cs" />
     <Compile Include="Persistence\Implementations\Writes\Base\LayersCmsWrites.cs" />
-    <Compile Include="Persistence\Implementations\Writes\LayersCmsImageWrites.cs" />
     <Compile Include="Persistence\Implementations\Writes\LayersCmsPageWrites.cs" />
     <Compile Include="Persistence\Implementations\Writes\LayersCmsSettingWrites.cs" />
     <Compile Include="Persistence\Implementations\Writes\LayersCmsUserWrites.cs" />
-    <Compile Include="Persistence\Interfaces\Reads\ILayersCmsImageReads.cs" />
     <Compile Include="Persistence\Interfaces\Reads\ILayersCmsSettingReads.cs" />
-    <Compile Include="Persistence\Interfaces\Writes\ILayersCmsImageWrites.cs" />
     <Compile Include="Persistence\Interfaces\Writes\ILayersCmsSettingWrites.cs" />
     <Compile Include="Persistence\Interfaces\Writes\ILayersCmsUserWrites.cs" />
     <Compile Include="Persistence\LayersCmsDb.cs" />
@@ -90,11 +86,16 @@
     <Compile Include="Persistence\Interfaces\Writes\ILayersCmsPageWrites.cs" />
     <Compile Include="Persistence\Interfaces\Writes\Base\ILayersCmsWrites.cs" />
     <Compile Include="Persistence\Models\Pages\NavigationPageDetails.cs" />
+    <Compile Include="Persistence\Models\Pages\SubNavigationModel.cs" />
     <Compile Include="Persistence\Setup\DatabaseSchemaSetup.cs" />
     <Compile Include="Persistence\Setup\DatabaseSetupConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LayersCMS.Layers.Core\LayersCMS.Layers.Core.csproj">
+      <Project>{DDCCEE05-9CC5-4F59-A65C-62175CE3734A}</Project>
+      <Name>LayersCMS.Layers.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LayersCMS.Util\LayersCMS.Util.csproj">
       <Project>{a5cee352-0640-40af-a6f5-14456408098a}</Project>
       <Name>LayersCMS.Util</Name>

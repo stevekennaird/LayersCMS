@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "_BaseLayout.cshtml";
+}
+
+@section RootNav
+{
+    @Html.Action("RootNavigation", "LayersCmsPage")
+}
+
+@section scripts
+{
+    @RenderSection("scripts", required: false)
+}
+
+@section TrackingCode
+{
+    @Html.Action("GoogleAnalyticsTrackingCode", "Layout")
+}
+
+<div id="mainCol">
+    @Html.Action("SubNavigation", "LayersCmsPage")
+    
+    <div id="sub-nav-layout-body">
+        @RenderBody()    
+    </div>
+    
+    <div class="clear"></div>
+</div>

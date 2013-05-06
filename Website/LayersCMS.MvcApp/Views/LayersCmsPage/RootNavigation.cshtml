@@ -4,9 +4,24 @@
     <ul>
         @if (Model != null && Model.Any())
         {
-            foreach(var page in Model.OrderBy(x => x.SortOrder))
+            foreach(var page in Model.Where(x => x.ParentId == null).OrderBy(x => x.SortOrder))
             {
-                <li><a href="@page.Url">@page.DisplayName</a></li>
+                <li>
+                    <a href="@page.Url">@page.DisplayName</a>
+                    @{var childPages = Model.Where(x => x.ParentId.HasValue && x.ParentId.Value == page.Id).OrderBy(x => x.SortOrder).ToList();}
+                    @if (childPages.Any())
+                    {
+                        <ul>
+                            @foreach (var childPage in childPages)
+                            {
+                                <li>
+                                    <a href="@childPage.Url">@childPage.DisplayName</a>
+                                </li>
+                            }    
+                        </ul>
+                    }
+
+                </li>
             }   
         }
         <li>@Html.ActionLink("Contact Us", "BasicForm", "ContactUs")</li>

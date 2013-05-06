@@ -1,5 +1,5 @@
 ﻿using System.Web.Optimization;
-using LayersCMS.MvcApp.Application.Config;
+using LayersCMS.Web.Config;
 
 namespace LayersCMS.MvcApp.App_Start
 {
